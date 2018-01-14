@@ -26,6 +26,7 @@ function Currency(key, name) {
   this.histogram = [];
   this.maxMacd = 0;
   this.initTrade = false;
+  this.tradeStack = 0;
   this.buyPrice = 0;
   this.sellPrice = 0;
 }
@@ -41,7 +42,7 @@ function makeWallet(obj, cb) {
     var currObj = JSON.parse(decodeURIComponent(data))[0];
     currArr = Object.keys(currObj);
 
-    for (var i = 0; i < currArr.length - 1; i++) {
+    for (var i = 0; i < currArr.length; i++) {
       obj[currArr[i]] = 0;
       currencyInfo[currArr[i]] = new Currency(currArr[i], currObj[currArr[i]]);
     }
@@ -93,7 +94,7 @@ function checkTicker(currency) {
           if(curHisto > 0){
             if(currency.maxMacd * 0.6 > curHisto){
               // sellCoin(currency, curPrice);
-            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd)) {
+            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0) {
               buyCoin(currency, curBuyPrice);
             } else if(myWallet.krw >= 1000 && !currency.initTrade){
               currency.initTrade = true;
@@ -112,6 +113,8 @@ function checkTicker(currency) {
       }
 
       tickCount++;
+      currency.tradeStack--;
+
       eventEmitter.emit('collected');
       // fs.writeFile('./logs/' +  key + '.txt', JSON.stringify({price: price}), 'utf8', (err) => {
       //   if(err) console.log(err)
@@ -136,6 +139,8 @@ function buyCoin(currency, price) {
     tradeAmount += krw * 0.25;
     myWallet.krw = krw * 0.75;
     myWallet[key] += buyCount;
+    currency.tradeStack = 5;
+
 
     // for log
     logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
@@ -152,6 +157,8 @@ function sellCoin(currency, price) {
     tradeAmount += myWallet[key] * price;
     myWallet.krw += myWallet[key] * price;
     myWallet[key] = 0;
+    currency.tradeStack = 5;
+
 
     // for log
     logMessage = '[' + name + ']  sell ' +  myWallet[key] * price + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') - ' + price;
@@ -189,7 +196,7 @@ function checkStatus(){
   
   stack++;
 
-  for (var i = 0; i < currArr.length - 1; i++){
+  for (var i = 0; i < currArr.length; i++){
     checkTicker(currencyInfo[currArr[i]]);
   }
 }
@@ -209,18 +216,6 @@ function getTotal() {
 }
 
 function readData(){
-  var i = 0;
-
-  // for(var key in currencyInfo){
-  //   var filename = currencyInfo[key].key + '.txt';
-  //   i++;
-  //   try {
-  //     currencyInfo[key].price = JSON.parse(log.read(filename)).price.slice(0);
-  //     console.log('read complete', filename, '(', i , '/', currArr.length, ')');
-  //   } catch(e) {
-  //     console.log(filename, 'log is not created yet.', '(', i , '/', currArr.length, ')');
-  //   }
-  // }
 
   try {
     myWallet = JSON.parse(log.read('wallet.txt'));
@@ -234,7 +229,7 @@ function readData(){
 }
 
 eventEmitter.on('collected', function() {
-  if (tickCount == currArr.length - 1) {
+  if (tickCount == currArr.length) {
     tickCount = 0;
     setTimeout(function(){
       checkStatus()

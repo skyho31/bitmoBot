@@ -43,7 +43,7 @@ function makeWallet(obj, cb) {
     var currObj = JSON.parse(decodeURIComponent(data))[0];
     currArr = Object.keys(currObj);
 
-    for (var i = 0; i < currArr.length - 1; i++) {
+    for (var i = 0; i < currArr.length; i++) {
       obj[currArr[i]] = 0;
       currencyInfo[currArr[i]] = new Currency(currArr[i], currObj[currArr[i]]);
     }
@@ -95,7 +95,7 @@ function checkTicker(currency) {
           if(curHisto > 0){
             if(currency.maxMacd * 0.8 > curHisto){
               sellCoin(currency, curSellPrice);
-            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack == 0 && curHisto > 10) {
+            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10) {
               buyCoin(currency, curBuyPrice);
             } else if(myWallet.krw >= 1000 && !currency.initTrade && curHisto > 10){
               currency.initTrade = true;
@@ -194,7 +194,7 @@ function checkStatus(){
   
   stack++;
 
-  for (var i = 0; i < currArr.length - 1; i++){
+  for (var i = 0; i < currArr.length; i++){
     checkTicker(currencyInfo[currArr[i]]);
   }
 }
@@ -239,7 +239,7 @@ function readData(){
 }
 
 eventEmitter.on('collected', function() {
-  if (tickCount == currArr.length - 1) {
+  if (tickCount == currArr.length) {
     tickCount = 0;
     setTimeout(function(){
       checkStatus()

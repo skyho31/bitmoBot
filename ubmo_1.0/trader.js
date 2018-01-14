@@ -41,7 +41,7 @@ function makeWallet(obj, cb) {
     var currObj = JSON.parse(decodeURIComponent(data))[0];
     currArr = Object.keys(currObj);
 
-    for (var i = 0; i < currArr.length - 1; i++) {
+    for (var i = 0; i < currArr.length; i++) {
       obj[currArr[i]] = 0;
       currencyInfo[currArr[i]] = new Currency(currArr[i], currObj[currArr[i]]);
     }
@@ -87,21 +87,34 @@ function checkTicker(currency) {
         currency.maxMacd = curHisto;
       }
   
+      // if (_histogram.length > PERIODS.long && myWallet.krw >= 1000) {
+      //   if (curHisto * prevHisto < 0) {
+      //     if (curHisto < 0 && myWallet[key] >= 0.0001) {
+      //       sellCoin(currency, curSellPrice);
+      //     } else if (curHisto > 0 && myWallet[key] < 0.0001 && myWallet.krw >= 1000) {
+      //       buyCoin(currency, curBuyPrice);
+      //     }
+      //   } else if(curHisto > 0 && myWallet.krw >= 1000){
+      //     buyCoin(currency, curBuyPrice);
+      //   }
+      // } else if (stack < 5 && _histogram.length < PERIODS.long && curHisto < 0 && myWallet[key] >= 0.0001) {
+      //   sellCoin(currency, curSellPrice);
+      // } else if(_histogram.length > PERIODS.long && curHisto < 0){
+      //   sellCoin(currency, curSellPrice);
+      // }
+
       if (_histogram.length > PERIODS.long && myWallet.krw >= 1000) {
         if (curHisto * prevHisto < 0) {
-          if (curHisto < 0 && myWallet[key] >= 0.0001) {
-            sellCoin(currency, curSellPrice);
-          } else if (curHisto > 0 && myWallet[key] < 0.0001 && myWallet.krw >= 1000) {
+          if (curHisto > 0 && myWallet[key] < 0.0001 && myWallet.krw >= 1000) {
             buyCoin(currency, curBuyPrice);
           }
         } else if(curHisto > 0 && myWallet.krw >= 1000){
           buyCoin(currency, curBuyPrice);
         }
-      } else if (stack < 5 && _histogram.length < PERIODS.long && curHisto < 0 && myWallet[key] >= 0.0001) {
-        sellCoin(currency, curSellPrice);
-      } else if(_histogram.length > PERIODS.long && curHisto < 0){
-        sellCoin(currency, curSellPrice);
+      } else if (curHisto < 0 && myWallet[key] >= 0.0001) {
+        sellCoin(currency, curSellPrice)
       }
+
   
       myWallet.total += myWallet[key] * curPrice;
   
@@ -187,7 +200,7 @@ function checkStatus(){
   
   stack++;
 
-  for (var i = 0; i < currArr.length - 1; i++){
+  for (var i = 0; i < currArr.length; i++){
     checkTicker(currencyInfo[currArr[i]]);
   }
 }
@@ -221,7 +234,7 @@ function readData(){
 }
 
 eventEmitter.on('collected', function() {
-  if (tickCount == currArr.length - 1) {
+  if (tickCount == currArr.length) {
     tickCount = 0;
     setTimeout(function(){
       checkStatus()
