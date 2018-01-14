@@ -142,6 +142,7 @@ function buyCoin(currency, price) {
     currency.tradeStack = 5;
 
 
+
     // for log
     logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
     console.log(logMessage);
@@ -158,6 +159,8 @@ function sellCoin(currency, price) {
     myWallet.krw += myWallet[key] * price;
     myWallet[key] = 0;
     currency.tradeStack = 5;
+    currency.maxMacd = 0;
+
 
 
     // for log
@@ -168,6 +171,7 @@ function sellCoin(currency, price) {
 }
 
 function checkStatus(){
+
   var totalMoney = (myWallet.total = getTotal());
   var profitRate = (totalMoney / myWallet.default - 1) * 100;
   var date = new Date();
@@ -191,10 +195,15 @@ function checkStatus(){
     })  
   }
 
-  console.log(logMessage);
+  if(stack > 0) console.log(logMessage);
+
   log.write('log', logMessage + '\n', true);
-  
   stack++;
+
+  if(totalMoney  < myWallet.default * 0.8 && stack > 1){
+    console.log('the end');
+    return false;
+  }
 
   for (var i = 0; i < currArr.length; i++){
     checkTicker(currencyInfo[currArr[i]]);
@@ -211,6 +220,7 @@ function getTotal() {
       total += myWallet[key];
     }
   }
+
 
   return total;
 }

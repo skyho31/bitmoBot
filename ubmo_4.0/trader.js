@@ -140,6 +140,7 @@ function buyCoin(currency, price) {
     myWallet.krw = krw * 0.5;
     myWallet[key] += buyCount;
     currency.tradeStack = 5;
+    currency.maxMacd = 0;
 
     // for log
     logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
@@ -157,6 +158,8 @@ function sellCoin(currency, price) {
     myWallet.krw += myWallet[key] * price;
     myWallet[key] = 0;
     currency.tradeStack = 5;
+    currency.maxMacd = 0;
+
 
     // for log
     logMessage = '[' + name + ']  sell ' +  myWallet[key] * price + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') - ' + price;
@@ -189,10 +192,15 @@ function checkStatus(){
     })  
   }
 
-  console.log(logMessage);
+  if(stack > 0) console.log(logMessage);
+
   log.write('log', logMessage + '\n', true);
-  
   stack++;
+
+  if(totalMoney  < myWallet.default * 0.8 && stack > 1){
+    console.log('the end');
+    return false;
+  }
 
   for (var i = 0; i < currArr.length; i++){
     checkTicker(currencyInfo[currArr[i]]);

@@ -151,7 +151,7 @@ function readData(){
 }
 
 eventEmitter.on('collected', function() {
-  if (tickCount == currArr.length) {
+  if (tickCount == currArr.length - 1) {
     tickCount = 0;
     setTimeout(function(){
       checkStatus()

@@ -29,6 +29,7 @@ function Currency(key, name) {
   this.tradeStack = 0;
   this.buyPrice = 0;
   this.sellPrice = 0;
+  this.recentTradePrice = 0;
 }
 
 function Wallet(defaultMoney) {
@@ -56,6 +57,9 @@ function checkTicker(currency) {
   var name = currency.name;
   var curPrice;
   var _histogram;
+  if(key == "EOS"){
+    console.log('eos');
+  }
 
   fs.readFile('../../logs/' + key + '.txt', 'utf8', function(err, body){
     try {
@@ -93,8 +97,8 @@ function checkTicker(currency) {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
             if(currency.maxMacd * 0.6 > curHisto){
-              // sellCoin(currency, curPrice);
-            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10){
+              sellCoin(currency, curSellPrice);
+            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10) {
               buyCoin(currency, curBuyPrice);
             } else if(myWallet.krw >= 1000 && !currency.initTrade && curHisto > 10){
               currency.initTrade = true;
@@ -114,7 +118,6 @@ function checkTicker(currency) {
 
       tickCount++;
       currency.tradeStack--;
-
       eventEmitter.emit('collected');
       // fs.writeFile('./logs/' +  key + '.txt', JSON.stringify({price: price}), 'utf8', (err) => {
       //   if(err) console.log(err)
@@ -132,15 +135,14 @@ function buyCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
   var krw = myWallet.krw;
-  var buyCount = krw / 4 / price;
+  var buyCount = krw / 2 / price;
   var logMessage;
 
   if (buyCount > 0.0001) {
-    tradeAmount += krw * 0.25;
-    myWallet.krw = krw * 0.75;
+    tradeAmount += krw * 0.5;
+    myWallet.krw = krw * 0.5;
     myWallet[key] += buyCount;
     currency.tradeStack = 5;
-
 
     // for log
     logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
@@ -158,8 +160,6 @@ function sellCoin(currency, price) {
     myWallet.krw += myWallet[key] * price;
     myWallet[key] = 0;
     currency.tradeStack = 5;
-    currency.maxMacd = 0;
-
 
     // for log
     logMessage = '[' + name + ']  sell ' +  myWallet[key] * price + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') - ' + price;
@@ -186,18 +186,18 @@ function checkStatus(){
         walletStatus += '[' + i + '] : ' + myWallet[i] + '\n';
       }
     }
-    log.write('profitLog', walletStatus + '\b', true);
+    log.write('profitLog', walletStatus + '\n', true);
     fs.writeFile('./logs/wallet.txt', JSON.stringify(myWallet), function(){
       console.log(walletStatus);
     })  
   }
 
-  if(stack > 0) console.log(logMessage);
-
+  console.log(logMessage);
   log.write('log', logMessage + '\n', true);
+  
+  
   stack++;
-
-  if(totalMoney  < myWallet.default * 0.8 && stack > 1){
+  if(totalMoney < myWallet.default * 0.8 ){
     console.log('the end');
     return false;
   }
