@@ -88,12 +88,16 @@ function checkTicker(currency) {
         currency.maxMacd = curHisto;
       }
       
+      if(curHisto < 0){
+        currency.maxMacd = 0;
+      }
+
       if (stack < 5){
         sellCoin(currency, curSellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
-            if(currency.maxMacd * 0.9 > curHisto){
+            if(currency.maxMacd * 0.8 > curHisto){
               sellCoin(currency, curSellPrice);
             } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10) {
               buyCoin(currency, curBuyPrice);
@@ -114,7 +118,7 @@ function checkTicker(currency) {
       }
 
       tickCount++;
-      if(currency.tradeStack > 0) currency.tradeStack--;
+      currency.tradeStack--;
       eventEmitter.emit('collected');
       // fs.writeFile('./logs/' +  key + '.txt', JSON.stringify({price: price}), 'utf8', (err) => {
       //   if(err) console.log(err)

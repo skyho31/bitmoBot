@@ -87,6 +87,10 @@ function checkTicker(currency) {
       if(currency.maxMacd < curHisto && curHisto >= 0){
         currency.maxMacd = curHisto;
       }
+
+      if(curHisto < 0){
+        currency.maxMacd = 0;
+      }
       
       if (stack < 5){
         sellCoin(currency, curSellPrice);
@@ -109,9 +113,9 @@ function checkTicker(currency) {
 
       myWallet.total += myWallet[key] * curPrice;
 
-      if(curHisto > 0 && myWallet[key] > 0){
-        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)})`);
-      }
+      //if(curHisto > 0 && myWallet[key] > 0){
+        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`);
+      //}
 
       tickCount++;
       if(currency.tradeStack > 0) currency.tradeStack--;
