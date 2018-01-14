@@ -84,6 +84,12 @@ function checkTicker(currency) {
       if(currency.maxMacd < curHisto && curHisto >= 0){
         currency.maxMacd = curHisto;
       }
+
+      if(curHisto < 0){
+        currency.maxMacd = 0;
+      }
+
+      
       
       var profitRate = Math.floor(curHisto/currency.maxMacd*100).toFixed(2);
 
