@@ -121,8 +121,9 @@ function checkTicker(currency) {
       if(curHisto > 0  && myWallet[key] > 0){
         console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100)})`);
       }
-  
+      
       tickCount++;
+      if(currency.tradeStack > 0) currency.tradeStack--;
       eventEmitter.emit('collected');
       // fs.writeFile('./logs/' +  key + '.txt', JSON.stringify({price: price}), 'utf8');
     } catch (e) {

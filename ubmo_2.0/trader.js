@@ -29,6 +29,7 @@ function Currency(key, name) {
   this.tradeStack = 0;
   this.buyPrice = 0;
   this.sellPrice = 0;
+  this.recentTradePrice = 0;
 }
 
 function Wallet(defaultMoney) {
@@ -92,9 +93,9 @@ function checkTicker(currency) {
       } else {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
-            if(currency.maxMacd * 0.6 > curHisto){
-              // sellCoin(currency, curPrice);
-            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10){
+            if(currency.maxMacd * 0.9 > curHisto){
+              sellCoin(currency, curSellPrice);
+            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10) {
               buyCoin(currency, curBuyPrice);
             } else if(myWallet.krw >= 1000 && !currency.initTrade && curHisto > 10){
               currency.initTrade = true;
@@ -113,8 +114,7 @@ function checkTicker(currency) {
       }
 
       tickCount++;
-      currency.tradeStack--;
-
+      if(currency.tradeStack > 0) currency.tradeStack--;
       eventEmitter.emit('collected');
       // fs.writeFile('./logs/' +  key + '.txt', JSON.stringify({price: price}), 'utf8', (err) => {
       //   if(err) console.log(err)
@@ -132,15 +132,15 @@ function buyCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
   var krw = myWallet.krw;
-  var buyCount = krw / 4 / price;
+  var buyCount = krw / 2 / price;
   var logMessage;
 
   if (buyCount > 0.0001) {
-    tradeAmount += krw * 0.25;
-    myWallet.krw = krw * 0.75;
+    tradeAmount += krw * 0.5;
+    myWallet.krw = krw * 0.5;
     myWallet[key] += buyCount;
     currency.tradeStack = 5;
-
+    currency.maxMacd = 0;
 
     // for log
     logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
@@ -223,17 +223,6 @@ function getTotal() {
 
 function readData(){
   var i = 0;
-
-  // for(var key in currencyInfo){
-  //   var filename = currencyInfo[key].key + '.txt';
-  //   i++;
-  //   try {
-  //     currencyInfo[key].price = JSON.parse(log.read(filename)).price.slice(0);
-  //     console.log('read complete', filename, '(', i , '/', currArr.length, ')');
-  //   } catch(e) {
-  //     console.log(filename, 'log is not created yet.', '(', i , '/', currArr.length, ')');
-  //   }
-  // }
 
   try {
     myWallet = JSON.parse(log.read('wallet.txt'));

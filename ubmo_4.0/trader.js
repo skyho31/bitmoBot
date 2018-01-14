@@ -114,7 +114,7 @@ function checkTicker(currency) {
       }
 
       tickCount++;
-      currency.tradeStack--;
+      if(currency.tradeStack > 0) currency.tradeStack--;
       eventEmitter.emit('collected');
       // fs.writeFile('./logs/' +  key + '.txt', JSON.stringify({price: price}), 'utf8', (err) => {
       //   if(err) console.log(err)
