@@ -24,10 +24,29 @@ function Currency(key, name) {
   this.key = key;
   this.price = [];
   this.histogram = [];
-  this.tradeCount = 0;
   this.maxMacd = 0;
+  this.initTrade = false;
+  this.tradeStack = 0;
   this.buyPrice = 0;
   this.sellPrice = 0;
+  this.recentTradePrice = 0;
+  this.isTradable = false;
+  this.trendLine = {
+    isTrend: false,
+    default : {
+      price : 0,
+      stack : 0
+    },
+    min : {
+      price : 0,
+      stack : 0
+    },
+    max : {
+      price : 0,
+      stack : 0
+    },
+    slope: 0
+  }
 }
 
 function Wallet(defaultMoney) {
@@ -57,18 +76,63 @@ function checkTicker(currency) {
   var _histogram;
 
   fs.readFile('../../logs/' + key + '.txt', 'utf8', function(err, body){
-     
-
-     try {
+    try {
       var result = JSON.parse(body); 
       var price = currencyInfo[key].price = result.price.slice(0);
       var sellPrice = currencyInfo[key].sellPrice = result.sellPrice.slice(0);
       var buyPrice = currencyInfo[key].buyPrice = result.buyPrice.slice(0);
+      var trendLine = currencyInfo[key].trendLine;
+      var isTradable = currencyInfo[key].isTradable;
 
       curPrice = price.slice(-1);
+      prevPrice = price.slice(-2, -1);
       curSellPrice = sellPrice.slice(-1);
       curBuyPrice = buyPrice.slice(-1);
-  
+
+      /**
+       * @description TrendLine 
+       * @param price currency price
+       * @param maxPrice max currency price until breaking the trendline
+       * @param minPrice min currency price until breaking the trendline
+       */
+
+      if(stack == 1){
+        trendLine.default.price = trendLine.max.price = trendLine.min.price = curPrice;
+        trendLine.default.stack = trendLine.max.stack = trendLine.min.stack = stack;
+      }
+
+      if(curPrice > 0 && stack > 1){
+        trendLine.price = curPrice;
+
+        if(curPrice > trendLine.maxPrice){
+          trendLine.isTrend = true;
+          trendLine.max.price = curPrice;
+          trendLine.max.stack = stack;
+        } else {
+          trendLine.isTrend = false;
+          trendLine.min.stack = stack;
+          trendLine.min.price = curPrice;
+        }
+
+        if(!trendLine.isTrend && curPrice > prevPrice){
+          trendLine.min.stack = stack;
+          trendLine.min.price = curPrice;
+        }
+
+        var prevSlope = trendLine.slope;
+        var curSlope = (trendLine.min.price - trendLine.default.price) / (trendLine.min.stack - trendLine.default.stack);
+        var diff = (curSlope - prevSlope).toFixed(2);
+        diff = isNaN(diff) ? 0 : diff;
+        if(curSlope < prevSlope){
+          // 매도
+          isTradable = false;
+        } else {
+          // 매수 or 갖고 있음
+          isTradable = true;
+        }
+        trendLine.slope = (trendLine.min.price - trendLine.default.price) / (trendLine.min.stack - trendLine.default.stack);
+      }
+
       /**
        * @param data Array.<Number> the collection of prices
        * @param slowPeriods Number=26 the size of slow periods. Defaults to 26
@@ -79,78 +143,78 @@ function checkTicker(currency) {
        */
       var graph = macd(price, PERIODS.long, PERIODS.short, PERIODS.signal);
       currency.histogram = _histogram = graph.histogram.slice(0);
-  
+
       var curHisto = _histogram.slice(-1)[0];
       var prevHisto = _histogram.slice(-2, -1);
-  
+      var readyState;
+
       if(currency.maxMacd < curHisto && curHisto >= 0){
         currency.maxMacd = curHisto;
       }
-  
-      // if (_histogram.length > PERIODS.long && myWallet.krw >= 1000) {
-      //   if (curHisto * prevHisto < 0) {
-      //     if (curHisto < 0 && myWallet[key] >= 0.0001) {
-      //       sellCoin(currency, curSellPrice);
-      //     } else if (curHisto > 0 && myWallet[key] < 0.0001 && myWallet.krw >= 1000) {
-      //       buyCoin(currency, curBuyPrice);
-      //     }
-      //   } else if(curHisto > 0 && myWallet.krw >= 1000){
-      //     buyCoin(currency, curBuyPrice);
-      //   }
-      // } else if (stack < 5 && _histogram.length < PERIODS.long && curHisto < 0 && myWallet[key] >= 0.0001) {
-      //   sellCoin(currency, curSellPrice);
-      // } else if(_histogram.length > PERIODS.long && curHisto < 0){
-      //   sellCoin(currency, curSellPrice);
-      // }
 
-      if (_histogram.length > PERIODS.long && myWallet.krw >= 1000) {
-        if (curHisto * prevHisto < 0) {
-          if (curHisto > 0 && myWallet[key] < 0.0001 && myWallet.krw >= 1000) {
-            buyCoin(currency, curBuyPrice);
-          }
-        } else if(curHisto > 0 && myWallet.krw >= 1000){
-          buyCoin(currency, curBuyPrice);
-        }
-      } else if (curHisto < 0 && myWallet[key] >= 0.0001) {
-        sellCoin(currency, curSellPrice)
-      }
-
-  
-      myWallet.total += myWallet[key] * curPrice;
-  
-      if(curHisto > 0  && myWallet[key] > 0){
-        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100)})`);
+      if(curHisto < 0){
+        currency.maxMacd = 0;
       }
       
+      if (stack < 5){
+        sellCoin(currency, curSellPrice);
+      } else {
+        if (_histogram.length > PERIODS.long) {
+          if(curHisto > 0){
+            if(!isTradable && currency.tradeStack <= 0){
+            //if(currency.maxMacd * 0.8 > curHisto){
+              sellCoin(currency, curSellPrice);
+            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10) {
+              buyCoin(currency, curBuyPrice);
+            } else if(myWallet.krw >= 1000 && !currency.initTrade && curHisto > 10){
+              currency.initTrade = true;
+              buyCoin(currency, curBuyPrice);
+            }
+          } else {
+            sellCoin(currency, curSellPrice);
+          }
+        }
+      }
+
+      myWallet.total += myWallet[key] * curPrice;
+
+      if(isTradable){
+        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack} slope : ${stack == 1 ? 'init' : diff} tradable: ${isTradable}`);
+      }
+
       tickCount++;
       if(currency.tradeStack > 0) currency.tradeStack--;
       eventEmitter.emit('collected');
-      // fs.writeFile('./logs/' +  key + '.txt', JSON.stringify({price: price}), 'utf8');
+      // fs.writeFile('./logs/' +  key + '.txt', JSON.stringify({price: price}), 'utf8', (err) => {
+      //   if(err) console.log(err)
+      // });
     } catch (e) {
+      console.log(e);
       tickCount++;
       console.log('restart server........')
       eventEmitter.emit('collected');
     }
-  })
+  });
 }
 
 function buyCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
   var krw = myWallet.krw;
-  var buyCount = krw / 4 / price;
+  var buyCount = krw / 2 / price;
   var logMessage;
 
-  if (buyCount > 0.0001 && currency.tradeCount == 0) {
-    tradeAmount += myWallet.krw / 4;
-    myWallet.krw *= 1 - (1/4);
+  if (buyCount > 0.0001) {
+    tradeAmount += krw * 0.5;
+    myWallet.krw = krw * 0.5;
     myWallet[key] += buyCount;
-    currency.tradeCount = 5;
+    currency.tradeStack = 5;
+    currency.maxMacd = 0;
 
     // for log
     logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
     console.log(logMessage);
-    log.write('log', logMessage, true);
+    log.write('log', '\n' + logMessage + '\n', true);
   }
 }
 
@@ -158,17 +222,18 @@ function sellCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
 
-  if (myWallet[key] >= 0.0001 && currency.tradeCount == 0) {
+  if (myWallet[key] >= 0.0001) {
     tradeAmount += myWallet[key] * price;
     myWallet.krw += myWallet[key] * price;
     myWallet[key] = 0;
-    currency.tradeCount = 5;
+    currency.tradeStack = 5;
     currency.maxMacd = 0;
+
 
     // for log
     logMessage = '[' + name + ']  sell ' +  myWallet[key] * price + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') - ' + price;
     console.log(logMessage);
-    log.write('log', logMessage, true);
+    log.write('log', logMessage + '\n', true);
   }
 }
 
@@ -196,7 +261,7 @@ function checkStatus(){
     })  
   }
 
-  if(stack > 0) console.log( '\n' + logMessage);
+  if(stack > 0) console.log('\n' + logMessage);
 
   log.write('log', logMessage + '\n', true);
   stack++;
@@ -227,6 +292,17 @@ function getTotal() {
 
 function readData(){
   var i = 0;
+
+  // for(var key in currencyInfo){
+  //   var filename = currencyInfo[key].key + '.txt';
+  //   i++;
+  //   try {
+  //     currencyInfo[key].price = JSON.parse(log.read(filename)).price.slice(0);
+  //     console.log('read complete', filename, '(', i , '/', currArr.length, ')');
+  //   } catch(e) {
+  //     console.log(filename, 'log is not created yet.', '(', i , '/', currArr.length, ')');
+  //   }
+  // }
 
   try {
     myWallet = JSON.parse(log.read('wallet.txt'));

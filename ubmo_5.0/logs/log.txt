@@ -3925,3 +3925,1173 @@
 [log] : [35][3770][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:15:23 GMT+0900 (KST)
 [log] : [36][3771][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:15:28 GMT+0900 (KST)
 [log] : [37][3772][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:15:33 GMT+0900 (KST)
+[log] : [0][0][ready] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:20:49 GMT+0900 (대한민국 표준시)
+[log] : [1][15487][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:20:55 GMT+0900 (대한민국 표준시)
+[log] : [2][15487][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:21:07 GMT+0900 (대한민국 표준시)
+[log] : [3][15487][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:21:12 GMT+0900 (대한민국 표준시)
+[log] : [4][15487][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:21:18 GMT+0900 (대한민국 표준시)
+[log] : [대시]  buy 0.349454850433324(34.24) -1430800
+[log] : [제트캐시]  buy 0.2651113467656416(253.32) -943000
+[log] : [5][15487][ok] Total Money: 999720.44/(-0.03%)  tradeAmount: 750000   curKRW: 250000 || Mon Jan 15 2018 14:21:23 GMT+0900 (대한민국 표준시)
+[log] : [대시]  buy 0.087363712608331(34.24) -1430800
+[log] : [제트캐시]  buy 0.0662778366914104(253.32) -943000
+[log] : [6][15487][ok] Total Money: 999650.55/(-0.03%)  tradeAmount: 937500   curKRW: 62500 || Mon Jan 15 2018 14:21:29 GMT+0900 (대한민국 표준시)
+[log] : [7][15487][ok] Total Money: 999650.55/(-0.03%)  tradeAmount: 937500   curKRW: 62500 || Mon Jan 15 2018 14:21:34 GMT+0900 (대한민국 표준시)
+[log] : [8][15487][ok] Total Money: 999650.55/(-0.03%)  tradeAmount: 937500   curKRW: 62500 || Mon Jan 15 2018 14:21:40 GMT+0900 (대한민국 표준시)
+[log] : [9][15487][ok] Total Money: 999650.55/(-0.03%)  tradeAmount: 937500   curKRW: 62500 || Mon Jan 15 2018 14:21:45 GMT+0900 (대한민국 표준시)
+[log] : [10][15487][ok] Total Money: 999650.55/(-0.03%)  tradeAmount: 937500   curKRW: 62500 || Mon Jan 15 2018 14:21:50 GMT+0900 (대한민국 표준시)
+[log] : [제트캐시]  buy 0.0165694591728526(253.32) -943000
+[log] : [대시]  buy 0.02184092815208275(34.24) -1430800
+[log] : [11][15487][ok] Total Money: 999633.07/(-0.04%)  tradeAmount: 984375   curKRW: 15625 || Mon Jan 15 2018 14:21:56 GMT+0900 (대한민국 표준시)
+[log] : [12][15487][ok] Total Money: 999633.07/(-0.04%)  tradeAmount: 984375   curKRW: 15625 || Mon Jan 15 2018 14:22:01 GMT+0900 (대한민국 표준시)
+[log] : [13][15487][ok] Total Money: 999633.07/(-0.04%)  tradeAmount: 984375   curKRW: 15625 || Mon Jan 15 2018 14:22:07 GMT+0900 (대한민국 표준시)
+[log] : [14][15487][ok] Total Money: 999633.07/(-0.04%)  tradeAmount: 984375   curKRW: 15625 || Mon Jan 15 2018 14:22:12 GMT+0900 (대한민국 표준시)
+[log] : [15][15487][ok] Total Money: 999633.07/(-0.04%)  tradeAmount: 984375   curKRW: 15625 || Mon Jan 15 2018 14:22:17 GMT+0900 (대한민국 표준시)
+[log] : [대시]  buy 0.005460232038020688(34.24) -1430800
+[log] : [제트캐시]  buy 0.00414236479321315(253.32) -943000
+[log] : [16][15487][ok] Total Money: 999628.70/(-0.04%)  tradeAmount: 996093   curKRW: 3906 || Mon Jan 15 2018 14:22:23 GMT+0900 (대한민국 표준시)
+[log] : [17][15487][ok] Total Money: 999628.70/(-0.04%)  tradeAmount: 996093   curKRW: 3906 || Mon Jan 15 2018 14:22:28 GMT+0900 (대한민국 표준시)
+[log] : [18][15487][ok] Total Money: 999628.70/(-0.04%)  tradeAmount: 996093   curKRW: 3906 || Mon Jan 15 2018 14:22:34 GMT+0900 (대한민국 표준시)
+[log] : [19][15487][ok] Total Money: 999628.70/(-0.04%)  tradeAmount: 996093   curKRW: 3906 || Mon Jan 15 2018 14:22:39 GMT+0900 (대한민국 표준시)
+[log] : [20][15487][ok] Total Money: 999628.70/(-0.04%)  tradeAmount: 996093   curKRW: 3906 || Mon Jan 15 2018 14:22:44 GMT+0900 (대한민국 표준시)
+[log] : [대시]  buy 0.001365058009505172(34.24) -1430800
+[log] : [제트캐시]  buy 0.0010355911983032874(253.32) -943000
+[log] : [21][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:22:50 GMT+0900 (대한민국 표준시)
+[log] : [22][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:22:55 GMT+0900 (대한민국 표준시)
+[log] : [23][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:01 GMT+0900 (대한민국 표준시)
+[log] : [24][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:06 GMT+0900 (대한민국 표준시)
+[log] : [25][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:12 GMT+0900 (대한민국 표준시)
+[log] : [26][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:17 GMT+0900 (대한민국 표준시)
+[log] : [27][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:22 GMT+0900 (대한민국 표준시)
+[log] : [28][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:28 GMT+0900 (대한민국 표준시)
+[log] : [29][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:33 GMT+0900 (대한민국 표준시)
+[log] : [30][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:39 GMT+0900 (대한민국 표준시)
+[log] : [31][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:44 GMT+0900 (대한민국 표준시)
+[log] : [32][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:50 GMT+0900 (대한민국 표준시)
+[log] : [33][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:23:55 GMT+0900 (대한민국 표준시)
+[log] : [34][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:00 GMT+0900 (대한민국 표준시)
+[log] : [35][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:06 GMT+0900 (대한민국 표준시)
+[log] : [36][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:11 GMT+0900 (대한민국 표준시)
+[log] : [37][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:17 GMT+0900 (대한민국 표준시)
+[log] : [38][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:22 GMT+0900 (대한민국 표준시)
+[log] : [39][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:27 GMT+0900 (대한민국 표준시)
+[log] : [40][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:33 GMT+0900 (대한민국 표준시)
+[log] : [41][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:38 GMT+0900 (대한민국 표준시)
+[log] : [42][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:44 GMT+0900 (대한민국 표준시)
+[log] : [43][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:49 GMT+0900 (대한민국 표준시)
+[log] : [44][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:24:54 GMT+0900 (대한민국 표준시)
+[log] : [45][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:00 GMT+0900 (대한민국 표준시)
+[log] : [46][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:05 GMT+0900 (대한민국 표준시)
+[log] : [47][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:11 GMT+0900 (대한민국 표준시)
+[log] : [48][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:16 GMT+0900 (대한민국 표준시)
+[log] : [49][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:21 GMT+0900 (대한민국 표준시)
+[log] : [50][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:27 GMT+0900 (대한민국 표준시)
+[log] : [51][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:32 GMT+0900 (대한민국 표준시)
+[log] : [52][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:38 GMT+0900 (대한민국 표준시)
+[log] : [53][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:43 GMT+0900 (대한민국 표준시)
+[log] : [54][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:48 GMT+0900 (대한민국 표준시)
+[log] : [55][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:54 GMT+0900 (대한민국 표준시)
+[log] : [56][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:25:59 GMT+0900 (대한민국 표준시)
+[log] : [57][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:05 GMT+0900 (대한민국 표준시)
+[log] : [58][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:10 GMT+0900 (대한민국 표준시)
+[log] : [59][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:15 GMT+0900 (대한민국 표준시)
+[log] : [60][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:21 GMT+0900 (대한민국 표준시)
+[log] : [61][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:26 GMT+0900 (대한민국 표준시)
+[log] : [62][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:32 GMT+0900 (대한민국 표준시)
+[log] : [63][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:37 GMT+0900 (대한민국 표준시)
+[log] : [64][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:42 GMT+0900 (대한민국 표준시)
+[log] : [65][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:48 GMT+0900 (대한민국 표준시)
+[log] : [66][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:53 GMT+0900 (대한민국 표준시)
+[log] : [67][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:26:59 GMT+0900 (대한민국 표준시)
+[log] : [68][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:27:04 GMT+0900 (대한민국 표준시)
+[log] : [69][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:27:09 GMT+0900 (대한민국 표준시)
+[log] : [70][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:27:15 GMT+0900 (대한민국 표준시)
+[log] : [71][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:27:20 GMT+0900 (대한민국 표준시)
+[log] : [72][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:27:26 GMT+0900 (대한민국 표준시)
+[log] : [73][15487][ok] Total Money: 999627.61/(-0.04%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:27:31 GMT+0900 (대한민국 표준시)
+[log] : [0][0][ready] Total Money: 976.56/(-99.90%)  tradeAmount: 0   curKRW: 976 || Mon Jan 15 2018 14:33:03 GMT+0900 (대한민국 표준시)
+[log] : [대시]  sell 0(34.24) - 1431900
+[log] : [제트캐시]  sell 0(253.32) - 943200
+[log] : [1][15487][ok] Total Money: 1000582.66/(0.06%)  tradeAmount: 999606   curKRW: 1000582 || Mon Jan 15 2018 14:33:08 GMT+0900 (대한민국 표준시)
+[log] : [2][15487][ok] Total Money: 1000582.66/(0.06%)  tradeAmount: 999606   curKRW: 1000582 || Mon Jan 15 2018 14:33:13 GMT+0900 (대한민국 표준시)
+[log] : [0][0][ready] Total Money: 976.56/(-99.90%)  tradeAmount: 0   curKRW: 976 || Mon Jan 15 2018 14:33:39 GMT+0900 (대한민국 표준시)
+[log] : [대시]  sell 0(34.24) - 1431900
+[log] : [제트캐시]  sell 0(253.32) - 943200
+[log] : [1][15487][ok] Total Money: 1000582.66/(0.06%)  tradeAmount: 999606   curKRW: 1000582 || Mon Jan 15 2018 14:33:45 GMT+0900 (대한민국 표준시)
+[log] : [0][0][ready] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:34:04 GMT+0900 (대한민국 표준시)
+[log] : [1][15487][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:34:10 GMT+0900 (대한민국 표준시)
+[log] : [2][15487][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:34:15 GMT+0900 (대한민국 표준시)
+[log] : [3][15487][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:34:24 GMT+0900 (대한민국 표준시)
+[log] : [0][0][ready] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:35:28 GMT+0900 (대한민국 표준시)
+[log] : [0][0][ready] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:38:36 GMT+0900 (대한민국 표준시)
+[log] : [1][15510][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:38:42 GMT+0900 (대한민국 표준시)
+[log] : [2][15511][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:38:47 GMT+0900 (대한민국 표준시)
+[log] : [3][15512][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:38:52 GMT+0900 (대한민국 표준시)
+[log] : [4][15513][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:38:58 GMT+0900 (대한민국 표준시)
+[log] : [5][15514][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:03 GMT+0900 (대한민국 표준시)
+[log] : [6][15515][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:09 GMT+0900 (대한민국 표준시)
+[log] : [7][15517][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:14 GMT+0900 (대한민국 표준시)
+[log] : [8][15518][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:19 GMT+0900 (대한민국 표준시)
+[log] : [9][15519][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:25 GMT+0900 (대한민국 표준시)
+[log] : [10][15520][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:30 GMT+0900 (대한민국 표준시)
+[log] : [11][15521][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:36 GMT+0900 (대한민국 표준시)
+[log] : [12][15522][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:41 GMT+0900 (대한민국 표준시)
+[log] : [13][15523][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:47 GMT+0900 (대한민국 표준시)
+[log] : [14][15524][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:52 GMT+0900 (대한민국 표준시)
+[log] : [15][15525][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:39:57 GMT+0900 (대한민국 표준시)
+[log] : [16][15526][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:03 GMT+0900 (대한민국 표준시)
+[log] : [17][15527][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:08 GMT+0900 (대한민국 표준시)
+[log] : [18][15528][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:14 GMT+0900 (대한민국 표준시)
+[log] : [19][15529][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:19 GMT+0900 (대한민국 표준시)
+[log] : [20][15530][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:25 GMT+0900 (대한민국 표준시)
+[log] : [21][15531][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:30 GMT+0900 (대한민국 표준시)
+[log] : [22][15532][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:36 GMT+0900 (대한민국 표준시)
+[log] : [23][15533][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:41 GMT+0900 (대한민국 표준시)
+[log] : [24][15534][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:47 GMT+0900 (대한민국 표준시)
+[log] : [25][15535][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:52 GMT+0900 (대한민국 표준시)
+[log] : [26][15536][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:40:58 GMT+0900 (대한민국 표준시)
+[log] : [27][15537][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:03 GMT+0900 (대한민국 표준시)
+[log] : [28][15538][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:09 GMT+0900 (대한민국 표준시)
+[log] : [29][15539][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:14 GMT+0900 (대한민국 표준시)
+[log] : [30][15540][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:20 GMT+0900 (대한민국 표준시)
+[log] : [31][15541][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:25 GMT+0900 (대한민국 표준시)
+[log] : [0][0][ready] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:30 GMT+0900 (대한민국 표준시)
+[log] : [1][15543][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:35 GMT+0900 (대한민국 표준시)
+[log] : [2][15544][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:41 GMT+0900 (대한민국 표준시)
+[log] : [3][15545][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:46 GMT+0900 (대한민국 표준시)
+[log] : [4][15546][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:51 GMT+0900 (대한민국 표준시)
+[log] : [5][15547][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:41:57 GMT+0900 (대한민국 표준시)
+[log] : [6][15548][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:02 GMT+0900 (대한민국 표준시)
+[log] : [7][15549][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:08 GMT+0900 (대한민국 표준시)
+[log] : [8][15550][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:13 GMT+0900 (대한민국 표준시)
+[log] : [9][15551][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:19 GMT+0900 (대한민국 표준시)
+[log] : [10][15553][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:24 GMT+0900 (대한민국 표준시)
+[log] : [11][15554][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:29 GMT+0900 (대한민국 표준시)
+[log] : [12][15555][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:35 GMT+0900 (대한민국 표준시)
+[log] : [13][15556][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:40 GMT+0900 (대한민국 표준시)
+[log] : [14][15557][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:46 GMT+0900 (대한민국 표준시)
+[log] : [15][15558][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:51 GMT+0900 (대한민국 표준시)
+[log] : [16][15559][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:42:56 GMT+0900 (대한민국 표준시)
+[log] : [17][15560][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:02 GMT+0900 (대한민국 표준시)
+[log] : [18][15561][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:07 GMT+0900 (대한민국 표준시)
+[log] : [19][15562][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:13 GMT+0900 (대한민국 표준시)
+[log] : [20][15562][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:18 GMT+0900 (대한민국 표준시)
+[log] : [21][15562][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:23 GMT+0900 (대한민국 표준시)
+[log] : [22][15563][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:29 GMT+0900 (대한민국 표준시)
+[log] : [0][0][ready] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:33 GMT+0900 (대한민국 표준시)
+[log] : [1][15564][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:38 GMT+0900 (대한민국 표준시)
+[log] : [2][15564][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:44 GMT+0900 (대한민국 표준시)
+[log] : [3][15564][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:49 GMT+0900 (대한민국 표준시)
+[log] : [4][15564][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:43:54 GMT+0900 (대한민국 표준시)
+[log] : [5][15565][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:00 GMT+0900 (대한민국 표준시)
+[log] : [6][15566][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:05 GMT+0900 (대한민국 표준시)
+[log] : [7][15567][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:11 GMT+0900 (대한민국 표준시)
+[log] : [8][15568][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:16 GMT+0900 (대한민국 표준시)
+[log] : [9][15569][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:21 GMT+0900 (대한민국 표준시)
+[log] : [10][15570][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:27 GMT+0900 (대한민국 표준시)
+[log] : [11][15572][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:32 GMT+0900 (대한민국 표준시)
+[log] : [12][15573][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:38 GMT+0900 (대한민국 표준시)
+[log] : [13][15574][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:43 GMT+0900 (대한민국 표준시)
+[log] : [14][15575][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:48 GMT+0900 (대한민국 표준시)
+[log] : [15][15576][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:54 GMT+0900 (대한민국 표준시)
+[log] : [16][15577][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:44:59 GMT+0900 (대한민국 표준시)
+[log] : [17][15578][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:05 GMT+0900 (대한민국 표준시)
+[log] : [18][15579][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:10 GMT+0900 (대한민국 표준시)
+[log] : [19][15580][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:15 GMT+0900 (대한민국 표준시)
+[log] : [20][15581][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:21 GMT+0900 (대한민국 표준시)
+[log] : [21][15582][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:26 GMT+0900 (대한민국 표준시)
+[log] : [22][15583][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:32 GMT+0900 (대한민국 표준시)
+[log] : [23][15584][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:37 GMT+0900 (대한민국 표준시)
+[log] : [24][15585][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:42 GMT+0900 (대한민국 표준시)
+[log] : [25][15586][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:48 GMT+0900 (대한민국 표준시)
+[log] : [26][15587][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:53 GMT+0900 (대한민국 표준시)
+[log] : [27][15588][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:45:59 GMT+0900 (대한민국 표준시)
+[log] : [28][15589][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:04 GMT+0900 (대한민국 표준시)
+[log] : [29][15590][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:10 GMT+0900 (대한민국 표준시)
+[log] : [30][15591][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:15 GMT+0900 (대한민국 표준시)
+[log] : [31][15592][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:20 GMT+0900 (대한민국 표준시)
+[log] : [32][15593][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:26 GMT+0900 (대한민국 표준시)
+[log] : [33][15594][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:31 GMT+0900 (대한민국 표준시)
+[log] : [34][15595][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:37 GMT+0900 (대한민국 표준시)
+[log] : [35][15596][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:42 GMT+0900 (대한민국 표준시)
+[log] : [36][15597][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:47 GMT+0900 (대한민국 표준시)
+[log] : [37][15598][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:53 GMT+0900 (대한민국 표준시)
+[log] : [38][15599][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:46:58 GMT+0900 (대한민국 표준시)
+[log] : [39][15600][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:47:04 GMT+0900 (대한민국 표준시)
+[log] : [40][15601][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:47:09 GMT+0900 (대한민국 표준시)
+[log] : [41][15602][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:47:15 GMT+0900 (대한민국 표준시)
+[log] : [42][15603][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:47:20 GMT+0900 (대한민국 표준시)
+[log] : [43][15604][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:47:26 GMT+0900 (대한민국 표준시)
+[log] : [44][15605][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:47:31 GMT+0900 (대한민국 표준시)
+[log] : [45][15606][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:47:36 GMT+0900 (대한민국 표준시)
+[log] : [46][15607][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:47:42 GMT+0900 (대한민국 표준시)
+[log] : [47][15608][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:47:47 GMT+0900 (대한민국 표준시)
+[log] : [48][15609][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:47:53 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 1.3217023526301876(24.80) -378300
+[log] : [49][15611][ok] Total Money: 1000264.34/(0.03%)  tradeAmount: 500000   curKRW: 500000 || Mon Jan 15 2018 14:47:58 GMT+0900 (대한민국 표준시)
+[log] : [비트코인골드]  sell 0(67.63) - 378300
+[log] : [50][15612][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 1000000   curKRW: 1000000 || Mon Jan 15 2018 14:48:04 GMT+0900 (대한민국 표준시)
+[log] : [51][15613][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 1000000   curKRW: 1000000 || Mon Jan 15 2018 14:48:09 GMT+0900 (대한민국 표준시)
+[log] : [52][15614][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 1000000   curKRW: 1000000 || Mon Jan 15 2018 14:48:14 GMT+0900 (대한민국 표준시)
+[log] : [53][15615][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 1000000   curKRW: 1000000 || Mon Jan 15 2018 14:48:20 GMT+0900 (대한민국 표준시)
+[log] : [54][15616][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 1000000   curKRW: 1000000 || Mon Jan 15 2018 14:48:25 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 1.3217023526301876(147.62) -378300
+[log] : [55][15617][ok] Total Money: 999867.83/(-0.01%)  tradeAmount: 1500000   curKRW: 500000 || Mon Jan 15 2018 14:48:31 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 0.6599788806758183(171.62) -378800
+[log] : [56][15618][ok] Total Money: 1001057.19/(0.11%)  tradeAmount: 1750000   curKRW: 250000 || Mon Jan 15 2018 14:48:36 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움클래식]  buy 2.0678246484698097(13.91) -60450
+[log] : 
+[제트캐시]  buy 0.06656017039403621(33.99) -939000
+[log] : [비트코인골드]  sell 0(192.56) - 379000
+[log] : [57][15619][ok] Total Money: 1001146.56/(0.11%)  tradeAmount: 2688557   curKRW: 813557 || Mon Jan 15 2018 14:48:41 GMT+0900 (대한민국 표준시)
+[log] : [이더리움클래식]  sell 0(15.79) - 60490
+[log] : [58][15620][ok] Total Money: 1001146.56/(0.11%)  tradeAmount: 2813639   curKRW: 938639 || Mon Jan 15 2018 14:48:47 GMT+0900 (대한민국 표준시)
+[log] : [59][15621][ok] Total Money: 1001399.49/(0.14%)  tradeAmount: 2813639   curKRW: 938639 || Mon Jan 15 2018 14:48:52 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움클래식]  buy 7.75735454883401(19.47) -60500
+[log] : [제트캐시]  sell 0(71.79) - 942800
+[log] : [60][15622][ok] Total Money: 1001392.83/(0.14%)  tradeAmount: 3345712   curKRW: 532072 || Mon Jan 15 2018 14:48:58 GMT+0900 (대한민국 표준시)
+[log] : [61][15623][ok] Total Money: 1001547.98/(0.15%)  tradeAmount: 3345712   curKRW: 532072 || Mon Jan 15 2018 14:49:03 GMT+0900 (대한민국 표준시)
+[log] : [이더리움클래식]  sell 0(23.45) - 60530
+[log] : 
+[비트코인골드]  buy 1.3214057383811049(308.66) -379000
+[log] : [62][15624][ok] Total Money: 1002021.97/(0.20%)  tradeAmount: 4316078   curKRW: 500812 || Mon Jan 15 2018 14:49:09 GMT+0900 (대한민국 표준시)
+[log] : [비트코인골드]  sell 0(328.80) - 379200
+[log] : 
+[이오스]  buy 26.282524418692386(10.11) -19060
+[log] : [0][0][ready] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:51:27 GMT+0900 (대한민국 표준시)
+[log] : [1][15651][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:51:32 GMT+0900 (대한민국 표준시)
+[log] : [2][15652][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:51:38 GMT+0900 (대한민국 표준시)
+[log] : [3][15653][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:51:43 GMT+0900 (대한민국 표준시)
+[log] : [4][15654][ok] Total Money: 1000000.00/(0.00%)  tradeAmount: 0   curKRW: 1000000 || Mon Jan 15 2018 14:51:49 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.06962818548948614(1637.80) -3590500
+[log] : 
+[이더리움]  buy 0.2634074386260668(162.29) -1898200
+[log] : 
+[퀀텀]  buy 1.589319771137953(105.47) -78650
+[log] : [5][15655][ok] Total Money: 1000421.45/(0.04%)  tradeAmount: 875000   curKRW: 125000 || Mon Jan 15 2018 14:51:54 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 0.08282533792737874(534.16) -377300
+[log] : 
+[라이트코인]  buy 0.185901249256395(17.70) -336200
+[log] : [6][15656][ok] Total Money: 999981.08/(-0.00%)  tradeAmount: 968750   curKRW: 31250 || Mon Jan 15 2018 14:52:00 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움]  buy 0.008231482457064588(197.58) -1898200
+[log] : 
+[이더리움클래식]  buy 0.12832621550591328(94.44) -60880
+[log] : [7][15657][ok] Total Money: 1000162.60/(0.02%)  tradeAmount: 992187   curKRW: 7812 || Mon Jan 15 2018 14:52:05 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.0010908265847528623(1690.83) -3581000
+[log] : [8][15658][ok] Total Money: 1000634.96/(0.06%)  tradeAmount: 996093   curKRW: 3906 || Mon Jan 15 2018 14:52:10 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움클래식]  buy 0.03210792372184777(101.58) -60830
+[log] : [9][15659][ok] Total Money: 1001435.27/(0.14%)  tradeAmount: 998046   curKRW: 1953 || Mon Jan 15 2018 14:52:16 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.001033727638403726(830.76) -944700
+[log] : [10][15660][ok] Total Money: 1000650.53/(0.07%)  tradeAmount: 999023   curKRW: 976 || Mon Jan 15 2018 14:52:21 GMT+0900 (대한민국 표준시)
+[log] : [퀀텀]  sell 0(117.10) - 78900
+[log] : [비트코인골드]  sell 0(490.19) - 377400
+[log] : [11][15661][ok] Total Money: 1000179.30/(0.02%)  tradeAmount: 1155679   curKRW: 157632 || Mon Jan 15 2018 14:52:27 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움]  buy 0.041460330083265974(335.75) -1901000
+[log] : 
+[라이트코인]  buy 0.11712897531325399(55.97) -336450
+[log] : [12][15662][ok] Total Money: 1001157.86/(0.12%)  tradeAmount: 1273903   curKRW: 39408 || Mon Jan 15 2018 14:52:32 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.0055000758889245365(1856.85) -3582500
+[log] : [13][15663][ok] Total Money: 1001548.59/(0.15%)  tradeAmount: 1293607   curKRW: 19704 || Mon Jan 15 2018 14:52:37 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움클래식]  buy 0.16182672365368062(115.94) -60880
+[log] : [14][15664][ok] Total Money: 1001626.59/(0.16%)  tradeAmount: 1303459   curKRW: 9852 || Mon Jan 15 2018 14:52:43 GMT+0900 (대한민국 표준시)
+[log] : [제트캐시]  sell 0(922.33) - 944700
+[log] : [15][15665][ok] Total Money: 1001275.98/(0.13%)  tradeAmount: 1304435   curKRW: 10828 || Mon Jan 15 2018 14:52:48 GMT+0900 (대한민국 표준시)
+[log] : [16][15666][ok] Total Money: 1001217.50/(0.12%)  tradeAmount: 1304435   curKRW: 10828 || Mon Jan 15 2018 14:52:54 GMT+0900 (대한민국 표준시)
+[log] : [이더리움]  sell 0(490.65) - 1901200
+[log] : [17][15667][ok] Total Money: 1000741.41/(0.07%)  tradeAmount: 1899700   curKRW: 606092 || Mon Jan 15 2018 14:52:59 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.3208538219976658(965.66) -944500
+[log] : 
+[비트코인캐시]  buy 0.04229538518866649(2074.51) -3582500
+[log] : [18][15668][ok] Total Money: 1001594.75/(0.16%)  tradeAmount: 2354269   curKRW: 151523 || Mon Jan 15 2018 14:53:04 GMT+0900 (대한민국 표준시)
+[log] : [이더리움클래식]  sell 0(133.26) - 61100
+[log] : [19][15669][ok] Total Money: 1000933.69/(0.09%)  tradeAmount: 2373959   curKRW: 171213 || Mon Jan 15 2018 14:53:10 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(79.41) - 336900
+[log] : [20][15670][ok] Total Money: 1000874.43/(0.09%)  tradeAmount: 2476050   curKRW: 273304 || Mon Jan 15 2018 14:53:15 GMT+0900 (대한민국 표준시)
+[log] : [21][15671][ok] Total Money: 1000874.43/(0.09%)  tradeAmount: 2476050   curKRW: 273304 || Mon Jan 15 2018 14:53:21 GMT+0900 (대한민국 표준시)
+[log] : [22][15672][ok] Total Money: 1000928.77/(0.09%)  tradeAmount: 2476050   curKRW: 273304 || Mon Jan 15 2018 14:53:26 GMT+0900 (대한민국 표준시)
+[log] : [제트캐시]  sell 0(1023.34) - 944800
+[log] : [비트코인캐시]  sell 0(1955.82) - 3582500
+[log] : [23][15673][ok] Total Money: 1001025.03/(0.10%)  tradeAmount: 3203771   curKRW: 1001025 || Mon Jan 15 2018 14:53:32 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움]  buy 0.2632613691110336(688.45) -1901200
+[log] : [24][15674][ok] Total Money: 1001077.68/(0.11%)  tradeAmount: 3704284   curKRW: 500512 || Mon Jan 15 2018 14:53:37 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.7428205920954246(111.37) -336900
+[log] : [25][15676][ok] Total Money: 1001894.78/(0.19%)  tradeAmount: 3954540   curKRW: 250256 || Mon Jan 15 2018 14:53:42 GMT+0900 (대한민국 표준시)
+[log] : [26][15677][ok] Total Money: 1001789.48/(0.18%)  tradeAmount: 3954540   curKRW: 250256 || Mon Jan 15 2018 14:53:48 GMT+0900 (대한민국 표준시)
+[log] : 
+[대시]  buy 0.08777225641026534(37.22) -1425600
+[log] : [27][15678][ok] Total Money: 1000568.78/(0.06%)  tradeAmount: 4079668   curKRW: 125128 || Mon Jan 15 2018 14:53:53 GMT+0900 (대한민국 표준시)
+[log] : [28][15679][ok] Total Money: 1001894.78/(0.19%)  tradeAmount: 4079668   curKRW: 125128 || Mon Jan 15 2018 14:53:59 GMT+0900 (대한민국 표준시)
+[log] : [이더리움]  sell 0(752.45) - 1900800
+[log] : [대시]  sell 0(-19.32) - 1429400
+[log] : [29][15680][ok] Total Money: 1002033.22/(0.20%)  tradeAmount: 4705537   curKRW: 750997 || Mon Jan 15 2018 14:54:04 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(171.73) - 337900
+[log] : [30][15681][ok] Total Money: 1001996.08/(0.20%)  tradeAmount: 4956536   curKRW: 1001996 || Mon Jan 15 2018 14:54:09 GMT+0900 (대한민국 표준시)
+[log] : [31][15682][ok] Total Money: 1001996.08/(0.20%)  tradeAmount: 4956536   curKRW: 1001996 || Mon Jan 15 2018 14:54:15 GMT+0900 (대한민국 표준시)
+[log] : [32][15683][ok] Total Money: 1001996.08/(0.20%)  tradeAmount: 4956536   curKRW: 1001996 || Mon Jan 15 2018 14:54:20 GMT+0900 (대한민국 표준시)
+[log] : [33][15684][ok] Total Money: 1001996.08/(0.20%)  tradeAmount: 4956536   curKRW: 1001996 || Mon Jan 15 2018 14:54:26 GMT+0900 (대한민국 표준시)
+[log] : [34][15685][ok] Total Money: 1001996.08/(0.20%)  tradeAmount: 4956536   curKRW: 1001996 || Mon Jan 15 2018 14:54:31 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.7414504073750217(208.74) -337850
+[log] : 
+[이더리움]  buy 0.26382203278741556(811.52) -1899000
+[log] : 
+[비트코인캐시]  buy 0.03495660342333953(1952.59) -3583000
+[log] : 
+[제트캐시]  buy 0.0663046638781501(1107.23) -944500
+[log] : [35][15686][ok] Total Money: 1002900.31/(0.29%)  tradeAmount: 5895907   curKRW: 62624 || Mon Jan 15 2018 14:54:36 GMT+0900 (대한민국 표준시)
+[log] : [36][15687][ok] Total Money: 1002560.80/(0.26%)  tradeAmount: 5895907   curKRW: 62624 || Mon Jan 15 2018 14:54:42 GMT+0900 (대한민국 표준시)
+[log] : [37][15688][ok] Total Money: 1002066.31/(0.21%)  tradeAmount: 5895907   curKRW: 62624 || Mon Jan 15 2018 14:54:47 GMT+0900 (대한민국 표준시)
+[log] : [38][15689][ok] Total Money: 1002022.17/(0.20%)  tradeAmount: 5895907   curKRW: 62624 || Mon Jan 15 2018 14:54:52 GMT+0900 (대한민국 표준시)
+[log] : [39][15690][ok] Total Money: 1001971.54/(0.20%)  tradeAmount: 5895907   curKRW: 62624 || Mon Jan 15 2018 14:54:58 GMT+0900 (대한민국 표준시)
+[log] : [이더리움]  sell 0(846.87) - 1900600
+[log] : 
+[라이트코인]  buy 0.8363655257246067(247.60) -337200
+[log] : [제트캐시]  sell 0(1122.73) - 945300
+[log] : [40][15691][ok] Total Money: 1003076.29/(0.31%)  tradeAmount: 6742028   curKRW: 344700 || Mon Jan 15 2018 14:55:03 GMT+0900 (대한민국 표준시)
+[log] : [비트코인캐시]  sell 0(1822.98) - 3582500
+[log] : [41][15692][ok] Total Money: 1003076.29/(0.31%)  tradeAmount: 6867260   curKRW: 469932 || Mon Jan 15 2018 14:55:09 GMT+0900 (대한민국 표준시)
+[log] : [42][15693][ok] Total Money: 1003076.29/(0.31%)  tradeAmount: 6867260   curKRW: 469932 || Mon Jan 15 2018 14:55:14 GMT+0900 (대한민국 표준시)
+[log] : [43][15694][ok] Total Money: 1002050.71/(0.21%)  tradeAmount: 6867260   curKRW: 469932 || Mon Jan 15 2018 14:55:20 GMT+0900 (대한민국 표준시)
+[log] : [44][15695][ok] Total Money: 1002050.71/(0.21%)  tradeAmount: 6867260   curKRW: 469932 || Mon Jan 15 2018 14:55:25 GMT+0900 (대한민국 표준시)
+[log] : 
+[대시]  buy 0.16447301057065186(22.22) -1428600
+[log] : 
+[라이트코인]  buy 0.3480979894833085(277.25) -337500
+[log] : [45][15696][ok] Total Money: 1002445.16/(0.24%)  tradeAmount: 7219709   curKRW: 117483 || Mon Jan 15 2018 14:55:30 GMT+0900 (대한민국 표준시)
+[log] : [46][15697][ok] Total Money: 1002445.16/(0.24%)  tradeAmount: 7219709   curKRW: 117483 || Mon Jan 15 2018 14:55:36 GMT+0900 (대한민국 표준시)
+[log] : [47][15698][ok] Total Money: 1002445.16/(0.24%)  tradeAmount: 7219709   curKRW: 117483 || Mon Jan 15 2018 14:55:41 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움]  buy 0.030903585714072136(921.01) -1900800
+[log] : [48][15699][ok] Total Money: 1003137.78/(0.31%)  tradeAmount: 7278450   curKRW: 58741 || Mon Jan 15 2018 14:55:47 GMT+0900 (대한민국 표준시)
+[log] : [49][15700][ok] Total Money: 1003137.78/(0.31%)  tradeAmount: 7278450   curKRW: 58741 || Mon Jan 15 2018 14:55:52 GMT+0900 (대한민국 표준시)
+[log] : [대시]  sell 0(51.38) - 1430000
+[log] : [라이트코인]  sell 0(304.42) - 337850
+[log] : [50][15701][ok] Total Money: 1003349.50/(0.33%)  tradeAmount: 8164317   curKRW: 944607 || Mon Jan 15 2018 14:55:57 GMT+0900 (대한민국 표준시)
+[log] : [51][15702][ok] Total Money: 1003349.50/(0.33%)  tradeAmount: 8164317   curKRW: 944607 || Mon Jan 15 2018 14:56:03 GMT+0900 (대한민국 표준시)
+[log] : [52][15703][ok] Total Money: 1003349.50/(0.33%)  tradeAmount: 8164317   curKRW: 944607 || Mon Jan 15 2018 14:56:08 GMT+0900 (대한민국 표준시)
+[log] : [이더리움]  sell 0(979.03) - 1900500
+[log] : [53][15704][ok] Total Money: 1003340.22/(0.33%)  tradeAmount: 8223049   curKRW: 1003340 || Mon Jan 15 2018 14:56:14 GMT+0900 (대한민국 표준시)
+[log] : [54][15705][ok] Total Money: 1003340.22/(0.33%)  tradeAmount: 8223049   curKRW: 1003340 || Mon Jan 15 2018 14:56:19 GMT+0900 (대한민국 표준시)
+[log] : [55][15706][ok] Total Money: 1003340.22/(0.33%)  tradeAmount: 8223049   curKRW: 1003340 || Mon Jan 15 2018 14:56:24 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 1.4848900758259287(348.79) -337850
+[log] : [56][15707][ok] Total Money: 1003414.47/(0.34%)  tradeAmount: 8724719   curKRW: 501670 || Mon Jan 15 2018 14:56:30 GMT+0900 (대한민국 표준시)
+[log] : [57][15708][ok] Total Money: 1003414.47/(0.34%)  tradeAmount: 8724719   curKRW: 501670 || Mon Jan 15 2018 14:56:35 GMT+0900 (대한민국 표준시)
+[log] : [58][15709][ok] Total Money: 1003265.98/(0.33%)  tradeAmount: 8724719   curKRW: 501670 || Mon Jan 15 2018 14:56:41 GMT+0900 (대한민국 표준시)
+[log] : [59][15710][ok] Total Money: 1003340.22/(0.33%)  tradeAmount: 8724719   curKRW: 501670 || Mon Jan 15 2018 14:56:46 GMT+0900 (대한민국 표준시)
+[log] : [60][15711][ok] Total Money: 1003340.22/(0.33%)  tradeAmount: 8724719   curKRW: 501670 || Mon Jan 15 2018 14:56:51 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.7424450379129643(379.11) -337850
+[log] : [61][15712][ok] Total Money: 1003451.59/(0.35%)  tradeAmount: 8975554   curKRW: 250835 || Mon Jan 15 2018 14:56:57 GMT+0900 (대한민국 표준시)
+[log] : [62][15713][ok] Total Money: 1003451.59/(0.35%)  tradeAmount: 8975554   curKRW: 250835 || Mon Jan 15 2018 14:57:02 GMT+0900 (대한민국 표준시)
+[log] : [63][15714][ok] Total Money: 1003340.22/(0.33%)  tradeAmount: 8975554   curKRW: 250835 || Mon Jan 15 2018 14:57:08 GMT+0900 (대한민국 표준시)
+[log] : [64][15715][ok] Total Money: 1003340.22/(0.33%)  tradeAmount: 8975554   curKRW: 250835 || Mon Jan 15 2018 14:57:13 GMT+0900 (대한민국 표준시)
+[log] : [65][15716][ok] Total Money: 1004008.42/(0.40%)  tradeAmount: 8975554   curKRW: 250835 || Mon Jan 15 2018 14:57:18 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(410.85) - 338150
+[log] : [66][15717][ok] Total Money: 1004008.42/(0.40%)  tradeAmount: 9728728   curKRW: 1004008 || Mon Jan 15 2018 14:57:24 GMT+0900 (대한민국 표준시)
+[log] : [67][15718][ok] Total Money: 1004008.42/(0.40%)  tradeAmount: 9728728   curKRW: 1004008 || Mon Jan 15 2018 14:57:29 GMT+0900 (대한민국 표준시)
+[log] : [68][15719][ok] Total Money: 1004008.42/(0.40%)  tradeAmount: 9728728   curKRW: 1004008 || Mon Jan 15 2018 14:57:35 GMT+0900 (대한민국 표준시)
+[log] : [69][15720][ok] Total Money: 1004008.42/(0.40%)  tradeAmount: 9728728   curKRW: 1004008 || Mon Jan 15 2018 14:57:40 GMT+0900 (대한민국 표준시)
+[log] : [70][15721][ok] Total Money: 1004008.42/(0.40%)  tradeAmount: 9728728   curKRW: 1004008 || Mon Jan 15 2018 14:57:46 GMT+0900 (대한민국 표준시)
+[log] : [71][15722][ok] Total Money: 1004008.42/(0.40%)  tradeAmount: 9728728   curKRW: 1004008 || Mon Jan 15 2018 14:57:51 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.026105263254542425(295.14) -19230000
+[log] : [72][15724][ok] Total Money: 1004165.06/(0.42%)  tradeAmount: 10230732   curKRW: 502004 || Mon Jan 15 2018 14:57:56 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.01307098402293524(714.02) -19203000
+[log] : [73][15725][ok] Total Money: 1004674.75/(0.47%)  tradeAmount: 10481734   curKRW: 251002 || Mon Jan 15 2018 14:58:02 GMT+0900 (대한민국 표준시)
+[log] : [74][15726][ok] Total Money: 1004674.75/(0.47%)  tradeAmount: 10481734   curKRW: 251002 || Mon Jan 15 2018 14:58:07 GMT+0900 (대한민국 표준시)
+[log] : [75][15727][ok] Total Money: 1004361.34/(0.44%)  tradeAmount: 10481734   curKRW: 251002 || Mon Jan 15 2018 14:58:13 GMT+0900 (대한민국 표준시)
+[log] : [76][15728][ok] Total Money: 1004361.34/(0.44%)  tradeAmount: 10481734   curKRW: 251002 || Mon Jan 15 2018 14:58:18 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움]  buy 0.06601149436998355(1000.29) -1901200
+[log] : [77][15729][ok] Total Money: 1004361.34/(0.44%)  tradeAmount: 10607235   curKRW: 125501 || Mon Jan 15 2018 14:58:24 GMT+0900 (대한민국 표준시)
+[log] : [비트코인]  sell 0(2321.12) - 19230000
+[log] : [78][15730][ok] Total Money: 1004295.33/(0.43%)  tradeAmount: 11360594   curKRW: 878860 || Mon Jan 15 2018 14:58:29 GMT+0900 (대한민국 표준시)
+[log] : [79][15731][ok] Total Money: 1004275.53/(0.43%)  tradeAmount: 11360594   curKRW: 878860 || Mon Jan 15 2018 14:58:34 GMT+0900 (대한민국 표준시)
+[log] : [80][15732][ok] Total Money: 1004268.93/(0.43%)  tradeAmount: 11360594   curKRW: 878860 || Mon Jan 15 2018 14:58:40 GMT+0900 (대한민국 표준시)
+[log] : [81][15733][ok] Total Money: 1004268.93/(0.43%)  tradeAmount: 11360594   curKRW: 878860 || Mon Jan 15 2018 14:58:45 GMT+0900 (대한민국 표준시)
+[log] : [82][15734][ok] Total Money: 1004275.53/(0.43%)  tradeAmount: 11360594   curKRW: 878860 || Mon Jan 15 2018 14:58:51 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움]  buy 0.23127902322160743(1003.92) -1900000
+[log] : [83][15735][ok] Total Money: 1004668.61/(0.47%)  tradeAmount: 11800024   curKRW: 439430 || Mon Jan 15 2018 14:58:56 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.011440514035955586(3397.32) -19205000
+[log] : [84][15736][ok] Total Money: 1004597.87/(0.46%)  tradeAmount: 12019739   curKRW: 219715 || Mon Jan 15 2018 14:59:02 GMT+0900 (대한민국 표준시)
+[log] : [85][15737][ok] Total Money: 1005039.21/(0.50%)  tradeAmount: 12019739   curKRW: 219715 || Mon Jan 15 2018 14:59:07 GMT+0900 (대한민국 표준시)
+[log] : [86][15738][ok] Total Money: 1005165.06/(0.52%)  tradeAmount: 12019739   curKRW: 219715 || Mon Jan 15 2018 14:59:13 GMT+0900 (대한민국 표준시)
+[log] : [87][15739][ok] Total Money: 1005153.62/(0.52%)  tradeAmount: 12019739   curKRW: 219715 || Mon Jan 15 2018 14:59:18 GMT+0900 (대한민국 표준시)
+[log] : [이더리움]  sell 0(1072.63) - 1901700
+[log] : [88][15740][ok] Total Money: 1005153.62/(0.52%)  tradeAmount: 12585097   curKRW: 785072 || Mon Jan 15 2018 14:59:24 GMT+0900 (대한민국 표준시)
+[log] : [비트코인]  sell 0(4997.52) - 19236000
+[log] : [89][15741][ok] Total Money: 1005142.18/(0.51%)  tradeAmount: 12805167   curKRW: 1005142 || Mon Jan 15 2018 14:59:29 GMT+0900 (대한민국 표준시)
+[log] : [90][15742][ok] Total Money: 1005142.18/(0.51%)  tradeAmount: 12805167   curKRW: 1005142 || Mon Jan 15 2018 14:59:34 GMT+0900 (대한민국 표준시)
+[log] : [91][15743][ok] Total Money: 1005142.18/(0.51%)  tradeAmount: 12805167   curKRW: 1005142 || Mon Jan 15 2018 14:59:40 GMT+0900 (대한민국 표준시)
+[log] : [92][15744][ok] Total Money: 1005142.18/(0.51%)  tradeAmount: 12805167   curKRW: 1005142 || Mon Jan 15 2018 14:59:45 GMT+0900 (대한민국 표준시)
+[log] : [93][15745][ok] Total Money: 1005142.18/(0.51%)  tradeAmount: 12805167   curKRW: 1005142 || Mon Jan 15 2018 14:59:51 GMT+0900 (대한민국 표준시)
+[log] : [94][15746][ok] Total Money: 1005142.18/(0.51%)  tradeAmount: 12805167   curKRW: 1005142 || Mon Jan 15 2018 14:59:56 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.0261333830107664(6498.86) -19231000
+[log] : [95][15747][ok] Total Money: 1005325.11/(0.53%)  tradeAmount: 13307738   curKRW: 502571 || Mon Jan 15 2018 15:00:02 GMT+0900 (대한민국 표준시)
+[log] : [96][15748][ok] Total Money: 1005325.11/(0.53%)  tradeAmount: 13307738   curKRW: 502571 || Mon Jan 15 2018 15:00:07 GMT+0900 (대한민국 표준시)
+[log] : [97][15749][ok] Total Money: 1005377.38/(0.54%)  tradeAmount: 13307738   curKRW: 502571 || Mon Jan 15 2018 15:00:12 GMT+0900 (대한민국 표준시)
+[log] : [98][15750][ok] Total Money: 1005272.84/(0.53%)  tradeAmount: 13307738   curKRW: 502571 || Mon Jan 15 2018 15:00:18 GMT+0900 (대한민국 표준시)
+[log] : [99][15751][ok] Total Money: 1005272.84/(0.53%)  tradeAmount: 13307738   curKRW: 502571 || Mon Jan 15 2018 15:00:23 GMT+0900 (대한민국 표준시)
+[log] : [비트코인]  sell 0(7878.49) - 19235000
+[log] : [100][15752][ok] Total Money: 1005246.71/(0.52%)  tradeAmount: 13810413   curKRW: 1005246 || Mon Jan 15 2018 15:00:29 GMT+0900 (대한민국 표준시)
+[log] : [101][15753][ok] Total Money: 1005246.71/(0.52%)  tradeAmount: 13810413   curKRW: 1005246 || Mon Jan 15 2018 15:00:34 GMT+0900 (대한민국 표준시)
+[log] : [102][15754][ok] Total Money: 1005246.71/(0.52%)  tradeAmount: 13810413   curKRW: 1005246 || Mon Jan 15 2018 15:00:40 GMT+0900 (대한민국 표준시)
+[log] : [103][15755][ok] Total Money: 1005246.71/(0.52%)  tradeAmount: 13810413   curKRW: 1005246 || Mon Jan 15 2018 15:00:45 GMT+0900 (대한민국 표준시)
+[log] : [104][15757][ok] Total Money: 1005246.71/(0.52%)  tradeAmount: 13810413   curKRW: 1005246 || Mon Jan 15 2018 15:00:50 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.02613881925456707(8819.83) -19229000
+[log] : [105][15758][ok] Total Money: 1005272.85/(0.53%)  tradeAmount: 14313037   curKRW: 502623 || Mon Jan 15 2018 15:00:56 GMT+0900 (대한민국 표준시)
+[log] : [106][15759][ok] Total Money: 1005429.68/(0.54%)  tradeAmount: 14313037   curKRW: 502623 || Mon Jan 15 2018 15:01:01 GMT+0900 (대한민국 표준시)
+[log] : [107][15760][ok] Total Money: 1005246.71/(0.52%)  tradeAmount: 14313037   curKRW: 502623 || Mon Jan 15 2018 15:01:07 GMT+0900 (대한민국 표준시)
+[log] : [108][15761][ok] Total Money: 1005298.99/(0.53%)  tradeAmount: 14313037   curKRW: 502623 || Mon Jan 15 2018 15:01:12 GMT+0900 (대한민국 표준시)
+[log] : [109][15762][ok] Total Money: 1005298.99/(0.53%)  tradeAmount: 14313037   curKRW: 502623 || Mon Jan 15 2018 15:01:18 GMT+0900 (대한민국 표준시)
+[log] : [비트코인]  sell 0(9616.14) - 19229000
+[log] : [110][15763][ok] Total Money: 1005246.71/(0.52%)  tradeAmount: 14815660   curKRW: 1005246 || Mon Jan 15 2018 15:01:23 GMT+0900 (대한민국 표준시)
+[log] : [111][15764][ok] Total Money: 1005246.71/(0.52%)  tradeAmount: 14815660   curKRW: 1005246 || Mon Jan 15 2018 15:01:29 GMT+0900 (대한민국 표준시)
+[log] : 
+[대시]  buy 0.35141114133123835(88.29) -1430300
+[log] : [112][15765][ok] Total Money: 1005844.11/(0.58%)  tradeAmount: 15318283   curKRW: 502623 || Mon Jan 15 2018 15:01:34 GMT+0900 (대한민국 표준시)
+[log] : [113][15766][ok] Total Money: 1005141.29/(0.51%)  tradeAmount: 15318283   curKRW: 502623 || Mon Jan 15 2018 15:01:39 GMT+0900 (대한민국 표준시)
+[log] : [114][15767][ok] Total Money: 1005141.29/(0.51%)  tradeAmount: 15318283   curKRW: 502623 || Mon Jan 15 2018 15:01:45 GMT+0900 (대한민국 표준시)
+[log] : [115][15768][ok] Total Money: 1005141.29/(0.51%)  tradeAmount: 15318283   curKRW: 502623 || Mon Jan 15 2018 15:01:50 GMT+0900 (대한민국 표준시)
+[log] : [116][15769][ok] Total Money: 1005141.29/(0.51%)  tradeAmount: 15318283   curKRW: 502623 || Mon Jan 15 2018 15:01:56 GMT+0900 (대한민국 표준시)
+[log] : [대시]  sell 0(193.78) - 1432000
+[log] : [117][15770][ok] Total Money: 1005844.11/(0.58%)  tradeAmount: 15821504   curKRW: 1005844 || Mon Jan 15 2018 15:02:01 GMT+0900 (대한민국 표준시)
+[log] : [118][15771][ok] Total Money: 1005844.11/(0.58%)  tradeAmount: 15821504   curKRW: 1005844 || Mon Jan 15 2018 15:02:06 GMT+0900 (대한민국 표준시)
+[log] : [119][15772][ok] Total Money: 1005844.11/(0.58%)  tradeAmount: 15821504   curKRW: 1005844 || Mon Jan 15 2018 15:02:12 GMT+0900 (대한민국 표준시)
+[log] : [120][15773][ok] Total Money: 1005844.11/(0.58%)  tradeAmount: 15821504   curKRW: 1005844 || Mon Jan 15 2018 15:02:17 GMT+0900 (대한민국 표준시)
+[log] : [121][15774][ok] Total Money: 1005844.11/(0.58%)  tradeAmount: 15821504   curKRW: 1005844 || Mon Jan 15 2018 15:02:23 GMT+0900 (대한민국 표준시)
+[log] : [122][15775][ok] Total Money: 1005844.11/(0.58%)  tradeAmount: 15821504   curKRW: 1005844 || Mon Jan 15 2018 15:02:28 GMT+0900 (대한민국 표준시)
+[log] : 
+[퀀텀]  buy 6.37417053125731(123.02) -78900
+[log] : [123][15776][ok] Total Money: 1005844.11/(0.58%)  tradeAmount: 16324426   curKRW: 502922 || Mon Jan 15 2018 15:02:34 GMT+0900 (대한민국 표준시)
+[log] : [124][15777][ok] Total Money: 1006417.79/(0.64%)  tradeAmount: 16324426   curKRW: 502922 || Mon Jan 15 2018 15:02:39 GMT+0900 (대한민국 표준시)
+[log] : [125][15778][ok] Total Money: 1006545.27/(0.65%)  tradeAmount: 16324426   curKRW: 502922 || Mon Jan 15 2018 15:02:44 GMT+0900 (대한민국 표준시)
+[log] : [126][15779][ok] Total Money: 1007692.62/(0.77%)  tradeAmount: 16324426   curKRW: 502922 || Mon Jan 15 2018 15:02:50 GMT+0900 (대한민국 표준시)
+[log] : [127][15780][ok] Total Money: 1007692.62/(0.77%)  tradeAmount: 16324426   curKRW: 502922 || Mon Jan 15 2018 15:02:55 GMT+0900 (대한민국 표준시)
+[log] : 
+[퀀텀]  buy 3.175413909055447(144.64) -79190
+[log] : [128][15781][ok] Total Money: 1007788.12/(0.78%)  tradeAmount: 16575887   curKRW: 251461 || Mon Jan 15 2018 15:03:01 GMT+0900 (대한민국 표준시)
+[log] : [129][15782][ok] Total Money: 1008170.10/(0.82%)  tradeAmount: 16575887   curKRW: 251461 || Mon Jan 15 2018 15:03:06 GMT+0900 (대한민국 표준시)
+[log] : [130][15783][ok] Total Money: 1008743.07/(0.87%)  tradeAmount: 16575887   curKRW: 251461 || Mon Jan 15 2018 15:03:12 GMT+0900 (대한민국 표준시)
+[log] : [131][15784][ok] Total Money: 1008743.07/(0.87%)  tradeAmount: 16575887   curKRW: 251461 || Mon Jan 15 2018 15:03:17 GMT+0900 (대한민국 표준시)
+[log] : [132][15785][ok] Total Money: 1008074.60/(0.81%)  tradeAmount: 16575887   curKRW: 251461 || Mon Jan 15 2018 15:03:22 GMT+0900 (대한민국 표준시)
+[log] : 
+[퀀텀]  buy 1.5883086625701166(170.18) -79160
+[log] : [133][15786][ok] Total Money: 1008297.16/(0.83%)  tradeAmount: 16701618   curKRW: 125730 || Mon Jan 15 2018 15:03:28 GMT+0900 (대한민국 표준시)
+[log] : [134][15787][ok] Total Money: 1007294.75/(0.73%)  tradeAmount: 16701618   curKRW: 125730 || Mon Jan 15 2018 15:03:33 GMT+0900 (대한민국 표준시)
+[log] : [135][15788][ok] Total Money: 1007183.37/(0.72%)  tradeAmount: 16701618   curKRW: 125730 || Mon Jan 15 2018 15:03:39 GMT+0900 (대한민국 표준시)
+[log] : [136][15789][ok] Total Money: 1006737.86/(0.67%)  tradeAmount: 16701618   curKRW: 125730 || Mon Jan 15 2018 15:03:44 GMT+0900 (대한민국 표준시)
+[log] : [137][15790][ok] Total Money: 1003396.49/(0.34%)  tradeAmount: 16701618   curKRW: 125730 || Mon Jan 15 2018 15:03:50 GMT+0900 (대한민국 표준시)
+[log] : 
+[퀀텀]  buy 0.3978310142040578(180.69) -79010
+[log] : 
+[이더리움클래식]  buy 1.0309159866271764(11.71) -60980
+[log] : [138][15791][ok] Total Money: 1007696.52/(0.77%)  tradeAmount: 16795916   curKRW: 31432 || Mon Jan 15 2018 15:03:55 GMT+0900 (대한민국 표준시)
+[log] : [139][15792][ok] Total Money: 1005484.11/(0.55%)  tradeAmount: 16795916   curKRW: 31432 || Mon Jan 15 2018 15:04:01 GMT+0900 (대한민국 표준시)
+[log] : [140][15793][ok] Total Money: 1005756.07/(0.58%)  tradeAmount: 16795916   curKRW: 31432 || Mon Jan 15 2018 15:04:06 GMT+0900 (대한민국 표준시)
+[log] : [141][15795][ok] Total Money: 1005733.49/(0.57%)  tradeAmount: 16795916   curKRW: 31432 || Mon Jan 15 2018 15:04:12 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.0008168562482396728(10549.20) -19240000
+[log] : [142][15796][ok] Total Money: 1005587.21/(0.56%)  tradeAmount: 16811632   curKRW: 15716 || Mon Jan 15 2018 15:04:17 GMT+0900 (대한민국 표준시)
+[log] : 
+[대시]  buy 0.005487156698600414(596.30) -1432100
+[log] : [이더리움클래식]  sell 0(30.36) - 61110
+[log] : [퀀텀]  sell 0(184.21) - 78930
+[log] : [143][15797][ok] Total Money: 1004949.33/(0.49%)  tradeAmount: 17793004   curKRW: 981372 || Mon Jan 15 2018 15:04:23 GMT+0900 (대한민국 표준시)
+[log] : [144][15798][ok] Total Money: 1004949.33/(0.49%)  tradeAmount: 17793004   curKRW: 981372 || Mon Jan 15 2018 15:04:28 GMT+0900 (대한민국 표준시)
+[log] : [145][15799][ok] Total Money: 1004950.69/(0.50%)  tradeAmount: 17793004   curKRW: 981372 || Mon Jan 15 2018 15:04:34 GMT+0900 (대한민국 표준시)
+[log] : [146][15800][ok] Total Money: 1004954.78/(0.50%)  tradeAmount: 17793004   curKRW: 981372 || Mon Jan 15 2018 15:04:39 GMT+0900 (대한민국 표준시)
+[log] : [비트코인]  sell 0(12074.23) - 19245000
+[log] : [147][15801][ok] Total Money: 1004950.69/(0.50%)  tradeAmount: 17808724   curKRW: 997092 || Mon Jan 15 2018 15:04:44 GMT+0900 (대한민국 표준시)
+[log] : [대시]  sell 0(719.28) - 1432200
+[log] : 
+[퀀텀]  buy 6.3548200451096(186.27) -79070
+[log] : [148][15802][ok] Total Money: 1004951.24/(0.50%)  tradeAmount: 18319059   curKRW: 502475 || Mon Jan 15 2018 15:04:50 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움클래식]  buy 4.137645100187879(48.07) -60720
+[log] : [149][15803][ok] Total Money: 1006440.79/(0.64%)  tradeAmount: 18570297   curKRW: 251237 || Mon Jan 15 2018 15:04:55 GMT+0900 (대한민국 표준시)
+[log] : [150][15804][ok] Total Money: 1005876.36/(0.59%)  tradeAmount: 18570297   curKRW: 251237 || Mon Jan 15 2018 15:05:01 GMT+0900 (대한민국 표준시)
+[log] : [151][15805][ok] Total Money: 1006362.57/(0.64%)  tradeAmount: 18570297   curKRW: 251237 || Mon Jan 15 2018 15:05:06 GMT+0900 (대한민국 표준시)
+[log] : [152][15806][ok] Total Money: 1006706.86/(0.67%)  tradeAmount: 18570297   curKRW: 251237 || Mon Jan 15 2018 15:05:12 GMT+0900 (대한민국 표준시)
+[log] : 
+[퀀텀]  buy 1.5850965961098298(197.25) -79250
+[log] : [153][15807][ok] Total Money: 1006674.38/(0.67%)  tradeAmount: 18695915   curKRW: 125618 || Mon Jan 15 2018 15:05:17 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.0032638460102292666(13697.63) -19244000
+[log] : [이더리움클래식]  sell 0(47.33) - 60860
+[log] : [154][15808][ok] Total Money: 1004708.98/(0.47%)  tradeAmount: 19010542   curKRW: 314626 || Mon Jan 15 2018 15:05:22 GMT+0900 (대한민국 표준시)
+[log] : [155][15809][ok] Total Money: 1005423.58/(0.54%)  tradeAmount: 19010542   curKRW: 314626 || Mon Jan 15 2018 15:05:28 GMT+0900 (대한민국 표준시)
+[log] : [156][15810][ok] Total Money: 1004705.72/(0.47%)  tradeAmount: 19010542   curKRW: 314626 || Mon Jan 15 2018 15:05:33 GMT+0900 (대한민국 표준시)
+[log] : [157][15811][ok] Total Money: 1006214.30/(0.62%)  tradeAmount: 19010542   curKRW: 314626 || Mon Jan 15 2018 15:05:39 GMT+0900 (대한민국 표준시)
+[log] : [퀀텀]  sell 0(200.41) - 79180
+[log] : [158][15812][ok] Total Money: 1006134.90/(0.61%)  tradeAmount: 19639225   curKRW: 943309 || Mon Jan 15 2018 15:05:44 GMT+0900 (대한민국 표준시)
+[log] : [비트코인]  sell 0(14943.63) - 19249000
+[log] : [159][15813][ok] Total Money: 1006134.90/(0.61%)  tradeAmount: 19702050   curKRW: 1006134 || Mon Jan 15 2018 15:05:49 GMT+0900 (대한민국 표준시)
+[log] : 
+[대시]  buy 0.3512795562184708(927.25) -1432100
+[log] : [160][15814][ok] Total Money: 1006170.03/(0.62%)  tradeAmount: 20205118   curKRW: 503067 || Mon Jan 15 2018 15:05:55 GMT+0900 (대한민국 표준시)
+[log] : [161][15815][ok] Total Money: 1006170.03/(0.62%)  tradeAmount: 20205118   curKRW: 503067 || Mon Jan 15 2018 15:06:00 GMT+0900 (대한민국 표준시)
+[log] : [162][15816][ok] Total Money: 1006170.03/(0.62%)  tradeAmount: 20205118   curKRW: 503067 || Mon Jan 15 2018 15:06:06 GMT+0900 (대한민국 표준시)
+[log] : [163][15817][ok] Total Money: 1006170.03/(0.62%)  tradeAmount: 20205118   curKRW: 503067 || Mon Jan 15 2018 15:06:11 GMT+0900 (대한민국 표준시)
+[log] : 
+[퀀텀]  buy 3.1799459700409103(203.59) -79100
+[log] : [164][15818][ok] Total Money: 1005397.22/(0.54%)  tradeAmount: 20456652   curKRW: 251533 || Mon Jan 15 2018 15:06:16 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 0.1657007419171515(278.06) -379500
+[log] : 
+[비트코인]  buy 0.006535380540174496(15957.02) -19244000
+[log] : [165][15819][ok] Total Money: 1006196.17/(0.62%)  tradeAmount: 20645302   curKRW: 62883 || Mon Jan 15 2018 15:06:22 GMT+0900 (대한민국 표준시)
+[log] : [대시]  sell 0(972.57) - 1433800
+[log] : [166][15820][ok] Total Money: 1006877.08/(0.69%)  tradeAmount: 21148966   curKRW: 566548 || Mon Jan 15 2018 15:06:27 GMT+0900 (대한민국 표준시)
+[log] : [167][15821][ok] Total Money: 1006816.16/(0.68%)  tradeAmount: 21148966   curKRW: 566548 || Mon Jan 15 2018 15:06:33 GMT+0900 (대한민국 표준시)
+[log] : [168][15822][ok] Total Money: 1007045.35/(0.70%)  tradeAmount: 21148966   curKRW: 566548 || Mon Jan 15 2018 15:06:38 GMT+0900 (대한민국 표준시)
+[log] : 
+[퀀텀]  buy 3.5784996163693936(205.20) -79160
+[log] : [169][15823][ok] Total Money: 1007031.41/(0.70%)  tradeAmount: 21432241   curKRW: 283274 || Mon Jan 15 2018 15:06:44 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.007355474388029736(17240.94) -19256000
+[log] : [비트코인골드]  sell 0(416.68) - 379600
+[log] : [170][15824][ok] Total Money: 1007156.78/(0.72%)  tradeAmount: 21636778   curKRW: 204537 || Mon Jan 15 2018 15:06:49 GMT+0900 (대한민국 표준시)
+[log] : [171][15825][ok] Total Money: 1007089.20/(0.71%)  tradeAmount: 21636778   curKRW: 204537 || Mon Jan 15 2018 15:06:54 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움클래식]  buy 1.6776330089210245(46.72) -60960
+[log] : [172][15826][ok] Total Money: 1007449.08/(0.74%)  tradeAmount: 21739046   curKRW: 102268 || Mon Jan 15 2018 15:07:00 GMT+0900 (대한민국 표준시)
+[log] : [173][15827][ok] Total Money: 1007516.67/(0.75%)  tradeAmount: 21739046   curKRW: 102268 || Mon Jan 15 2018 15:07:05 GMT+0900 (대한민국 표준시)
+[log] : 
+[대시]  buy 0.035703291517883554(1054.25) -1432200
+[log] : [퀀텀]  sell 0(205.59) - 79080
+[log] : [174][15828][ok] Total Money: 1007029.16/(0.70%)  tradeAmount: 22324638   curKRW: 585592 || Mon Jan 15 2018 15:07:11 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.015196764703514807(19637.18) -19267000
+[log] : [175][15829][ok] Total Money: 1007685.03/(0.77%)  tradeAmount: 22617434   curKRW: 292796 || Mon Jan 15 2018 15:07:16 GMT+0900 (대한민국 표준시)
+[log] : [176][15830][ok] Total Money: 1007335.98/(0.73%)  tradeAmount: 22617434   curKRW: 292796 || Mon Jan 15 2018 15:07:21 GMT+0900 (대한민국 표준시)
+[log] : [이더리움클래식]  sell 0(53.11) - 61000
+[log] : 
+[비트코인골드]  buy 0.5204579545400452(538.36) -379600
+[log] : [177][15832][ok] Total Money: 1006725.14/(0.67%)  tradeAmount: 22917336   curKRW: 197565 || Mon Jan 15 2018 15:07:27 GMT+0900 (대한민국 표준시)
+[log] : [178][15833][ok] Total Money: 1006806.27/(0.68%)  tradeAmount: 22917336   curKRW: 197565 || Mon Jan 15 2018 15:07:32 GMT+0900 (대한민국 표준시)
+[log] : [대시]  sell 0(1179.16) - 1433900
+[log] : [179][15834][ok] Total Money: 1005479.61/(0.55%)  tradeAmount: 22968531   curKRW: 248760 || Mon Jan 15 2018 15:07:38 GMT+0900 (대한민국 표준시)
+[log] : [비트코인]  sell 0(21175.26) - 19265000
+[log] : [180][15835][ok] Total Money: 1005450.52/(0.55%)  tradeAmount: 23528904   curKRW: 809133 || Mon Jan 15 2018 15:07:43 GMT+0900 (대한민국 표준시)
+[log] : [181][15836][ok] Total Money: 1005346.43/(0.53%)  tradeAmount: 23528904   curKRW: 809133 || Mon Jan 15 2018 15:07:49 GMT+0900 (대한민국 표준시)
+[log] : 
+[이더리움클래식]  buy 6.621389373616708(58.71) -61100
+[log] : [182][15837][ok] Total Money: 1005677.50/(0.57%)  tradeAmount: 23933471   curKRW: 404566 || Mon Jan 15 2018 15:07:54 GMT+0900 (대한민국 표준시)
+[log] : [비트코인골드]  sell 0(512.27) - 379200
+[log] : [183][15838][ok] Total Money: 1006491.44/(0.65%)  tradeAmount: 24130828   curKRW: 601924 || Mon Jan 15 2018 15:07:59 GMT+0900 (대한민국 표준시)
+[log] : [184][15839][ok] Total Money: 1006425.22/(0.64%)  tradeAmount: 24130828   curKRW: 601924 || Mon Jan 15 2018 15:08:05 GMT+0900 (대한민국 표준시)
+[log] : [185][15840][ok] Total Money: 1006491.44/(0.65%)  tradeAmount: 24130828   curKRW: 601924 || Mon Jan 15 2018 15:08:10 GMT+0900 (대한민국 표준시)
+[log] : 
+[대시]  buy 0.2098906991734312(1286.75) -1433900
+[log] : [186][15841][ok] Total Money: 1006491.44/(0.65%)  tradeAmount: 24431790   curKRW: 300962 || Mon Jan 15 2018 15:08:16 GMT+0900 (대한민국 표준시)
+[log] : [이더리움클래식]  sell 0(64.33) - 61000
+[log] : [187][15842][ok] Total Money: 1005829.30/(0.58%)  tradeAmount: 24835695   curKRW: 704867 || Mon Jan 15 2018 15:08:21 GMT+0900 (대한민국 표준시)
+[log] : [188][15843][ok] Total Money: 1005829.30/(0.58%)  tradeAmount: 24835695   curKRW: 704867 || Mon Jan 15 2018 15:08:26 GMT+0900 (대한민국 표준시)
+[log] : [189][15844][ok] Total Money: 1005829.30/(0.58%)  tradeAmount: 24835695   curKRW: 704867 || Mon Jan 15 2018 15:08:32 GMT+0900 (대한민국 표준시)
+[log] : [190][15845][ok] Total Money: 1005430.51/(0.54%)  tradeAmount: 24835695   curKRW: 704867 || Mon Jan 15 2018 15:08:37 GMT+0900 (대한민국 표준시)
+[log] : [대시]  sell 0(1296.02) - 1434200
+[log] : [191][15846][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:08:43 GMT+0900 (대한민국 표준시)
+[log] : [192][15847][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:08:48 GMT+0900 (대한민국 표준시)
+[log] : [193][15848][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:08:54 GMT+0900 (대한민국 표준시)
+[log] : [194][15849][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:08:59 GMT+0900 (대한민국 표준시)
+[log] : [195][15850][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:04 GMT+0900 (대한민국 표준시)
+[log] : [196][15851][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:10 GMT+0900 (대한민국 표준시)
+[log] : [197][15852][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:15 GMT+0900 (대한민국 표준시)
+[log] : [198][15853][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:21 GMT+0900 (대한민국 표준시)
+[log] : [199][15854][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:26 GMT+0900 (대한민국 표준시)
+[log] : [200][15855][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:31 GMT+0900 (대한민국 표준시)
+[log] : [201][15856][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:37 GMT+0900 (대한민국 표준시)
+[log] : [202][15857][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:42 GMT+0900 (대한민국 표준시)
+[log] : [203][15858][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:48 GMT+0900 (대한민국 표준시)
+[log] : [204][15859][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:53 GMT+0900 (대한민국 표준시)
+[log] : [205][15860][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:09:59 GMT+0900 (대한민국 표준시)
+[log] : [206][15861][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:04 GMT+0900 (대한민국 표준시)
+[log] : [207][15862][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:09 GMT+0900 (대한민국 표준시)
+[log] : [208][15863][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:15 GMT+0900 (대한민국 표준시)
+[log] : [209][15864][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:20 GMT+0900 (대한민국 표준시)
+[log] : [210][15865][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:26 GMT+0900 (대한민국 표준시)
+[log] : [211][15866][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:31 GMT+0900 (대한민국 표준시)
+[log] : [212][15867][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:36 GMT+0900 (대한민국 표준시)
+[log] : [213][15868][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:42 GMT+0900 (대한민국 표준시)
+[log] : [214][15869][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:47 GMT+0900 (대한민국 표준시)
+[log] : [215][15870][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:53 GMT+0900 (대한민국 표준시)
+[log] : [216][15871][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:10:58 GMT+0900 (대한민국 표준시)
+[log] : [217][15872][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:11:03 GMT+0900 (대한민국 표준시)
+[log] : [218][15873][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:11:09 GMT+0900 (대한민국 표준시)
+[log] : [219][15874][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:11:14 GMT+0900 (대한민국 표준시)
+[log] : [220][15875][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:11:20 GMT+0900 (대한민국 표준시)
+[log] : [221][15876][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:11:25 GMT+0900 (대한민국 표준시)
+[log] : [222][15877][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:11:31 GMT+0900 (대한민국 표준시)
+[log] : [223][15878][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:11:36 GMT+0900 (대한민국 표준시)
+[log] : [224][15879][ok] Total Money: 1005892.27/(0.59%)  tradeAmount: 25136720   curKRW: 1005892 || Mon Jan 15 2018 15:11:41 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.026070191428828975(21907.21) -19292000
+[log] : [225][15880][ok] Total Money: 1005918.34/(0.59%)  tradeAmount: 25639667   curKRW: 502946 || Mon Jan 15 2018 15:11:47 GMT+0900 (대한민국 표준시)
+[log] : [226][15881][ok] Total Money: 1005918.34/(0.59%)  tradeAmount: 25639667   curKRW: 502946 || Mon Jan 15 2018 15:11:52 GMT+0900 (대한민국 표준시)
+[log] : [227][15882][ok] Total Money: 1005866.20/(0.59%)  tradeAmount: 25639667   curKRW: 502946 || Mon Jan 15 2018 15:11:58 GMT+0900 (대한민국 표준시)
+[log] : [228][15883][ok] Total Money: 1005866.20/(0.59%)  tradeAmount: 25639667   curKRW: 502946 || Mon Jan 15 2018 15:12:03 GMT+0900 (대한민국 표준시)
+[log] : [229][15884][ok] Total Money: 1005344.79/(0.53%)  tradeAmount: 25639667   curKRW: 502946 || Mon Jan 15 2018 15:12:08 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.013049300322893689(23128.95) -19271000
+[log] : [230][15885][ok] Total Money: 1005931.58/(0.59%)  tradeAmount: 25891140   curKRW: 251473 || Mon Jan 15 2018 15:12:14 GMT+0900 (대한민국 표준시)
+[log] : [231][15886][ok] Total Money: 1005931.58/(0.59%)  tradeAmount: 25891140   curKRW: 251473 || Mon Jan 15 2018 15:12:19 GMT+0900 (대한민국 표준시)
+[log] : [232][15887][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 25891140   curKRW: 251473 || Mon Jan 15 2018 15:12:25 GMT+0900 (대한민국 표준시)
+[log] : [233][15888][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 25891140   curKRW: 251473 || Mon Jan 15 2018 15:12:30 GMT+0900 (대한민국 표준시)
+[log] : [234][15889][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 25891140   curKRW: 251473 || Mon Jan 15 2018 15:12:35 GMT+0900 (대한민국 표준시)
+[log] : [비트코인]  sell 0(23863.71) - 19285000
+[log] : [235][15890][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:12:41 GMT+0900 (대한민국 표준시)
+[log] : [236][15892][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:12:46 GMT+0900 (대한민국 표준시)
+[log] : [237][15893][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:12:52 GMT+0900 (대한민국 표준시)
+[log] : [238][15894][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:12:57 GMT+0900 (대한민국 표준시)
+[log] : [239][15895][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:03 GMT+0900 (대한민국 표준시)
+[log] : [240][15896][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:08 GMT+0900 (대한민국 표준시)
+[log] : [241][15897][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:13 GMT+0900 (대한민국 표준시)
+[log] : [242][15898][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:19 GMT+0900 (대한민국 표준시)
+[log] : [243][15899][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:24 GMT+0900 (대한민국 표준시)
+[log] : [244][15900][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:30 GMT+0900 (대한민국 표준시)
+[log] : [245][15901][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:35 GMT+0900 (대한민국 표준시)
+[log] : [246][15902][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:40 GMT+0900 (대한민국 표준시)
+[log] : [247][15903][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:46 GMT+0900 (대한민국 표준시)
+[log] : [248][15904][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:51 GMT+0900 (대한민국 표준시)
+[log] : [249][15905][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:13:57 GMT+0900 (대한민국 표준시)
+[log] : [250][15906][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:02 GMT+0900 (대한민국 표준시)
+[log] : [251][15907][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:07 GMT+0900 (대한민국 표준시)
+[log] : [252][15908][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:13 GMT+0900 (대한민국 표준시)
+[log] : [253][15909][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:18 GMT+0900 (대한민국 표준시)
+[log] : [254][15910][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:24 GMT+0900 (대한민국 표준시)
+[log] : [255][15911][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:29 GMT+0900 (대한민국 표준시)
+[log] : [256][15912][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:34 GMT+0900 (대한민국 표준시)
+[log] : [257][15913][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:40 GMT+0900 (대한민국 표준시)
+[log] : [258][15914][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:45 GMT+0900 (대한민국 표준시)
+[log] : [259][15915][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:51 GMT+0900 (대한민국 표준시)
+[log] : [260][15916][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:14:56 GMT+0900 (대한민국 표준시)
+[log] : [261][15917][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:01 GMT+0900 (대한민국 표준시)
+[log] : [262][15918][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:07 GMT+0900 (대한민국 표준시)
+[log] : [263][15919][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:12 GMT+0900 (대한민국 표준시)
+[log] : [264][15920][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:18 GMT+0900 (대한민국 표준시)
+[log] : [265][15921][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:23 GMT+0900 (대한민국 표준시)
+[log] : [266][15922][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:28 GMT+0900 (대한민국 표준시)
+[log] : [267][15923][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:34 GMT+0900 (대한민국 표준시)
+[log] : [268][15924][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:39 GMT+0900 (대한민국 표준시)
+[log] : [269][15925][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:45 GMT+0900 (대한민국 표준시)
+[log] : [270][15926][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:50 GMT+0900 (대한민국 표준시)
+[log] : [271][15927][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:15:55 GMT+0900 (대한민국 표준시)
+[log] : [272][15928][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:16:01 GMT+0900 (대한민국 표준시)
+[log] : [273][15929][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:16:06 GMT+0900 (대한민국 표준시)
+[log] : [274][15930][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:16:12 GMT+0900 (대한민국 표준시)
+[log] : [275][15931][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 26645559   curKRW: 1005892 || Mon Jan 15 2018 15:16:17 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 1.4946396210318809(13.51) -336500
+[log] : [276][15933][ok] Total Money: 1006041.93/(0.60%)  tradeAmount: 27148505   curKRW: 502946 || Mon Jan 15 2018 15:16:23 GMT+0900 (대한민국 표준시)
+[log] : [277][15934][ok] Total Money: 1006041.93/(0.60%)  tradeAmount: 27148505   curKRW: 502946 || Mon Jan 15 2018 15:16:28 GMT+0900 (대한민국 표준시)
+[log] : [278][15935][ok] Total Money: 1006041.93/(0.60%)  tradeAmount: 27148505   curKRW: 502946 || Mon Jan 15 2018 15:16:33 GMT+0900 (대한민국 표준시)
+[log] : [279][15936][ok] Total Money: 1006041.93/(0.60%)  tradeAmount: 27148505   curKRW: 502946 || Mon Jan 15 2018 15:16:39 GMT+0900 (대한민국 표준시)
+[log] : [280][15937][ok] Total Money: 1005892.46/(0.59%)  tradeAmount: 27148505   curKRW: 502946 || Mon Jan 15 2018 15:16:44 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.7475419626593757(23.64) -336400
+[log] : [281][15938][ok] Total Money: 1005967.22/(0.60%)  tradeAmount: 27399978   curKRW: 251473 || Mon Jan 15 2018 15:16:50 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.035136665675368724(17.51) -3578500
+[log] : [282][15939][ok] Total Money: 1005967.22/(0.60%)  tradeAmount: 27525715   curKRW: 125736 || Mon Jan 15 2018 15:16:55 GMT+0900 (대한민국 표준시)
+[log] : [283][15940][ok] Total Money: 1005756.40/(0.58%)  tradeAmount: 27525715   curKRW: 125736 || Mon Jan 15 2018 15:17:00 GMT+0900 (대한민국 표준시)
+[log] : [284][15941][ok] Total Money: 1005756.40/(0.58%)  tradeAmount: 27525715   curKRW: 125736 || Mon Jan 15 2018 15:17:06 GMT+0900 (대한민국 표준시)
+[log] : [285][15942][ok] Total Money: 1005756.40/(0.58%)  tradeAmount: 27525715   curKRW: 125736 || Mon Jan 15 2018 15:17:11 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.18688549066484392(29.87) -336400
+[log] : [286][15943][ok] Total Money: 1005810.22/(0.58%)  tradeAmount: 27588583   curKRW: 62868 || Mon Jan 15 2018 15:17:17 GMT+0900 (대한민국 표준시)
+[log] : [비트코인캐시]  sell 0(60.84) - 3572000
+[log] : [287][15944][ok] Total Money: 1005757.52/(0.58%)  tradeAmount: 27714091   curKRW: 188376 || Mon Jan 15 2018 15:17:22 GMT+0900 (대한민국 표준시)
+[log] : [288][15945][ok] Total Money: 1005757.52/(0.58%)  tradeAmount: 27714091   curKRW: 188376 || Mon Jan 15 2018 15:17:28 GMT+0900 (대한민국 표준시)
+[log] : [289][15946][ok] Total Money: 1005757.52/(0.58%)  tradeAmount: 27714091   curKRW: 188376 || Mon Jan 15 2018 15:17:33 GMT+0900 (대한민국 표준시)
+[log] : [290][15947][ok] Total Money: 1005757.52/(0.58%)  tradeAmount: 27714091   curKRW: 188376 || Mon Jan 15 2018 15:17:38 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(35.33) - 336450
+[log] : [291][15948][ok] Total Money: 1005636.07/(0.56%)  tradeAmount: 28531351   curKRW: 1005636 || Mon Jan 15 2018 15:17:44 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.14076652659842956(87.49) -3572000
+[log] : [292][15949][ok] Total Money: 1005776.83/(0.58%)  tradeAmount: 29034169   curKRW: 502818 || Mon Jan 15 2018 15:17:49 GMT+0900 (대한민국 표준시)
+[log] : [293][15950][ok] Total Money: 1005636.07/(0.56%)  tradeAmount: 29034169   curKRW: 502818 || Mon Jan 15 2018 15:17:55 GMT+0900 (대한민국 표준시)
+[log] : [비트코인캐시]  sell 0(-7.94) - 3571000
+[log] : [294][15951][ok] Total Money: 1005495.30/(0.55%)  tradeAmount: 29536846   curKRW: 1005495 || Mon Jan 15 2018 15:18:00 GMT+0900 (대한민국 표준시)
+[log] : [295][15952][ok] Total Money: 1005495.30/(0.55%)  tradeAmount: 29536846   curKRW: 1005495 || Mon Jan 15 2018 15:18:05 GMT+0900 (대한민국 표준시)
+[log] : [296][15953][ok] Total Money: 1005495.30/(0.55%)  tradeAmount: 29536846   curKRW: 1005495 || Mon Jan 15 2018 15:18:11 GMT+0900 (대한민국 표준시)
+[log] : [297][15954][ok] Total Money: 1005495.30/(0.55%)  tradeAmount: 29536846   curKRW: 1005495 || Mon Jan 15 2018 15:18:16 GMT+0900 (대한민국 표준시)
+[log] : [298][15955][ok] Total Money: 1005495.30/(0.55%)  tradeAmount: 29536846   curKRW: 1005495 || Mon Jan 15 2018 15:18:22 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.14074682243737155(16.05) -3572000
+[log] : [299][15956][ok] Total Money: 1005706.42/(0.57%)  tradeAmount: 30039594   curKRW: 502747 || Mon Jan 15 2018 15:18:27 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 0.6611620854106933(515.76) -380200
+[log] : [300][15957][ok] Total Money: 1006037.00/(0.60%)  tradeAmount: 30290968   curKRW: 251373 || Mon Jan 15 2018 15:18:33 GMT+0900 (대한민국 표준시)
+[log] : [301][15958][ok] Total Money: 1005433.44/(0.54%)  tradeAmount: 30290968   curKRW: 251373 || Mon Jan 15 2018 15:18:38 GMT+0900 (대한민국 표준시)
+[log] : [302][15959][ok] Total Money: 1005243.61/(0.52%)  tradeAmount: 30290968   curKRW: 251373 || Mon Jan 15 2018 15:18:43 GMT+0900 (대한민국 표준시)
+[log] : [303][15960][ok] Total Money: 1005313.98/(0.53%)  tradeAmount: 30290968   curKRW: 251373 || Mon Jan 15 2018 15:18:49 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.03516209607961192(129.17) -3574500
+[log] : [304][15961][ok] Total Money: 1005296.40/(0.53%)  tradeAmount: 30416655   curKRW: 125686 || Mon Jan 15 2018 15:18:54 GMT+0900 (대한민국 표준시)
+[log] : [비트코인골드]  sell 0(548.87) - 379000
+[log] : [305][15962][ok] Total Money: 1004877.86/(0.49%)  tradeAmount: 30667235   curKRW: 376267 || Mon Jan 15 2018 15:19:00 GMT+0900 (대한민국 표준시)
+[log] : [306][15963][ok] Total Money: 1004789.91/(0.48%)  tradeAmount: 30667235   curKRW: 376267 || Mon Jan 15 2018 15:19:05 GMT+0900 (대한민국 표준시)
+[log] : [307][15964][ok] Total Money: 1004789.91/(0.48%)  tradeAmount: 30667235   curKRW: 376267 || Mon Jan 15 2018 15:19:10 GMT+0900 (대한민국 표준시)
+[log] : [308][15965][ok] Total Money: 1004789.91/(0.48%)  tradeAmount: 30667235   curKRW: 376267 || Mon Jan 15 2018 15:19:16 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.05266900095285912(207.88) -3572000
+[log] : [309][15966][ok] Total Money: 1004842.58/(0.48%)  tradeAmount: 30855369   curKRW: 188133 || Mon Jan 15 2018 15:19:21 GMT+0900 (대한민국 표준시)
+[log] : [310][15967][ok] Total Money: 1004614.00/(0.46%)  tradeAmount: 30855369   curKRW: 188133 || Mon Jan 15 2018 15:19:27 GMT+0900 (대한민국 표준시)
+[log] : [311][15968][ok] Total Money: 1004956.87/(0.50%)  tradeAmount: 30855369   curKRW: 188133 || Mon Jan 15 2018 15:19:32 GMT+0900 (대한민국 표준시)
+[log] : [312][15969][ok] Total Money: 1004956.87/(0.50%)  tradeAmount: 30855369   curKRW: 188133 || Mon Jan 15 2018 15:19:37 GMT+0900 (대한민국 표준시)
+[log] : [313][15970][ok] Total Money: 1008614.11/(0.86%)  tradeAmount: 30855369   curKRW: 188133 || Mon Jan 15 2018 15:19:43 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.02631976376659384(655.04) -3574000
+[log] : [314][15971][ok] Total Money: 1009022.07/(0.90%)  tradeAmount: 30949436   curKRW: 94066 || Mon Jan 15 2018 15:19:48 GMT+0900 (대한민국 표준시)
+[log] : [315][15972][ok] Total Money: 1009022.07/(0.90%)  tradeAmount: 30949436   curKRW: 94066 || Mon Jan 15 2018 15:19:54 GMT+0900 (대한민국 표준시)
+[log] : [316][15973][ok] Total Money: 1005071.16/(0.51%)  tradeAmount: 30949436   curKRW: 94066 || Mon Jan 15 2018 15:19:59 GMT+0900 (대한민국 표준시)
+[log] : [317][15974][ok] Total Money: 1005071.16/(0.51%)  tradeAmount: 30949436   curKRW: 94066 || Mon Jan 15 2018 15:20:05 GMT+0900 (대한민국 표준시)
+[log] : [318][15975][ok] Total Money: 1008002.48/(0.80%)  tradeAmount: 30949436   curKRW: 94066 || Mon Jan 15 2018 15:20:10 GMT+0900 (대한민국 표준시)
+[log] : [비트코인캐시]  sell 0(1010.31) - 3585000
+[log] : [319][15976][ok] Total Money: 1007875.03/(0.79%)  tradeAmount: 31863244   curKRW: 1007875 || Mon Jan 15 2018 15:20:15 GMT+0900 (대한민국 표준시)
+[log] : [320][15977][ok] Total Money: 1007875.03/(0.79%)  tradeAmount: 31863244   curKRW: 1007875 || Mon Jan 15 2018 15:20:21 GMT+0900 (대한민국 표준시)
+[log] : [321][15978][ok] Total Money: 1007875.03/(0.79%)  tradeAmount: 31863244   curKRW: 1007875 || Mon Jan 15 2018 15:20:26 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 1.3278985903879197(566.93) -379500
+[log] : [322][15979][ok] Total Money: 1008406.19/(0.84%)  tradeAmount: 32367181   curKRW: 503937 || Mon Jan 15 2018 15:20:32 GMT+0900 (대한민국 표준시)
+[log] : [323][15980][ok] Total Money: 1008538.98/(0.85%)  tradeAmount: 32367181   curKRW: 503937 || Mon Jan 15 2018 15:20:37 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.03524531508268398(1017.23) -3574500
+[log] : 
+[라이트코인]  buy 0.7490153315282633(37.78) -336400
+[log] : [324][15981][ok] Total Money: 1008558.81/(0.86%)  tradeAmount: 32745134   curKRW: 125984 || Mon Jan 15 2018 15:20:42 GMT+0900 (대한민국 표준시)
+[log] : [325][15983][ok] Total Money: 1008406.19/(0.84%)  tradeAmount: 32745134   curKRW: 125984 || Mon Jan 15 2018 15:20:48 GMT+0900 (대한민국 표준시)
+[log] : [326][15984][ok] Total Money: 1007875.03/(0.79%)  tradeAmount: 32745134   curKRW: 125984 || Mon Jan 15 2018 15:20:53 GMT+0900 (대한민국 표준시)
+[log] : [비트코인골드]  sell 0(596.99) - 379800
+[log] : [327][15985][ok] Total Money: 1008449.63/(0.84%)  tradeAmount: 33249470   curKRW: 630320 || Mon Jan 15 2018 15:20:59 GMT+0900 (대한민국 표준시)
+[log] : [328][15986][ok] Total Money: 1008291.02/(0.83%)  tradeAmount: 33249470   curKRW: 630320 || Mon Jan 15 2018 15:21:04 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.9372792020704621(43.39) -336250
+[log] : 
+[비트코인캐시]  buy 0.044078340097369634(1121.35) -3575000
+[log] : [329][15987][ok] Total Money: 1008431.61/(0.84%)  tradeAmount: 33722211   curKRW: 157580 || Mon Jan 15 2018 15:21:09 GMT+0900 (대한민국 표준시)
+[log] : [330][15988][ok] Total Money: 1008431.61/(0.84%)  tradeAmount: 33722211   curKRW: 157580 || Mon Jan 15 2018 15:21:15 GMT+0900 (대한민국 표준시)
+[log] : [331][15989][ok] Total Money: 1008431.61/(0.84%)  tradeAmount: 33722211   curKRW: 157580 || Mon Jan 15 2018 15:21:20 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.004077103902926169(23864.21) -19325000
+[log] : [332][15990][ok] Total Money: 1008461.29/(0.85%)  tradeAmount: 33801001   curKRW: 78790 || Mon Jan 15 2018 15:21:26 GMT+0900 (대한민국 표준시)
+[log] : [333][15991][ok] Total Money: 1008223.32/(0.82%)  tradeAmount: 33801001   curKRW: 78790 || Mon Jan 15 2018 15:21:31 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(44.00) - 336250
+[log] : 
+[비트코인캐시]  buy 0.0903225971813454(1179.38) -3575000
+[log] : [334][15992][ok] Total Money: 1008093.85/(0.81%)  tradeAmount: 34690920   curKRW: 322903 || Mon Jan 15 2018 15:21:37 GMT+0900 (대한민국 표준시)
+[log] : [335][15993][ok] Total Money: 1008178.67/(0.82%)  tradeAmount: 34690920   curKRW: 322903 || Mon Jan 15 2018 15:21:42 GMT+0900 (대한민국 표준시)
+[log] : [336][15994][ok] Total Money: 1008182.75/(0.82%)  tradeAmount: 34690920   curKRW: 322903 || Mon Jan 15 2018 15:21:47 GMT+0900 (대한민국 표준시)
+[log] : [비트코인]  sell 0(24733.06) - 19327000
+[log] : [337][15995][ok] Total Money: 1008186.82/(0.82%)  tradeAmount: 34769719   curKRW: 401701 || Mon Jan 15 2018 15:21:53 GMT+0900 (대한민국 표준시)
+[log] : [338][15996][ok] Total Money: 1008186.82/(0.82%)  tradeAmount: 34769719   curKRW: 401701 || Mon Jan 15 2018 15:21:58 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.5972368005577816(48.53) -336300
+[log] : 
+[비트코인캐시]  buy 0.028087083768365533(1339.07) -3575500
+[log] : [339][15997][ok] Total Money: 1010407.57/(1.04%)  tradeAmount: 35070995   curKRW: 100425 || Mon Jan 15 2018 15:22:04 GMT+0900 (대한민국 표준시)
+[log] : [340][15998][ok] Total Money: 1010278.84/(1.03%)  tradeAmount: 35070995   curKRW: 100425 || Mon Jan 15 2018 15:22:09 GMT+0900 (대한민국 표준시)
+[log] : [341][15999][ok] Total Money: 1008202.64/(0.82%)  tradeAmount: 35070995   curKRW: 100425 || Mon Jan 15 2018 15:22:14 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.0025983277623231817(25372.62) -19325000
+[log] : 
+[퀀텀]  buy 0.31049149150937105(209.47) -80860
+[log] : [342][16000][ok] Total Money: 1008175.38/(0.82%)  tradeAmount: 35146314   curKRW: 25106 || Mon Jan 15 2018 15:22:20 GMT+0900 (대한민국 표준시)
+[log] : [343][16001][ok] Total Money: 1008416.58/(0.84%)  tradeAmount: 35146314   curKRW: 25106 || Mon Jan 15 2018 15:22:25 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(45.54) - 336350
+[log] : [비트코인캐시]  sell 0(1463.05) - 3585000
+[log] : [344][16002][ok] Total Money: 1010226.04/(1.02%)  tradeAmount: 36056068   curKRW: 934860 || Mon Jan 15 2018 15:22:31 GMT+0900 (대한민국 표준시)
+[log] : [345][16003][ok] Total Money: 1010219.83/(1.02%)  tradeAmount: 36056068   curKRW: 934860 || Mon Jan 15 2018 15:22:36 GMT+0900 (대한민국 표준시)
+[log] : [346][16004][ok] Total Money: 1010264.89/(1.03%)  tradeAmount: 36056068   curKRW: 934860 || Mon Jan 15 2018 15:22:42 GMT+0900 (대한민국 표준시)
+[log] : 
+[퀀텀]  buy 6.065788344915075(280.49) -81200
+[log] : [비트코인]  sell 0(25815.24) - 19329000
+[log] : [347][16005][ok] Total Money: 1010295.94/(1.03%)  tradeAmount: 36598833   curKRW: 492542 || Mon Jan 15 2018 15:22:47 GMT+0900 (대한민국 표준시)
+[log] : [348][16006][ok] Total Money: 1010359.70/(1.04%)  tradeAmount: 36598833   curKRW: 492542 || Mon Jan 15 2018 15:22:52 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.06886773120904699(1954.95) -3576000
+[log] : [349][16007][ok] Total Money: 1011994.61/(1.20%)  tradeAmount: 36845104   curKRW: 246271 || Mon Jan 15 2018 15:22:58 GMT+0900 (대한민국 표준시)
+[log] : [350][16008][ok] Total Money: 1012440.95/(1.24%)  tradeAmount: 36845104   curKRW: 246271 || Mon Jan 15 2018 15:23:03 GMT+0900 (대한민국 표준시)
+[log] : [351][16009][ok] Total Money: 1012759.76/(1.28%)  tradeAmount: 36845104   curKRW: 246271 || Mon Jan 15 2018 15:23:09 GMT+0900 (대한민국 표준시)
+[log] : 
+[퀀텀]  buy 1.5090135220805885(359.12) -81600
+[log] : [352][16010][ok] Total Money: 1012531.04/(1.25%)  tradeAmount: 36968240   curKRW: 123135 || Mon Jan 15 2018 15:23:14 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인]  buy 0.003185252817056651(26131.30) -19329000
+[log] : [353][16011][ok] Total Money: 1014660.07/(1.47%)  tradeAmount: 37029808   curKRW: 61567 || Mon Jan 15 2018 15:23:19 GMT+0900 (대한민국 표준시)
+[log] : [354][16012][ok] Total Money: 1015057.52/(1.51%)  tradeAmount: 37029808   curKRW: 61567 || Mon Jan 15 2018 15:23:25 GMT+0900 (대한민국 표준시)
+[log] : [355][16013][ok] Total Money: 1014433.06/(1.44%)  tradeAmount: 37029808   curKRW: 61567 || Mon Jan 15 2018 15:23:30 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인캐시]  buy 0.008608466401130874(2138.96) -3576000
+[log] : [356][16014][ok] Total Money: 1015004.58/(1.50%)  tradeAmount: 37060592   curKRW: 30783 || Mon Jan 15 2018 15:23:36 GMT+0900 (대한민국 표준시)
+[log] : 
+[모네로]  buy 0.026885481092090834(19.21) -572500
+[log] : [퀀텀]  sell 0(435.98) - 81210
+[log] : [357][16015][ok] Total Money: 1010360.82/(1.04%)  tradeAmount: 37716348   curKRW: 655756 || Mon Jan 15 2018 15:23:41 GMT+0900 (대한민국 표준시)
+[log] : [비트코인]  sell 0(26246.18) - 19330000
+[log] : [358][16016][ok] Total Money: 1010360.82/(1.04%)  tradeAmount: 37777919   curKRW: 717327 || Mon Jan 15 2018 15:23:46 GMT+0900 (대한민국 표준시)
+[log] : [359][16017][ok] Total Money: 1010360.82/(1.04%)  tradeAmount: 37777919   curKRW: 717327 || Mon Jan 15 2018 15:23:52 GMT+0900 (대한민국 표준시)
+[log] : [360][16018][ok] Total Money: 1009857.22/(0.99%)  tradeAmount: 37777919   curKRW: 717327 || Mon Jan 15 2018 15:23:57 GMT+0900 (대한민국 표준시)
+[log] : [361][16020][ok] Total Money: 1009895.96/(0.99%)  tradeAmount: 37777919   curKRW: 717327 || Mon Jan 15 2018 15:24:03 GMT+0900 (대한민국 표준시)
+[log] : [모네로]  sell 0(96.15) - 572500
+[log] : 
+[퀀텀]  buy 4.522959792891005(452.75) -81000
+[log] : [362][16021][ok] Total Money: 1009890.58/(0.99%)  tradeAmount: 38159671   curKRW: 366359 || Mon Jan 15 2018 15:24:08 GMT+0900 (대한민국 표준시)
+[log] : [363][16022][ok] Total Money: 1011745.00/(1.17%)  tradeAmount: 38159671   curKRW: 366359 || Mon Jan 15 2018 15:24:13 GMT+0900 (대한민국 표준시)
+[log] : [364][16023][ok] Total Money: 1009890.58/(0.99%)  tradeAmount: 38159671   curKRW: 366359 || Mon Jan 15 2018 15:24:19 GMT+0900 (대한민국 표준시)
+[log] : [365][16024][ok] Total Money: 1011654.54/(1.17%)  tradeAmount: 38159671   curKRW: 366359 || Mon Jan 15 2018 15:24:24 GMT+0900 (대한민국 표준시)
+[log] : [366][16025][ok] Total Money: 1011699.77/(1.17%)  tradeAmount: 38159671   curKRW: 366359 || Mon Jan 15 2018 15:24:30 GMT+0900 (대한민국 표준시)
+[log] : [퀀텀]  sell 0(488.83) - 81270
+[log] : [367][16026][ok] Total Money: 1011266.73/(1.13%)  tradeAmount: 38527252   curKRW: 733940 || Mon Jan 15 2018 15:24:35 GMT+0900 (대한민국 표준시)
+[log] : [368][16027][ok] Total Money: 1011266.73/(1.13%)  tradeAmount: 38527252   curKRW: 733940 || Mon Jan 15 2018 15:24:40 GMT+0900 (대한민국 표준시)
+[log] : [비트코인캐시]  sell 0(2305.24) - 3577000
+[log] : [369][16028][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:24:46 GMT+0900 (대한민국 표준시)
+[log] : [370][16029][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:24:51 GMT+0900 (대한민국 표준시)
+[log] : [371][16030][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:24:57 GMT+0900 (대한민국 표준시)
+[log] : [372][16031][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:25:02 GMT+0900 (대한민국 표준시)
+[log] : [373][16032][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:25:08 GMT+0900 (대한민국 표준시)
+[log] : [374][16033][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:25:13 GMT+0900 (대한민국 표준시)
+[log] : [375][16034][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:25:18 GMT+0900 (대한민국 표준시)
+[log] : [376][16035][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:25:24 GMT+0900 (대한민국 표준시)
+[log] : [377][16036][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:25:29 GMT+0900 (대한민국 표준시)
+[log] : [378][16037][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:25:35 GMT+0900 (대한민국 표준시)
+[log] : [379][16038][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 38804384   curKRW: 1011073 || Mon Jan 15 2018 15:25:40 GMT+0900 (대한민국 표준시)
+[log] : 
+[모네로]  buy 0.8838051087797463(142.74) -572000
+[log] : [380][16039][ok] Total Money: 1011338.19/(1.13%)  tradeAmount: 39309921   curKRW: 505536 || Mon Jan 15 2018 15:25:45 GMT+0900 (대한민국 표준시)
+[log] : [381][16040][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 39309921   curKRW: 505536 || Mon Jan 15 2018 15:25:51 GMT+0900 (대한민국 표준시)
+[log] : [382][16041][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 39309921   curKRW: 505536 || Mon Jan 15 2018 15:25:56 GMT+0900 (대한민국 표준시)
+[log] : [383][16042][ok] Total Money: 1011073.04/(1.11%)  tradeAmount: 39309921   curKRW: 505536 || Mon Jan 15 2018 15:26:02 GMT+0900 (대한민국 표준시)
+[log] : 
+[퀀텀]  buy 3.108698328754242(496.35) -81310
+[log] : [384][16043][ok] Total Money: 1011352.83/(1.14%)  tradeAmount: 39562689   curKRW: 252768 || Mon Jan 15 2018 15:26:07 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.3766476845641595(14.03) -335550
+[log] : [모네로]  sell 0(145.38) - 572000
+[log] : [385][16044][ok] Total Money: 1011743.53/(1.17%)  tradeAmount: 40194610   curKRW: 631920 || Mon Jan 15 2018 15:26:12 GMT+0900 (대한민국 표준시)
+[log] : [386][16045][ok] Total Money: 1010624.40/(1.06%)  tradeAmount: 40194610   curKRW: 631920 || Mon Jan 15 2018 15:26:18 GMT+0900 (대한민국 표준시)
+[log] : [387][16046][ok] Total Money: 1009549.78/(0.95%)  tradeAmount: 40194610   curKRW: 631920 || Mon Jan 15 2018 15:26:23 GMT+0900 (대한민국 표준시)
+[log] : [388][16047][ok] Total Money: 1009549.78/(0.95%)  tradeAmount: 40194610   curKRW: 631920 || Mon Jan 15 2018 15:26:29 GMT+0900 (대한민국 표준시)
+[log] : [389][16048][ok] Total Money: 1010078.26/(1.01%)  tradeAmount: 40194610   curKRW: 631920 || Mon Jan 15 2018 15:26:34 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(-0.09) - 336900
+[log] : [390][16049][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 40321502   curKRW: 758813 || Mon Jan 15 2018 15:26:40 GMT+0900 (대한민국 표준시)
+[log] : [퀀텀]  sell 0(489.26) - 81000
+[log] : [391][16050][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 40573307   curKRW: 1010617 || Mon Jan 15 2018 15:26:45 GMT+0900 (대한민국 표준시)
+[log] : [392][16051][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 40573307   curKRW: 1010617 || Mon Jan 15 2018 15:26:50 GMT+0900 (대한민국 표준시)
+[log] : [393][16052][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 40573307   curKRW: 1010617 || Mon Jan 15 2018 15:26:56 GMT+0900 (대한민국 표준시)
+[log] : [394][16053][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 40573307   curKRW: 1010617 || Mon Jan 15 2018 15:27:01 GMT+0900 (대한민국 표준시)
+[log] : [395][16054][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 40573307   curKRW: 1010617 || Mon Jan 15 2018 15:27:07 GMT+0900 (대한민국 표준시)
+[log] : [396][16055][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 40573307   curKRW: 1010617 || Mon Jan 15 2018 15:27:12 GMT+0900 (대한민국 표준시)
+[log] : [397][16056][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 40573307   curKRW: 1010617 || Mon Jan 15 2018 15:27:17 GMT+0900 (대한민국 표준시)
+[log] : [398][16058][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 40573307   curKRW: 1010617 || Mon Jan 15 2018 15:27:23 GMT+0900 (대한민국 표준시)
+[log] : 
+[모네로]  buy 0.8838707559351737(121.83) -571700
+[log] : [399][16059][ok] Total Money: 1010706.21/(1.07%)  tradeAmount: 41078616   curKRW: 505308 || Mon Jan 15 2018 15:27:28 GMT+0900 (대한민국 표준시)
+[log] : [400][16060][ok] Total Money: 1010882.98/(1.09%)  tradeAmount: 41078616   curKRW: 505308 || Mon Jan 15 2018 15:27:34 GMT+0900 (대한민국 표준시)
+[log] : [401][16061][ok] Total Money: 1010706.21/(1.07%)  tradeAmount: 41078616   curKRW: 505308 || Mon Jan 15 2018 15:27:39 GMT+0900 (대한민국 표준시)
+[log] : [402][16062][ok] Total Money: 1010706.21/(1.07%)  tradeAmount: 41078616   curKRW: 505308 || Mon Jan 15 2018 15:27:45 GMT+0900 (대한민국 표준시)
+[log] : [403][16063][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 41078616   curKRW: 505308 || Mon Jan 15 2018 15:27:50 GMT+0900 (대한민국 표준시)
+[log] : [모네로]  sell 0(108.60) - 571700
+[log] : [404][16064][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 41583925   curKRW: 1010617 || Mon Jan 15 2018 15:27:55 GMT+0900 (대한민국 표준시)
+[log] : [405][16065][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 41583925   curKRW: 1010617 || Mon Jan 15 2018 15:28:01 GMT+0900 (대한민국 표준시)
+[log] : [406][16066][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 41583925   curKRW: 1010617 || Mon Jan 15 2018 15:28:06 GMT+0900 (대한민국 표준시)
+[log] : [407][16067][ok] Total Money: 1010617.82/(1.06%)  tradeAmount: 41583925   curKRW: 1010617 || Mon Jan 15 2018 15:28:12 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 1.5045672507611698(10.53) -335850
+[log] : [408][16068][ok] Total Money: 1012197.62/(1.22%)  tradeAmount: 42089233   curKRW: 505308 || Mon Jan 15 2018 15:28:17 GMT+0900 (대한민국 표준시)
+[log] : [409][16069][ok] Total Money: 1010467.37/(1.05%)  tradeAmount: 42089233   curKRW: 505308 || Mon Jan 15 2018 15:28:22 GMT+0900 (대한민국 표준시)
+[log] : [410][16070][ok] Total Money: 1010467.37/(1.05%)  tradeAmount: 42089233   curKRW: 505308 || Mon Jan 15 2018 15:28:28 GMT+0900 (대한민국 표준시)
+[log] : [411][16071][ok] Total Money: 1010467.37/(1.05%)  tradeAmount: 42089233   curKRW: 505308 || Mon Jan 15 2018 15:28:33 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(-0.02) - 336850
+[log] : [412][16072][ok] Total Money: 1012122.39/(1.21%)  tradeAmount: 42596047   curKRW: 1012122 || Mon Jan 15 2018 15:28:39 GMT+0900 (대한민국 표준시)
+[log] : [413][16073][ok] Total Money: 1012122.39/(1.21%)  tradeAmount: 42596047   curKRW: 1012122 || Mon Jan 15 2018 15:28:44 GMT+0900 (대한민국 표준시)
+[log] : [414][16074][ok] Total Money: 1012122.39/(1.21%)  tradeAmount: 42596047   curKRW: 1012122 || Mon Jan 15 2018 15:28:50 GMT+0900 (대한민국 표준시)
+[log] : [415][16075][ok] Total Money: 1012122.39/(1.21%)  tradeAmount: 42596047   curKRW: 1012122 || Mon Jan 15 2018 15:28:55 GMT+0900 (대한민국 표준시)
+[log] : [416][16076][ok] Total Money: 1012122.39/(1.21%)  tradeAmount: 42596047   curKRW: 1012122 || Mon Jan 15 2018 15:29:00 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 1.5065828960807366(38.42) -335900
+[log] : [417][16077][ok] Total Money: 1013553.64/(1.36%)  tradeAmount: 43102108   curKRW: 506061 || Mon Jan 15 2018 15:29:06 GMT+0900 (대한민국 표준시)
+[log] : [418][16078][ok] Total Money: 1013553.64/(1.36%)  tradeAmount: 43102108   curKRW: 506061 || Mon Jan 15 2018 15:29:11 GMT+0900 (대한민국 표준시)
+[log] : [419][16079][ok] Total Money: 1013553.64/(1.36%)  tradeAmount: 43102108   curKRW: 506061 || Mon Jan 15 2018 15:29:17 GMT+0900 (대한민국 표준시)
+[log] : [420][16080][ok] Total Money: 1012122.39/(1.21%)  tradeAmount: 43102108   curKRW: 506061 || Mon Jan 15 2018 15:29:22 GMT+0900 (대한민국 표준시)
+[log] : 
+[대시]  buy 0.1776401273495926(160.73) -1424400
+[log] : [421][16081][ok] Total Money: 1013419.16/(1.34%)  tradeAmount: 43355139   curKRW: 253030 || Mon Jan 15 2018 15:29:27 GMT+0900 (대한민국 표준시)
+[log] : [422][16082][ok] Total Money: 1013419.16/(1.34%)  tradeAmount: 43355139   curKRW: 253030 || Mon Jan 15 2018 15:29:33 GMT+0900 (대한민국 표준시)
+[log] : [423][16083][ok] Total Money: 1013312.58/(1.33%)  tradeAmount: 43355139   curKRW: 253030 || Mon Jan 15 2018 15:29:38 GMT+0900 (대한민국 표준시)
+[log] : [424][16084][ok] Total Money: 1013839.88/(1.38%)  tradeAmount: 43355139   curKRW: 253030 || Mon Jan 15 2018 15:29:44 GMT+0900 (대한민국 표준시)
+[log] : [425][16085][ok] Total Money: 1013915.21/(1.39%)  tradeAmount: 43355139   curKRW: 253030 || Mon Jan 15 2018 15:29:49 GMT+0900 (대한민국 표준시)
+[log] : [대시]  sell 0(291.06) - 1431100
+[log] : [426][16086][ok] Total Money: 1013915.21/(1.39%)  tradeAmount: 43609359   curKRW: 507251 || Mon Jan 15 2018 15:29:54 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.7541650069086555(66.12) -336300
+[log] : [427][16087][ok] Total Money: 1015158.62/(1.52%)  tradeAmount: 43862985   curKRW: 253625 || Mon Jan 15 2018 15:30:00 GMT+0900 (대한민국 표준시)
+[log] : [428][16088][ok] Total Money: 1015158.62/(1.52%)  tradeAmount: 43862985   curKRW: 253625 || Mon Jan 15 2018 15:30:05 GMT+0900 (대한민국 표준시)
+[log] : [429][16089][ok] Total Money: 1015045.59/(1.50%)  tradeAmount: 43862985   curKRW: 253625 || Mon Jan 15 2018 15:30:11 GMT+0900 (대한민국 표준시)
+[log] : [430][16090][ok] Total Money: 1015045.59/(1.50%)  tradeAmount: 43862985   curKRW: 253625 || Mon Jan 15 2018 15:30:16 GMT+0900 (대한민국 표준시)
+[log] : [431][16091][ok] Total Money: 1013802.17/(1.38%)  tradeAmount: 43862985   curKRW: 253625 || Mon Jan 15 2018 15:30:22 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.3771385752020533(93.04) -336250
+[log] : [432][16092][ok] Total Money: 1013802.17/(1.38%)  tradeAmount: 43989798   curKRW: 126812 || Mon Jan 15 2018 15:30:27 GMT+0900 (대한민국 표준시)
+[log] : [433][16093][ok] Total Money: 1013934.07/(1.39%)  tradeAmount: 43989798   curKRW: 126812 || Mon Jan 15 2018 15:30:33 GMT+0900 (대한민국 표준시)
+[log] : [434][16093][ok] Total Money: 1015253.01/(1.53%)  tradeAmount: 43989798   curKRW: 126812 || Mon Jan 15 2018 15:30:38 GMT+0900 (대한민국 표준시)
+[log] : [435][16096][ok] Total Money: 1013934.07/(1.39%)  tradeAmount: 43989798   curKRW: 126812 || Mon Jan 15 2018 15:30:43 GMT+0900 (대한민국 표준시)
+[log] : [436][16097][ok] Total Money: 1013934.07/(1.39%)  tradeAmount: 43989798   curKRW: 126812 || Mon Jan 15 2018 15:30:49 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.18854125172716388(118.73) -336300
+[log] : [437][16098][ok] Total Money: 1015347.28/(1.53%)  tradeAmount: 44053204   curKRW: 63406 || Mon Jan 15 2018 15:30:54 GMT+0900 (대한민국 표준시)
+[log] : [438][16099][ok] Total Money: 1013934.07/(1.39%)  tradeAmount: 44053204   curKRW: 63406 || Mon Jan 15 2018 15:31:00 GMT+0900 (대한민국 표준시)
+[log] : [439][16100][ok] Total Money: 1013934.07/(1.39%)  tradeAmount: 44053204   curKRW: 63406 || Mon Jan 15 2018 15:31:05 GMT+0900 (대한민국 표준시)
+[log] : [440][16100][ok] Total Money: 1013934.07/(1.39%)  tradeAmount: 44053204   curKRW: 63406 || Mon Jan 15 2018 15:31:10 GMT+0900 (대한민국 표준시)
+[log] : [441][16100][ok] Total Money: 1013934.07/(1.39%)  tradeAmount: 44053204   curKRW: 63406 || Mon Jan 15 2018 15:31:16 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.09428464380051332(120.52) -336250
+[log] : [442][16100][ok] Total Money: 1013938.78/(1.39%)  tradeAmount: 44084908   curKRW: 31703 || Mon Jan 15 2018 15:31:21 GMT+0900 (대한민국 표준시)
+[log] : [443][16100][ok] Total Money: 1013938.78/(1.39%)  tradeAmount: 44084908   curKRW: 31703 || Mon Jan 15 2018 15:31:27 GMT+0900 (대한민국 표준시)
+[log] : [444][16100][ok] Total Money: 1013938.78/(1.39%)  tradeAmount: 44084908   curKRW: 31703 || Mon Jan 15 2018 15:31:32 GMT+0900 (대한민국 표준시)
+[log] : [445][16100][ok] Total Money: 1013938.78/(1.39%)  tradeAmount: 44084908   curKRW: 31703 || Mon Jan 15 2018 15:31:37 GMT+0900 (대한민국 표준시)
+[log] : [446][16100][ok] Total Money: 1013938.78/(1.39%)  tradeAmount: 44084908   curKRW: 31703 || Mon Jan 15 2018 15:31:43 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.04714232190025666(121.38) -336250
+[log] : [447][16100][ok] Total Money: 1013941.14/(1.39%)  tradeAmount: 44100759   curKRW: 15851 || Mon Jan 15 2018 15:31:48 GMT+0900 (대한민국 표준시)
+[log] : [448][16100][ok] Total Money: 1013941.14/(1.39%)  tradeAmount: 44100759   curKRW: 15851 || Mon Jan 15 2018 15:31:54 GMT+0900 (대한민국 표준시)
+[log] : [449][16101][ok] Total Money: 1013941.14/(1.39%)  tradeAmount: 44100759   curKRW: 15851 || Mon Jan 15 2018 15:31:59 GMT+0900 (대한민국 표준시)
+[log] : [450][16102][ok] Total Money: 1013941.14/(1.39%)  tradeAmount: 44100759   curKRW: 15851 || Mon Jan 15 2018 15:32:04 GMT+0900 (대한민국 표준시)
+[log] : [451][16103][ok] Total Money: 1015721.85/(1.57%)  tradeAmount: 44100759   curKRW: 15851 || Mon Jan 15 2018 15:32:10 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.02356415302357857(138.36) -336350
+[log] : [452][16104][ok] Total Money: 1015734.81/(1.57%)  tradeAmount: 44108685   curKRW: 7925 || Mon Jan 15 2018 15:32:15 GMT+0900 (대한민국 표준시)
+[log] : [453][16105][ok] Total Money: 1015734.81/(1.57%)  tradeAmount: 44108685   curKRW: 7925 || Mon Jan 15 2018 15:32:21 GMT+0900 (대한민국 표준시)
+[log] : [454][16105][ok] Total Money: 1015734.81/(1.57%)  tradeAmount: 44108685   curKRW: 7925 || Mon Jan 15 2018 15:32:26 GMT+0900 (대한민국 표준시)
+[log] : [455][16105][ok] Total Money: 1015734.81/(1.57%)  tradeAmount: 44108685   curKRW: 7925 || Mon Jan 15 2018 15:32:31 GMT+0900 (대한민국 표준시)
+[log] : [456][16105][ok] Total Money: 1015734.81/(1.57%)  tradeAmount: 44108685   curKRW: 7925 || Mon Jan 15 2018 15:32:37 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.011782076511789285(145.68) -336350
+[log] : [457][16105][ok] Total Money: 1015741.29/(1.57%)  tradeAmount: 44112648   curKRW: 3962 || Mon Jan 15 2018 15:32:42 GMT+0900 (대한민국 표준시)
+[log] : [458][16106][ok] Total Money: 1015741.29/(1.57%)  tradeAmount: 44112648   curKRW: 3962 || Mon Jan 15 2018 15:32:48 GMT+0900 (대한민국 표준시)
+[log] : [459][16107][ok] Total Money: 1014089.53/(1.41%)  tradeAmount: 44112648   curKRW: 3962 || Mon Jan 15 2018 15:32:53 GMT+0900 (대한민국 표준시)
+[log] : [460][16108][ok] Total Money: 1014089.53/(1.41%)  tradeAmount: 44112648   curKRW: 3962 || Mon Jan 15 2018 15:32:58 GMT+0900 (대한민국 표준시)
+[log] : [461][16109][ok] Total Money: 1014089.53/(1.41%)  tradeAmount: 44112648   curKRW: 3962 || Mon Jan 15 2018 15:33:04 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.005891038255894643(154.34) -336350
+[log] : [462][16110][ok] Total Money: 1014089.53/(1.41%)  tradeAmount: 44114629   curKRW: 1981 || Mon Jan 15 2018 15:33:09 GMT+0900 (대한민국 표준시)
+[log] : [463][16111][ok] Total Money: 1015293.17/(1.53%)  tradeAmount: 44114629   curKRW: 1981 || Mon Jan 15 2018 15:33:15 GMT+0900 (대한민국 표준시)
+[log] : [464][16112][ok] Total Money: 1015293.17/(1.53%)  tradeAmount: 44114629   curKRW: 1981 || Mon Jan 15 2018 15:33:20 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 0.0025955602794998207(23.15) -381700
+[log] : [465][16113][ok] Total Money: 1015293.17/(1.53%)  tradeAmount: 44115620   curKRW: 990 || Mon Jan 15 2018 15:33:26 GMT+0900 (대한민국 표준시)
+[log] : [466][16114][ok] Total Money: 1015293.17/(1.53%)  tradeAmount: 44115620   curKRW: 990 || Mon Jan 15 2018 15:33:31 GMT+0900 (대한민국 표준시)
+[log] : [467][16115][ok] Total Money: 1015293.17/(1.53%)  tradeAmount: 44115620   curKRW: 990 || Mon Jan 15 2018 15:33:36 GMT+0900 (대한민국 표준시)
+[log] : [468][16117][ok] Total Money: 1015735.97/(1.57%)  tradeAmount: 44115620   curKRW: 990 || Mon Jan 15 2018 15:33:42 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(193.37) - 336750
+[log] : [469][16118][ok] Total Money: 1015292.91/(1.53%)  tradeAmount: 45128932   curKRW: 1014302 || Mon Jan 15 2018 15:33:47 GMT+0900 (대한민국 표준시)
+[log] : [비트코인골드]  sell 0(169.88) - 381600
+[log] : [470][16119][ok] Total Money: 1015292.91/(1.53%)  tradeAmount: 45129922   curKRW: 1015292 || Mon Jan 15 2018 15:33:53 GMT+0900 (대한민국 표준시)
+[log] : [471][16120][ok] Total Money: 1015292.91/(1.53%)  tradeAmount: 45129922   curKRW: 1015292 || Mon Jan 15 2018 15:33:58 GMT+0900 (대한민국 표준시)
+[log] : [472][16121][ok] Total Money: 1015292.91/(1.53%)  tradeAmount: 45129922   curKRW: 1015292 || Mon Jan 15 2018 15:34:03 GMT+0900 (대한민국 표준시)
+[log] : [473][16122][ok] Total Money: 1015292.91/(1.53%)  tradeAmount: 45129922   curKRW: 1015292 || Mon Jan 15 2018 15:34:09 GMT+0900 (대한민국 표준시)
+[log] : [474][16123][ok] Total Money: 1015292.91/(1.53%)  tradeAmount: 45129922   curKRW: 1015292 || Mon Jan 15 2018 15:34:14 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 1.507487616688754(215.10) -336750
+[log] : [475][16124][ok] Total Money: 1015292.91/(1.53%)  tradeAmount: 45637569   curKRW: 507646 || Mon Jan 15 2018 15:34:20 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 0.6679558617367605(275.27) -380000
+[log] : [476][16125][ok] Total Money: 1016361.64/(1.64%)  tradeAmount: 45891392   curKRW: 253823 || Mon Jan 15 2018 15:34:25 GMT+0900 (대한민국 표준시)
+[log] : [477][16126][ok] Total Money: 1015519.03/(1.55%)  tradeAmount: 45891392   curKRW: 253823 || Mon Jan 15 2018 15:34:30 GMT+0900 (대한민국 표준시)
+[log] : [478][16127][ok] Total Money: 1015519.03/(1.55%)  tradeAmount: 45891392   curKRW: 253823 || Mon Jan 15 2018 15:34:36 GMT+0900 (대한민국 표준시)
+[log] : [479][16128][ok] Total Money: 1016445.59/(1.64%)  tradeAmount: 45891392   curKRW: 253823 || Mon Jan 15 2018 15:34:41 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.3768719041721885(233.74) -336750
+[log] : [480][16129][ok] Total Money: 1015481.35/(1.55%)  tradeAmount: 46018304   curKRW: 126911 || Mon Jan 15 2018 15:34:47 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 0.16690112273801222(316.37) -380200
+[log] : [481][16130][ok] Total Money: 1015709.15/(1.57%)  tradeAmount: 46081759   curKRW: 63455 || Mon Jan 15 2018 15:34:52 GMT+0900 (대한민국 표준시)
+[log] : [482][16131][ok] Total Money: 1015426.50/(1.54%)  tradeAmount: 46081759   curKRW: 63455 || Mon Jan 15 2018 15:34:57 GMT+0900 (대한민국 표준시)
+[log] : [483][16132][ok] Total Money: 1016094.39/(1.61%)  tradeAmount: 46081759   curKRW: 63455 || Mon Jan 15 2018 15:35:03 GMT+0900 (대한민국 표준시)
+[log] : [484][16133][ok] Total Money: 1016428.33/(1.64%)  tradeAmount: 46081759   curKRW: 63455 || Mon Jan 15 2018 15:35:08 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.09421797604304713(244.82) -336750
+[log] : [485][16134][ok] Total Money: 1016428.33/(1.64%)  tradeAmount: 46113487   curKRW: 31727 || Mon Jan 15 2018 15:35:14 GMT+0900 (대한민국 표준시)
+[log] : [비트코인골드]  sell 0(390.04) - 380900
+[log] : [486][16135][ok] Total Money: 1016010.90/(1.60%)  tradeAmount: 46431484   curKRW: 349724 || Mon Jan 15 2018 15:35:19 GMT+0900 (대한민국 표준시)
+[log] : [487][16136][ok] Total Money: 1016307.69/(1.63%)  tradeAmount: 46431484   curKRW: 349724 || Mon Jan 15 2018 15:35:25 GMT+0900 (대한민국 표준시)
+[log] : [488][16137][ok] Total Money: 1016307.69/(1.63%)  tradeAmount: 46431484   curKRW: 349724 || Mon Jan 15 2018 15:35:30 GMT+0900 (대한민국 표준시)
+[log] : [489][16138][ok] Total Money: 1016307.69/(1.63%)  tradeAmount: 46431484   curKRW: 349724 || Mon Jan 15 2018 15:35:36 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(256.73) - 336900
+[log] : [490][16139][ok] Total Money: 1016307.69/(1.63%)  tradeAmount: 47098067   curKRW: 1016307 || Mon Jan 15 2018 15:35:41 GMT+0900 (대한민국 표준시)
+[log] : [491][16140][ok] Total Money: 1016307.69/(1.63%)  tradeAmount: 47098067   curKRW: 1016307 || Mon Jan 15 2018 15:35:46 GMT+0900 (대한민국 표준시)
+[log] : [492][16141][ok] Total Money: 1016307.69/(1.63%)  tradeAmount: 47098067   curKRW: 1016307 || Mon Jan 15 2018 15:35:52 GMT+0900 (대한민국 표준시)
+[log] : 
+[비트코인골드]  buy 1.3326877622946385(479.26) -381300
+[log] : [493][16142][ok] Total Money: 1016440.96/(1.64%)  tradeAmount: 47606221   curKRW: 508153 || Mon Jan 15 2018 15:35:57 GMT+0900 (대한민국 표준시)
+[log] : [494][16143][ok] Total Money: 1016307.69/(1.63%)  tradeAmount: 47606221   curKRW: 508153 || Mon Jan 15 2018 15:36:03 GMT+0900 (대한민국 표준시)
+[log] : 
+[라이트코인]  buy 0.7556190985322612(260.91) -336250
+[log] : [495][16144][ok] Total Money: 1016418.96/(1.64%)  tradeAmount: 47860298   curKRW: 254076 || Mon Jan 15 2018 15:36:08 GMT+0900 (대한민국 표준시)
+[log] : [496][16145][ok] Total Money: 1016418.96/(1.64%)  tradeAmount: 47860298   curKRW: 254076 || Mon Jan 15 2018 15:36:13 GMT+0900 (대한민국 표준시)
+[log] : [497][16146][ok] Total Money: 1016418.96/(1.64%)  tradeAmount: 47860298   curKRW: 254076 || Mon Jan 15 2018 15:36:19 GMT+0900 (대한민국 표준시)
+[log] : [비트코인골드]  sell 0(522.41) - 381000
+[log] : [498][16147][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:36:24 GMT+0900 (대한민국 표준시)
+[log] : [499][16148][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:36:30 GMT+0900 (대한민국 표준시)
+[log] : [500][16149][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:36:35 GMT+0900 (대한민국 표준시)
+[log] : [501][16150][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:36:40 GMT+0900 (대한민국 표준시)
+[log] : [502][16151][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:36:46 GMT+0900 (대한민국 표준시)
+[log] : [503][16152][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:36:51 GMT+0900 (대한민국 표준시)
+[log] : [504][16153][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:36:57 GMT+0900 (대한민국 표준시)
+[log] : [505][16154][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:37:02 GMT+0900 (대한민국 표준시)
+[log] : [506][16155][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:37:08 GMT+0900 (대한민국 표준시)
+[log] : [507][16156][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:37:13 GMT+0900 (대한민국 표준시)
+[log] : [508][16157][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:37:18 GMT+0900 (대한민국 표준시)
+[log] : [509][16158][ok] Total Money: 1015907.88/(1.59%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:37:24 GMT+0900 (대한민국 표준시)
+[log] : [510][16160][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:37:29 GMT+0900 (대한민국 표준시)
+[log] : [511][16161][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48368052   curKRW: 761830 || Mon Jan 15 2018 15:37:35 GMT+0900 (대한민국 표준시)
+[log] : [라이트코인]  sell 0(203.60) - 336900
+[log] : [512][16162][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:37:40 GMT+0900 (대한민국 표준시)
+[log] : [513][16163][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:37:46 GMT+0900 (대한민국 표준시)
+[log] : [514][16164][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:37:51 GMT+0900 (대한민국 표준시)
+[log] : [515][16165][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:37:56 GMT+0900 (대한민국 표준시)
+[log] : [516][16166][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:02 GMT+0900 (대한민국 표준시)
+[log] : [517][16167][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:07 GMT+0900 (대한민국 표준시)
+[log] : [518][16168][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:13 GMT+0900 (대한민국 표준시)
+[log] : [519][16169][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:18 GMT+0900 (대한민국 표준시)
+[log] : [520][16170][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:23 GMT+0900 (대한민국 표준시)
+[log] : [521][16171][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:29 GMT+0900 (대한민국 표준시)
+[log] : [522][16172][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:34 GMT+0900 (대한민국 표준시)
+[log] : [523][16173][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:40 GMT+0900 (대한민국 표준시)
+[log] : [524][16174][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:45 GMT+0900 (대한민국 표준시)
+[log] : [525][16175][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:50 GMT+0900 (대한민국 표준시)
+[log] : [526][16176][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:38:56 GMT+0900 (대한민국 표준시)
+[log] : [527][16177][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:39:01 GMT+0900 (대한민국 표준시)
+[log] : [528][16178][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:39:07 GMT+0900 (대한민국 표준시)
+[log] : [529][16179][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:39:12 GMT+0900 (대한민국 표준시)
+[log] : [530][16180][ok] Total Money: 1016399.03/(1.64%)  tradeAmount: 48622620   curKRW: 1016399 || Mon Jan 15 2018 15:39:18 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.5432383931647509(15.87) -935500
+[log] : [531][16181][ok] Total Money: 1016453.36/(1.65%)  tradeAmount: 49130820   curKRW: 508199 || Mon Jan 15 2018 15:39:23 GMT+0900 (대한민국 표준시)
+[log] : [532][16182][ok] Total Money: 1016507.68/(1.65%)  tradeAmount: 49130820   curKRW: 508199 || Mon Jan 15 2018 15:39:28 GMT+0900 (대한민국 표준시)
+[log] : [533][16183][ok] Total Money: 1016507.68/(1.65%)  tradeAmount: 49130820   curKRW: 508199 || Mon Jan 15 2018 15:39:34 GMT+0900 (대한민국 표준시)
+[log] : [534][16184][ok] Total Money: 1016507.68/(1.65%)  tradeAmount: 49130820   curKRW: 508199 || Mon Jan 15 2018 15:39:39 GMT+0900 (대한민국 표준시)
+[log] : [535][16185][ok] Total Money: 1016507.68/(1.65%)  tradeAmount: 49130820   curKRW: 508199 || Mon Jan 15 2018 15:39:45 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.27161919658237543(53.53) -935500
+[log] : [536][16186][ok] Total Money: 1016562.01/(1.66%)  tradeAmount: 49384919   curKRW: 254099 || Mon Jan 15 2018 15:39:50 GMT+0900 (대한민국 표준시)
+[log] : [537][16187][ok] Total Money: 1016562.01/(1.66%)  tradeAmount: 49384919   curKRW: 254099 || Mon Jan 15 2018 15:39:55 GMT+0900 (대한민국 표준시)
+[log] : [538][16188][ok] Total Money: 1016562.01/(1.66%)  tradeAmount: 49384919   curKRW: 254099 || Mon Jan 15 2018 15:40:01 GMT+0900 (대한민국 표준시)
+[log] : [539][16189][ok] Total Money: 1016562.01/(1.66%)  tradeAmount: 49384919   curKRW: 254099 || Mon Jan 15 2018 15:40:06 GMT+0900 (대한민국 표준시)
+[log] : [540][16190][ok] Total Money: 1016562.01/(1.66%)  tradeAmount: 49384919   curKRW: 254099 || Mon Jan 15 2018 15:40:12 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.13578056984226367(89.11) -935700
+[log] : [541][16191][ok] Total Money: 1016562.01/(1.66%)  tradeAmount: 49511969   curKRW: 127049 || Mon Jan 15 2018 15:40:17 GMT+0900 (대한민국 표준시)
+[log] : [542][16192][ok] Total Money: 1016562.01/(1.66%)  tradeAmount: 49511969   curKRW: 127049 || Mon Jan 15 2018 15:40:23 GMT+0900 (대한민국 표준시)
+[log] : [543][16193][ok] Total Money: 1016562.01/(1.66%)  tradeAmount: 49511969   curKRW: 127049 || Mon Jan 15 2018 15:40:28 GMT+0900 (대한민국 표준시)
+[log] : [544][16194][ok] Total Money: 1016562.01/(1.66%)  tradeAmount: 49511969   curKRW: 127049 || Mon Jan 15 2018 15:40:34 GMT+0900 (대한민국 표준시)
+[log] : [545][16196][ok] Total Money: 1016562.01/(1.66%)  tradeAmount: 49511969   curKRW: 127049 || Mon Jan 15 2018 15:40:39 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.06787577689999258(130.28) -935900
+[log] : [546][16197][ok] Total Money: 1016650.28/(1.67%)  tradeAmount: 49575494   curKRW: 63524 || Mon Jan 15 2018 15:40:44 GMT+0900 (대한민국 표준시)
+[log] : [547][16198][ok] Total Money: 1016650.28/(1.67%)  tradeAmount: 49575494   curKRW: 63524 || Mon Jan 15 2018 15:40:50 GMT+0900 (대한민국 표준시)
+[log] : [548][16199][ok] Total Money: 1016650.28/(1.67%)  tradeAmount: 49575494   curKRW: 63524 || Mon Jan 15 2018 15:40:55 GMT+0900 (대한민국 표준시)
+[log] : [549][16200][ok] Total Money: 1016650.28/(1.67%)  tradeAmount: 49575494   curKRW: 63524 || Mon Jan 15 2018 15:41:01 GMT+0900 (대한민국 표준시)
+[log] : [550][16201][ok] Total Money: 1016853.98/(1.69%)  tradeAmount: 49575494   curKRW: 63524 || Mon Jan 15 2018 15:41:06 GMT+0900 (대한민국 표준시)
+[log] : [제트캐시]  sell 0(170.21) - 935900
+[log] : [551][16202][ok] Total Money: 1016752.13/(1.68%)  tradeAmount: 50528721   curKRW: 1016752 || Mon Jan 15 2018 15:41:11 GMT+0900 (대한민국 표준시)
+[log] : [552][16203][ok] Total Money: 1016752.13/(1.68%)  tradeAmount: 50528721   curKRW: 1016752 || Mon Jan 15 2018 15:41:17 GMT+0900 (대한민국 표준시)
+[log] : [553][16204][ok] Total Money: 1016752.13/(1.68%)  tradeAmount: 50528721   curKRW: 1016752 || Mon Jan 15 2018 15:41:22 GMT+0900 (대한민국 표준시)
+[log] : [554][16205][ok] Total Money: 1016752.13/(1.68%)  tradeAmount: 50528721   curKRW: 1016752 || Mon Jan 15 2018 15:41:28 GMT+0900 (대한민국 표준시)
+[log] : [555][16206][ok] Total Money: 1016752.13/(1.68%)  tradeAmount: 50528721   curKRW: 1016752 || Mon Jan 15 2018 15:41:33 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.5434271153186083(205.44) -935500
+[log] : [556][16207][ok] Total Money: 1016860.82/(1.69%)  tradeAmount: 51037097   curKRW: 508376 || Mon Jan 15 2018 15:41:38 GMT+0900 (대한민국 표준시)
+[log] : [557][16208][ok] Total Money: 1016860.82/(1.69%)  tradeAmount: 51037097   curKRW: 508376 || Mon Jan 15 2018 15:41:44 GMT+0900 (대한민국 표준시)
+[log] : [558][16209][ok] Total Money: 1016860.82/(1.69%)  tradeAmount: 51037097   curKRW: 508376 || Mon Jan 15 2018 15:41:49 GMT+0900 (대한민국 표준시)
+[log] : [559][16210][ok] Total Money: 1016860.82/(1.69%)  tradeAmount: 51037097   curKRW: 508376 || Mon Jan 15 2018 15:41:55 GMT+0900 (대한민국 표준시)
+[log] : [560][16211][ok] Total Money: 1016860.82/(1.69%)  tradeAmount: 51037097   curKRW: 508376 || Mon Jan 15 2018 15:42:00 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.27171355765930416(230.35) -935500
+[log] : [561][16212][ok] Total Money: 1016915.16/(1.69%)  tradeAmount: 51291285   curKRW: 254188 || Mon Jan 15 2018 15:42:05 GMT+0900 (대한민국 표준시)
+[log] : [562][16213][ok] Total Money: 1016915.16/(1.69%)  tradeAmount: 51291285   curKRW: 254188 || Mon Jan 15 2018 15:42:11 GMT+0900 (대한민국 표준시)
+[log] : [563][16214][ok] Total Money: 1016915.16/(1.69%)  tradeAmount: 51291285   curKRW: 254188 || Mon Jan 15 2018 15:42:16 GMT+0900 (대한민국 표준시)
+[log] : [564][16215][ok] Total Money: 1016915.16/(1.69%)  tradeAmount: 51291285   curKRW: 254188 || Mon Jan 15 2018 15:42:22 GMT+0900 (대한민국 표준시)
+[log] : [565][16216][ok] Total Money: 1016915.16/(1.69%)  tradeAmount: 51291285   curKRW: 254188 || Mon Jan 15 2018 15:42:27 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.13585677882965208(253.71) -935500
+[log] : [566][16217][ok] Total Money: 1016942.33/(1.69%)  tradeAmount: 51418379   curKRW: 127094 || Mon Jan 15 2018 15:42:32 GMT+0900 (대한민국 표준시)
+[log] : [567][16218][ok] Total Money: 1016752.13/(1.68%)  tradeAmount: 51418379   curKRW: 127094 || Mon Jan 15 2018 15:42:38 GMT+0900 (대한민국 표준시)
+[log] : [568][16219][ok] Total Money: 1016752.13/(1.68%)  tradeAmount: 51418379   curKRW: 127094 || Mon Jan 15 2018 15:42:43 GMT+0900 (대한민국 표준시)
+[log] : [569][16220][ok] Total Money: 1016752.13/(1.68%)  tradeAmount: 51418379   curKRW: 127094 || Mon Jan 15 2018 15:42:49 GMT+0900 (대한민국 표준시)
+[log] : [570][16221][ok] Total Money: 1016847.23/(1.68%)  tradeAmount: 51418379   curKRW: 127094 || Mon Jan 15 2018 15:42:54 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.06792838941482604(266.89) -935500
+[log] : [571][16222][ok] Total Money: 1016854.03/(1.69%)  tradeAmount: 51481926   curKRW: 63547 || Mon Jan 15 2018 15:42:59 GMT+0900 (대한민국 표준시)
+[log] : [572][16223][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 51481926   curKRW: 63547 || Mon Jan 15 2018 15:43:05 GMT+0900 (대한민국 표준시)
+[log] : [573][16224][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 51481926   curKRW: 63547 || Mon Jan 15 2018 15:43:10 GMT+0900 (대한민국 표준시)
+[log] : [574][16225][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 51481926   curKRW: 63547 || Mon Jan 15 2018 15:43:16 GMT+0900 (대한민국 표준시)
+[log] : [575][16226][ok] Total Money: 1016854.03/(1.69%)  tradeAmount: 51481926   curKRW: 63547 || Mon Jan 15 2018 15:43:21 GMT+0900 (대한민국 표준시)
+[log] : [제트캐시]  sell 0(489.36) - 942100
+[log] : [576][16227][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:43:26 GMT+0900 (대한민국 표준시)
+[log] : [577][16228][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:43:32 GMT+0900 (대한민국 표준시)
+[log] : [578][16229][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:43:37 GMT+0900 (대한민국 표준시)
+[log] : [579][16230][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:43:43 GMT+0900 (대한민국 표준시)
+[log] : [580][16231][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:43:48 GMT+0900 (대한민국 표준시)
+[log] : [581][16232][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:43:53 GMT+0900 (대한민국 표준시)
+[log] : [582][16233][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:43:59 GMT+0900 (대한민국 표준시)
+[log] : [583][16234][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:44:04 GMT+0900 (대한민국 표준시)
+[log] : [584][16235][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:44:10 GMT+0900 (대한민국 표준시)
+[log] : [585][16236][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:44:15 GMT+0900 (대한민국 표준시)
+[log] : [586][16238][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:44:20 GMT+0900 (대한민국 표준시)
+[log] : [587][16239][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:44:26 GMT+0900 (대한민국 표준시)
+[log] : [588][16240][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52441856   curKRW: 1023477 || Mon Jan 15 2018 15:44:31 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.5444026826133957(487.00) -940000
+[log] : [589][16241][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52953595   curKRW: 511738 || Mon Jan 15 2018 15:44:37 GMT+0900 (대한민국 표준시)
+[log] : [590][16242][ok] Total Money: 1023477.04/(2.35%)  tradeAmount: 52953595   curKRW: 511738 || Mon Jan 15 2018 15:44:42 GMT+0900 (대한민국 표준시)
+[log] : [591][16243][ok] Total Money: 1023585.92/(2.36%)  tradeAmount: 52953595   curKRW: 511738 || Mon Jan 15 2018 15:44:48 GMT+0900 (대한민국 표준시)
+[log] : [592][16244][ok] Total Money: 1023531.48/(2.35%)  tradeAmount: 52953595   curKRW: 511738 || Mon Jan 15 2018 15:44:53 GMT+0900 (대한민국 표준시)
+[log] : [593][16245][ok] Total Money: 1023531.48/(2.35%)  tradeAmount: 52953595   curKRW: 511738 || Mon Jan 15 2018 15:44:58 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.27217238679746414(719.51) -940100
+[log] : [594][16246][ok] Total Money: 1023531.48/(2.35%)  tradeAmount: 53209464   curKRW: 255869 || Mon Jan 15 2018 15:45:04 GMT+0900 (대한민국 표준시)
+[log] : [595][16247][ok] Total Money: 1024919.66/(2.49%)  tradeAmount: 53209464   curKRW: 255869 || Mon Jan 15 2018 15:45:09 GMT+0900 (대한민국 표준시)
+[log] : [596][16248][ok] Total Money: 1024919.66/(2.49%)  tradeAmount: 53209464   curKRW: 255869 || Mon Jan 15 2018 15:45:15 GMT+0900 (대한민국 표준시)
+[log] : [597][16249][ok] Total Money: 1023531.48/(2.35%)  tradeAmount: 53209464   curKRW: 255869 || Mon Jan 15 2018 15:45:20 GMT+0900 (대한민국 표준시)
+[log] : [598][16250][ok] Total Money: 1023531.48/(2.35%)  tradeAmount: 53209464   curKRW: 255869 || Mon Jan 15 2018 15:45:25 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.13668229745101282(952.53) -936000
+[log] : [599][16251][ok] Total Money: 1024091.88/(2.41%)  tradeAmount: 53337399   curKRW: 127934 || Mon Jan 15 2018 15:45:31 GMT+0900 (대한민국 표준시)
+[log] : [600][16252][ok] Total Money: 1025903.07/(2.59%)  tradeAmount: 53337399   curKRW: 127934 || Mon Jan 15 2018 15:45:36 GMT+0900 (대한민국 표준시)
+[log] : [601][16253][ok] Total Money: 1025903.07/(2.59%)  tradeAmount: 53337399   curKRW: 127934 || Mon Jan 15 2018 15:45:42 GMT+0900 (대한민국 표준시)
+[log] : [602][16254][ok] Total Money: 1025903.07/(2.59%)  tradeAmount: 53337399   curKRW: 127934 || Mon Jan 15 2018 15:45:47 GMT+0900 (대한민국 표준시)
+[log] : [603][16255][ok] Total Money: 1025903.07/(2.59%)  tradeAmount: 53337399   curKRW: 127934 || Mon Jan 15 2018 15:45:53 GMT+0900 (대한민국 표준시)
+[log] : 
+[제트캐시]  buy 0.06832654903554156(1217.47) -936200
+[log] : [604][16256][ok] Total Money: 1026299.36/(2.63%)  tradeAmount: 53401366   curKRW: 63967 || Mon Jan 15 2018 15:45:58 GMT+0900 (대한민국 표준시)
+[log] : [605][16257][ok] Total Money: 1020374.18/(2.04%)  tradeAmount: 53401366   curKRW: 63967 || Mon Jan 15 2018 15:46:03 GMT+0900 (대한민국 표준시)
+[log] : [606][16258][ok] Total Money: 1020374.18/(2.04%)  tradeAmount: 53401366   curKRW: 63967 || Mon Jan 15 2018 15:46:09 GMT+0900 (대한민국 표준시)
+[log] : [607][16259][ok] Total Money: 1020374.18/(2.04%)  tradeAmount: 53401366   curKRW: 63967 || Mon Jan 15 2018 15:46:14 GMT+0900 (대한민국 표준시)
+[log] : [608][16260][ok] Total Money: 1020374.18/(2.04%)  tradeAmount: 53401366   curKRW: 63967 || Mon Jan 15 2018 15:46:20 GMT+0900 (대한민국 표준시)
+[log] : 
+[대시]  buy 0.022375582484634813(345.93) -1429400

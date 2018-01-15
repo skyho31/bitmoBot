@@ -161,7 +161,7 @@ function checkTicker(currency) {
       } else {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
-            if(!isTradable){
+            if(!isTradable && currency.tradeStack <= 0){
             //if(currency.maxMacd * 0.8 > curHisto){
               sellCoin(currency, curSellPrice);
             } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10 && isTradable) {
@@ -178,9 +178,9 @@ function checkTicker(currency) {
 
       myWallet.total += myWallet[key] * curPrice;
 
-      //if(curHisto > 0 && myWallet[key] > 0){
+      if(isTradable){
         console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack} slope : ${stack == 1 ? 'init' : diff} tradable: ${isTradable}`);
-      //}
+      }
 
       tickCount++;
       if(currency.tradeStack > 0) currency.tradeStack--;
@@ -214,7 +214,7 @@ function buyCoin(currency, price) {
     // for log
     logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
     console.log(logMessage);
-    log.write('log', logMessage + '\n', true);
+    log.write('log', '\n' + logMessage + '\n', true);
   }
 }
 
@@ -261,7 +261,7 @@ function checkStatus(){
     })  
   }
 
-  if(stack > 0) console.log(logMessage);
+  if(stack > 0) console.log('\n' + logMessage);
 
   log.write('log', logMessage + '\n', true);
   stack++;
