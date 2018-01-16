@@ -21,6 +21,8 @@ var currArr;
 var tradeInterval;
 var defaultAlpha = 0;
 var currentAlpha = 0;
+var previousAlpha = 0;
+var isAlpha = false;
 
 function Currency(key, name, cap) {
   this.name = name;
@@ -108,16 +110,16 @@ function checkTicker(currency) {
         currency.maxMacd = 0;
       }
       
-      if (stack < 5){
+      if (stack < 10){
         sellCoin(currency, curSellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
             if(currency.maxMacd * 0.6 > curHisto){
               sellCoin(currency, curSellPrice);
-            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10) {
+            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10 && isAlpha) {
               buyCoin(currency, curBuyPrice);
-            } else if(myWallet.krw >= 1000 && !currency.initTrade && curHisto > 10){
+            } else if(myWallet.krw >= 1000 && !currency.initTrade && curHisto > 10 && isAlpha){
               currency.initTrade = true;
               buyCoin(currency, curBuyPrice);
             }
@@ -195,15 +197,14 @@ function checkStatus(){
   var profitRate = (realTotal / myWallet.default - 1) * 100;
   var date = new Date();
   var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
-  var time = (date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '/' + date.getDate() + '-' + date.getHours() + 'h ' + date.getMinutes() + 'm ' + date.getSeconds() + 's';
+  var time = (date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '/' + date.getDate() + ' ' + date.getHours() + 'h ' + date.getMinutes() + 'm ' + date.getSeconds() + 's';
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
   var readyState = histogramCount > PERIODS.long ? 'ok' : 'ready';
-  var logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + realTotal.toFixed(2) + '/(' + profitRate.toFixed(2) +
-    '%)  alpha: ' + alphaChange + '%  tradeAmount: ' + Math.floor(tradeAmount) + '  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) + ' || ' + time;
+  var logMessage;
 
   if(stack <= 1){
     myWallet.startDate = date.getDate();
-    defaultAlpha = currentAlpha;
+    defaultAlpha = previousAlpha = currentAlpha;
   }
 
   if(myWallet.startDate < date.getDate()){
@@ -211,6 +212,12 @@ function checkStatus(){
     myWallet.startDate = date.getDate();
   }
 
+  isAlpha = !!(currentAlpha >= previousAlpha);
+  previousAlpha = Number(currentAlpha);
+  currentAlpha = 0;
+
+  logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + realTotal.toFixed(2) + '/(' + profitRate.toFixed(2) +
+  '%)  market: ' + alphaChange + '%('+ (isAlpha ? '+' : '-') +')   tradeAmount : ' + Math.floor(tradeAmount) + '  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) + ' || ' + time;
 
   if (stack % 10 == 0) {
     var walletStatus = '\n////////My Wallet Status ///////// \n';
@@ -233,11 +240,11 @@ function checkStatus(){
   stack++;
 
   if(totalMoney < myWallet.default * 0.8 && stack > 1){
-    console.log('the end');
+    console.log('The end, Go to the hanriver!!!');
     return false;
   }
 
-  currentAlpha = 0;
+
   for (var i = 0; i < currArr.length; i++){
     checkTicker(currencyInfo[currArr[i]]);
   }
