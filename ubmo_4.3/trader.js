@@ -37,6 +37,7 @@ function Currency(key, name, cap) {
   this.recentTradePrice = 0;
   this.startDate = 0;
   this.cap = cap;
+  this.boughtPrice = 0;
 }
 
 function Wallet(defaultMoney) {
@@ -115,13 +116,13 @@ function checkTicker(currency) {
       } else {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
-            if(currency.maxMacd * 0.6 > curHisto){
+            if(currency.maxMacd * 0.8 > curHisto){
               sellCoin(currency, curSellPrice);
-            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10 && isAlpha) {
-              buyCoin(currency, curBuyPrice);
-            } else if(myWallet.krw >= 1000 && !currency.initTrade && curHisto > 10 && isAlpha){
+            } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10 && isAlpha && currency.boughtPrice < curPrice) {
+              buyCoin(currency, curBuyPrice, curPrice);
+            } else if(myWallet.krw >= 1000 && !currency.initTrade && curHisto > 10 && isAlpha && currency.boughtPrice < curPrice){
               currency.initTrade = true;
-              buyCoin(currency, curBuyPrice);
+              buyCoin(currency, curBuyPrice, curPrice);
             }
           } else {
             sellCoin(currency, curSellPrice);
@@ -150,19 +151,20 @@ function checkTicker(currency) {
   });
 }
 
-function buyCoin(currency, price) {
+function buyCoin(currency, price, curPrice) {
   var name = currency.name;
   var key = currency.key;
   var krw = myWallet.krw;
-  var buyCount = krw / 2 / price;
+  var buyCount = krw / 4 / price;
   var logMessage;
 
   if (buyCount > 0.0001) {
-    tradeAmount += krw * 0.5;
-    myWallet.krw = krw * 0.5;
+    tradeAmount += krw * 0.25;
+    myWallet.krw = krw * 0.75;
     myWallet[key] += buyCount;
     currency.tradeStack = 5;
     currency.maxMacd = 0;
+    currency.boughtPrice = curPrice;
 
     // for log
     logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
@@ -210,9 +212,16 @@ function checkStatus(){
   if(myWallet.startDate < date.getDate()){
     myWallet.default = totalMoney;
     myWallet.startDate = date.getDate();
+    defaultAlpha = previousAlpha = currentAlpha;
+    tradeAmount = 0;
   }
 
-  isAlpha = !!(currentAlpha >= previousAlpha);
+  if(currentAlpha >= 0){
+    isAlpha = !!(currentAlpha >= previousAlpha);
+  } else {
+    isAlpha = !!(currentAlpha > previousAlpha);
+  }
+
   previousAlpha = Number(currentAlpha);
   currentAlpha = 0;
 
