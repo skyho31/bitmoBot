@@ -44,6 +44,7 @@ function Wallet(defaultMoney) {
   this.default = defaultMoney;
   this.total = 0;
   this.krw = defaultMoney;
+  this.totalTradeAmount = 0;
 }
 
 function makeWallet(obj, cb) {
@@ -59,16 +60,12 @@ function makeWallet(obj, cb) {
         var key = currArr[i];
         var cap = myCapInfo[key].cap;
         currencyInfo[key] = new Currency(key, currObj[key], cap);
-        
       }
 
       cb();
-
-  
+      
     });
   })
-
-  
 }
 
 function checkTicker(currency) {
@@ -158,6 +155,7 @@ function buyCoin(currency, price, curPrice) {
 
   if (buyCount > 0.0001) {
     tradeAmount += krw * 0.25;
+    myWallet.totalTradeAmount += krw * 0.25;
     myWallet.krw = krw * 0.75;
     myWallet[key] += buyCount;
     currency.tradeStack = 5;
@@ -177,6 +175,7 @@ function sellCoin(currency, price) {
 
   if (myWallet[key] >= 0.0001) {
     tradeAmount += myWallet[key] * price;
+    myWallet.totalTradeAmount += myWallet[key] * price;
     myWallet.krw += myWallet[key] * price;
     myWallet[key] = 0;
     currency.tradeStack = 5;
@@ -192,7 +191,7 @@ function sellCoin(currency, price) {
 
 function checkStatus(){
   var totalMoney = (myWallet.total = getTotal());
-  var fee = tradeAmount * 0.00075;
+  var fee = myWallet.totalTradeAmount * 0.00075;
   var realTotal = totalMoney - fee;
   var profitRate = (realTotal / myWallet.default - 1) * 100;
   var date = new Date();
@@ -218,13 +217,13 @@ function checkStatus(){
     isAlpha = !!(currentAlpha >= previousAlpha);
   } else {
     isAlpha = !!(currentAlpha > previousAlpha);
-  }
 
   previousAlpha = Number(currentAlpha);
+  }
   currentAlpha = 0;
 
-  logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + realTotal.toFixed(2) + '/(' + profitRate.toFixed(2) +
-  '%)  market: ' + alphaChange + '%('+ (isAlpha ? '+' : '-') +')   tradeAmount : ' + Math.floor(tradeAmount) + '  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) + ' || ' + time;
+  logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + profitRate.toFixed(2) +
+  '%)  market: ' + alphaChange + '%('+ (isAlpha ? '+' : '-') +')   tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) + ' || ' + time;
 
   if (stack % 10 == 0) {
     var walletStatus = '\n////////My Wallet Status ///////// \n';
@@ -260,7 +259,7 @@ function checkStatus(){
 function getTotal() {
   var total = 0;
   for (var key in myWallet) {
-    if (key !== 'default' && key !== 'total' && key !== 'krw' && key !== 'startDate') {
+    if (key !== 'default' && key !== 'total' && key !== 'krw' && key !== 'startDate' && key !== 'totalTradeAmount') {
       var curPrice = myWallet[key] * currencyInfo[key].price.slice(-1)[0];
       total += isNaN(curPrice) ? 0 : curPrice;
     } else if(key === 'krw') {
