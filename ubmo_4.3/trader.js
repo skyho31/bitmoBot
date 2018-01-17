@@ -219,9 +219,9 @@ function checkStatus(){
     isAlpha = !!(currentAlpha >= previousAlpha);
   } else {
     isAlpha = !!(currentAlpha > previousAlpha);
+  }
 
   previousAlpha = Number(currentAlpha);
-  }
   currentAlpha = 0;
 
   logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + profitRate.toFixed(2) +
