@@ -81,12 +81,10 @@ function checkTicker(currency) {
     try {
       var result = JSON.parse(body); 
       var price = currencyInfo[key].price = result.price.slice(0);
-      var sellPrice = currencyInfo[key].sellPrice = result.sellPrice.slice(0);
-      var buyPrice = currencyInfo[key].buyPrice = result.buyPrice.slice(0);
+      var sellPrice = currencyInfo[key].sellPrice = result.sellPrice;
+      var buyPrice = currencyInfo[key].buyPrice = result.buyPrice;
 
       curPrice = price.slice(-1)[0];
-      curSellPrice = sellPrice.slice(-1)[0];
-      curBuyPrice = buyPrice.slice(-1)[0];
 
       /**
        * @param data Array.<Number> the collection of prices
@@ -112,20 +110,20 @@ function checkTicker(currency) {
       }
       
       if (stack < 10){
-        sellCoin(currency, curSellPrice);
+        sellCoin(currency, sellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
             if(currency.maxMacd * 0.8 > curHisto){
-              sellCoin(currency, curSellPrice);
+              sellCoin(currency, sellPrice);
             } else if(myWallet.krw >= 1000 && (curHisto * prevHisto < -1 || curHisto == currency.maxMacd) && currency.tradeStack <= 0 && curHisto > 10 && isAlpha && currency.boughtPrice < curPrice) {
-              buyCoin(currency, curBuyPrice, curPrice);
+              buyCoin(currency, buyPrice, curPrice);
             } else if(myWallet.krw >= 1000 && !currency.initTrade && curHisto > 10 && isAlpha && currency.boughtPrice < curPrice){
               currency.initTrade = true;
-              buyCoin(currency, curBuyPrice, curPrice);
+              buyCoin(currency, buyPrice, curPrice);
             }
           } else {
-            sellCoin(currency, curSellPrice);
+            sellCoin(currency, sellPrice);
           }
         }
       }
