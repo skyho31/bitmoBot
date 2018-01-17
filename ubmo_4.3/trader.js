@@ -104,6 +104,7 @@ function checkTicker(currency) {
 
       if(curHisto < 0){
         currency.maxMacd = 0;
+        currency.boughtPrice = 0;
       }
       
       if (stack < 10){
@@ -124,6 +125,7 @@ function checkTicker(currency) {
           }
         }
       }
+
 
       myWallet.total +=  myWallet * curPrice;
       currentAlpha += currency.cap * curPrice; 
