@@ -187,8 +187,6 @@ function buyCoin(currency, price) {
           for(var trade in data){
             tradeAmount += data[trade].units * data[trade].price;
             myWallet.totalTradeAmount += data[trade].units * data[trade].price;
-            // myWallet.krw = krw * 0.75;
-            // myWallet[key] += buyCount;
             currency.boughtPrice = data[trade].price;
   
             // for log
@@ -199,7 +197,6 @@ function buyCoin(currency, price) {
           currency.tradeStack = 5;
           currency.maxMacd = 0;
         } else {
-          //krw += cost;
           console.log(key + ' : ' + result.message);
         }
       })
@@ -216,45 +213,30 @@ function sellCoin(currency, price) {
   var logMessage;
 
   if (sellCount >= currency.minTradeUnits) {
-    xCoin.sellCoin(key, sellCount, function(result){
-      if(result.status == '0000'){
-        var data = result.data;
-        for(var trade in data){
-          tradeAmount += data[trade].units * data[trade].price;
-          myWallet.totalTradeAmount += data[trade].units * data[trade].price;
-          currency.boughtPrice = data[trade].price;
+    try {
 
-          // for log
-          logMessage = '[' + name + ']  sell ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + data[trade].price;
-          console.log(logMessage);
-          log.write('log', logMessage + '\n', true);
+      xCoin.sellCoin(key, sellCount, function(result){
+        if(result.status == '0000'){
+          var data = result.data;
+          for(var trade in data){
+            tradeAmount += data[trade].units * data[trade].price;
+            myWallet.totalTradeAmount += data[trade].units * data[trade].price;
+            currency.boughtPrice = data[trade].price;
+
+            // for log
+            logMessage = '[' + name + ']  sell ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + data[trade].price;
+            console.log(logMessage);
+            log.write('log', logMessage + '\n', true);
+          }
+          currency.tradeStack = 5;
+          currency.maxMacd = 0;
+        } else {
+          console.log(key + ' : ' + result.message);
         }
-        currency.tradeStack = 5;
-        currency.maxMacd = 0;
-      } else {
-        console.log(key + ' : ' + result.message);
-        // sellCount = Number((sellCount * 0.95).toFixed(4));
-        // xCoin.sellCoin(key, sellCount, function(result){
-        //   if(result.status == '0000'){
-        //     var data = result.data;
-        //     for(var trade in data){
-        //       tradeAmount += data[trade].units * data[trade].price;
-        //       myWallet.totalTradeAmount += data[trade].units * data[trade].price;
-        //       currency.boughtPrice = data[trade].price;
-    
-        //       // for log
-        //       logMessage = '[' + name + ']  sell ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + data[trade].price;
-        //       console.log(logMessage);
-        //       log.write('log', logMessage + '\n', true);
-        //     }
-        //     currency.tradeStack = 5;
-        //     currency.maxMacd = 0;
-        //   } else {
-        //     console.log(key + ' : ' + result.message);
-        //   }
-        // })
-      }
-    })
+      })
+    } catch(e){
+      console.log(key + ' : ' + e);
+    }
   }
 }
 
