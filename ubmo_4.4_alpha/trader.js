@@ -52,9 +52,9 @@ function Wallet() {
 
 var minTradeUnits = {
   BTC: 0.001,
-  ETH: 0.01, 
-  DASH: 0.01, 
-  LTC: 0.1, 
+  ETH: 0.001, 
+  DASH: 0.001, 
+  LTC: 0.01, 
   ETC: 0.1, 
   XRP: 10, 
   BCH: 0.001, 
@@ -62,7 +62,7 @@ var minTradeUnits = {
   ZEC: 0.01, 
   QTUM: 0.1, 
   BTG: 0.01, 
-  EOS: 1
+  EOS: 0.1
 }
 
 function makeWallet(obj, cb) {
@@ -126,7 +126,7 @@ function checkTicker(currency) {
         currency.boughtPrice = 0;
       }
       
-      if (stack < 10){
+      if (stack < 300){
         sellCoin(currency, sellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
@@ -279,7 +279,7 @@ function checkStatus(){
   var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
   var time = (date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '/' + date.getDate() + ' ' + date.getHours() + 'h ' + date.getMinutes() + 'm ' + date.getSeconds() + 's';
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
-  var readyState = histogramCount > PERIODS.long ? 'ok' : 'ready';
+  var readyState = stack > PERIODS.long ? 'ok' : 'ready';
   var logMessage;
 
   if(stack <= 1){
