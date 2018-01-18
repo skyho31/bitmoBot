@@ -297,7 +297,7 @@ function checkStatus(){
   if(currentAlpha >= 0){
     isAlpha = !!(currentAlpha >= previousAlpha);
   } else {
-    isAlpha = !!(currentAlpha > previousAlpha);
+    isAlpha = !!(currentAlpha >= previousAlpha * 1.1);
   }
 
   previousAlpha = Number(currentAlpha);
