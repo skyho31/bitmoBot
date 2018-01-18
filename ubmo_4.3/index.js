@@ -1,3 +1,3 @@
 var trader = require('./trader');
 
-trader.init(1000000);
+trader.init(20000);

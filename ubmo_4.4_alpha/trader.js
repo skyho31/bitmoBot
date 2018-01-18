@@ -24,6 +24,7 @@ var defaultAlpha = 0;
 var currentAlpha = 0;
 var previousAlpha = 0;
 var isAlpha = false;
+var tempKrw = 0;
 
 function Currency(key, name, cap, minUnits) {
   this.name = name;
@@ -58,7 +59,7 @@ var minTradeUnits = {
   XRP: 10, 
   BCH: 0.001, 
   XMR: 0.01, 
-  ZEC: 0.001, 
+  ZEC: 0.01, 
   QTUM: 0.1, 
   BTG: 0.01, 
   EOS: 1
@@ -148,7 +149,7 @@ function checkTicker(currency) {
 
       currentAlpha += currency.cap * curPrice; 
 
-      if(curHisto > 0 && myWallet[key] > 0){
+      if(curHisto > 0 && myWallet[key] > currency.minTradeUnits){
         console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`);
       }
 
@@ -169,39 +170,49 @@ function checkTicker(currency) {
 function buyCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
-  var buyCount = (krw / 4 / price).toFixed(8);
+  var krw = myWallet.krw;
+  var cost = Math.floor(krw / 4);
+
+  // 강제 거래 실패 로직 - 소숫점 4자리부터 거래 가능
+  var buyCount = Number((cost / price).toFixed(4));
   var logMessage;
 
   if (buyCount > currency.minTradeUnits) {
+    myWallet.krw -= cost;
 
-    xCoin.buyCoin(key, buyCount, function(result){
-      if(result.status == '0000'){
-        var data = result.data;
-        for(var trade in data){
-          tradeMount += trade[data].units * trade[data].price;
-          myWallet.totalTradeAmount += trade[data].units * trade[data].price;
-          // myWallet.krw = krw * 0.75;
-          // myWallet[key] += buyCount;
-          currency.boughtPrice = trade[data].price;
-
-          // for log
-          logMessage = '[' + name + ']  buy ' + trade[data].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + trade[data].price;
-          console.log(logMessage);
-          log.write('log', logMessage + '\n', true);
+    try {
+      xCoin.buyCoin(key, buyCount, function(result){
+        if(result.status == '0000'){
+          var data = result.data;
+          for(var trade in data){
+            tradeAmount += data[trade].units * data[trade].price;
+            myWallet.totalTradeAmount += data[trade].units * data[trade].price;
+            // myWallet.krw = krw * 0.75;
+            // myWallet[key] += buyCount;
+            currency.boughtPrice = data[trade].price;
+  
+            // for log
+            logMessage = '[' + name + ']  buy ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + data[trade].price;
+            console.log(logMessage);
+            log.write('log', logMessage + '\n', true);
+          }
+          currency.tradeStack = 5;
+          currency.maxMacd = 0;
+        } else {
+          //krw += cost;
+          console.log(key + ' : ' + result.message);
         }
-        currency.tradeStack = 5;
-        currency.maxMacd = 0;
-      } else {
-        console.log(key + ' : ' + result.message);
-      }
-    })
+      })
+    } catch(e){
+      //krw += cost;
+    }
   }
 }
 
 function sellCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
-  var sellCount = myWallet['available_' + key].toFixed(8);
+  var sellCount = Number(myWallet['available_' + key]);
   var logMessage;
 
   if (sellCount >= currency.minTradeUnits) {
@@ -209,12 +220,12 @@ function sellCoin(currency, price) {
       if(result.status == '0000'){
         var data = result.data;
         for(var trade in data){
-          tradeMount += trade[data].units * trade[data].price;
-          myWallet.totalTradeAmount += trade[data].units * trade[data].price;
-          currency.boughtPrice = trade[data].price;
+          tradeAmount += data[trade].units * data[trade].price;
+          myWallet.totalTradeAmount += data[trade].units * data[trade].price;
+          currency.boughtPrice = data[trade].price;
 
           // for log
-          logMessage = '[' + name + ']  sell ' + trade[data].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + trade[data].price;
+          logMessage = '[' + name + ']  sell ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + data[trade].price;
           console.log(logMessage);
           log.write('log', logMessage + '\n', true);
         }
@@ -273,6 +284,7 @@ function checkStatus(){
       }
     }
     log.write('profitLog', walletStatus + '\b', true);
+    
     fs.writeFile('./logs/wallet.txt', JSON.stringify(myWallet), function(){
       console.log(walletStatus);
     })  
@@ -304,8 +316,8 @@ function getTotal() {
     }
   }
 
-  if(stack == 1){
-    myWallet.default = myWallet.total;
+  if(stack <= 2){
+    myWallet.default = total;
   }
 
   return total;
@@ -360,7 +372,7 @@ eventEmitter.on('collected', function() {
 eventEmitter.on('failedGetBalance', function(){
   setTimeout(function(){
     readAPIWallet(checkStatus);
-  }, intervalTime/2);
+  }, 1000);
 });
 
 eventEmitter.on('inited', function() {
