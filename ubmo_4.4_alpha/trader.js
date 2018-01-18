@@ -174,7 +174,7 @@ function buyCoin(currency, price) {
   var cost = Math.floor(krw / 4);
 
   // 강제 거래 실패 로직 - 소숫점 4자리부터 거래 가능
-  var buyCount = Number((cost / price).toFixed(4));
+  var buyCount = parseDecimal(cost / price);
   var logMessage;
 
   if (buyCount > currency.minTradeUnits) {
@@ -212,7 +212,7 @@ function buyCoin(currency, price) {
 function sellCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
-  var sellCount = Number(myWallet['available_' + key]);
+  var sellCount = parseDecimal(myWallet['available_' + key]);
   var logMessage;
 
   if (sellCount >= currency.minTradeUnits) {
@@ -233,9 +233,41 @@ function sellCoin(currency, price) {
         currency.maxMacd = 0;
       } else {
         console.log(key + ' : ' + result.message);
+        // sellCount = Number((sellCount * 0.95).toFixed(4));
+        // xCoin.sellCoin(key, sellCount, function(result){
+        //   if(result.status == '0000'){
+        //     var data = result.data;
+        //     for(var trade in data){
+        //       tradeAmount += data[trade].units * data[trade].price;
+        //       myWallet.totalTradeAmount += data[trade].units * data[trade].price;
+        //       currency.boughtPrice = data[trade].price;
+    
+        //       // for log
+        //       logMessage = '[' + name + ']  sell ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + data[trade].price;
+        //       console.log(logMessage);
+        //       log.write('log', logMessage + '\n', true);
+        //     }
+        //     currency.tradeStack = 5;
+        //     currency.maxMacd = 0;
+        //   } else {
+        //     console.log(key + ' : ' + result.message);
+        //   }
+        // })
       }
     })
   }
+}
+
+function parseDecimal(num){
+  if (num == 0){
+    return 0;
+  }
+  
+  var str = String(num);
+  var arr = str.split('.');
+  arr[1] = arr[1].slice(0, 4);
+  
+  return Number(arr.join('.'));
 }
 
 function checkStatus(){
@@ -372,7 +404,7 @@ eventEmitter.on('collected', function() {
 eventEmitter.on('failedGetBalance', function(){
   setTimeout(function(){
     readAPIWallet(checkStatus);
-  }, 1000);
+  }, 2000);
 });
 
 eventEmitter.on('inited', function() {
