@@ -1,3 +1,5 @@
 var trader = require('./trader');
+var xCoin = require('../lib/xCoin');
 
-trader.init(1000000);
+xCoin.init();
+trader.init();

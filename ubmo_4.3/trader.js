@@ -128,8 +128,6 @@ function checkTicker(currency) {
         }
       }
 
-
-      myWallet.total +=  myWallet * curPrice;
       currentAlpha += currency.cap * curPrice; 
 
       if(curHisto > 0 && myWallet[key] > 0){

@@ -42,10 +42,10 @@ function Currency(key, name, cap, minUnits) {
   this.minTradeUnits = minUnits;
 }
 
-function Wallet(defaultMoney) {
-  this.default = defaultMoney;
+function Wallet() {
+  this.default = 0;
   this.total = 0;
-  this.krw = defaultMoney;
+  this.krw = 0;
   this.totalTradeAmount = 0;
 }
 
@@ -74,6 +74,7 @@ function makeWallet(obj, cb) {
   
       for (var i = 0; i < currArr.length; i++) {
         obj[currArr[i]] = 0;
+        obj['available_' + currArr[i]] = 0;
         var key = currArr[i];
         var cap = myCapInfo[key].cap;
         currencyInfo[key] = new Currency(key, currObj[key], cap, minTradeUnits[key]);
@@ -133,10 +134,10 @@ function checkTicker(currency) {
               sellCoin(currency, sellPrice);
             } else if(myWallet.krw >= 1000 && curHisto > 10 && isAlpha && currency.boughtPrice < curPrice && currency.tradeStack <= 0){
               if(curHisto * prevHisto < -1 || curHisto == currency.maxMacd){
-                buyCoin(currency, buyPrice, curPrice);
+                buyCoin(currency, buyPrice);
               } else if(!currency.initTrade){
                 currency.initTrade = true;
-                buyCoin(currency, buyPrice, curPrice);
+                buyCoin(currency, buyPrice);
               }
             }
           } else {
@@ -145,8 +146,6 @@ function checkTicker(currency) {
         }
       }
 
-
-      myWallet.total +=  myWallet * curPrice;
       currentAlpha += currency.cap * curPrice; 
 
       if(curHisto > 0 && myWallet[key] > 0){
@@ -167,46 +166,64 @@ function checkTicker(currency) {
   });
 }
 
-function buyCoin(currency, price, curPrice) {
+function buyCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
-  var krw = myWallet.krw;
-  var buyCount = krw / 4 / price;
+  var buyCount = (krw / 4 / price).toFixed(8);
   var logMessage;
 
-  if (buyCount > 0.0001) {
-    tradeAmount += krw * 0.25;
-    myWallet.totalTradeAmount += krw * 0.25;
-    myWallet.krw = krw * 0.75;
-    myWallet[key] += buyCount;
-    currency.tradeStack = 5;
-    currency.maxMacd = 0;
-    currency.boughtPrice = curPrice;
+  if (buyCount > currency.minTradeUnits) {
 
-    // for log
-    logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
-    console.log(logMessage);
-    log.write('log', logMessage + '\n', true);
+    xCoin.buyCoin(key, buyCount, function(result){
+      if(result.status == '0000'){
+        var data = result.data;
+        for(var trade in data){
+          tradeMount += trade[data].units * trade[data].price;
+          myWallet.totalTradeAmount += trade[data].units * trade[data].price;
+          // myWallet.krw = krw * 0.75;
+          // myWallet[key] += buyCount;
+          currency.boughtPrice = trade[data].price;
+
+          // for log
+          logMessage = '[' + name + ']  buy ' + trade[data].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + trade[data].price;
+          console.log(logMessage);
+          log.write('log', logMessage + '\n', true);
+        }
+        currency.tradeStack = 5;
+        currency.maxMacd = 0;
+      } else {
+        console.log(key + ' : ' + result.message);
+      }
+    })
   }
 }
 
 function sellCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
+  var sellCount = myWallet['available_' + key].toFixed(8);
+  var logMessage;
 
-  if (myWallet[key] >= 0.0001) {
-    tradeAmount += myWallet[key] * price;
-    myWallet.totalTradeAmount += myWallet[key] * price;
-    myWallet.krw += myWallet[key] * price;
-    myWallet[key] = 0;
-    currency.tradeStack = 5;
-    currency.maxMacd = 0;
+  if (sellCount >= currency.minTradeUnits) {
+    xCoin.sellCoin(key, sellCount, function(result){
+      if(result.status == '0000'){
+        var data = result.data;
+        for(var trade in data){
+          tradeMount += trade[data].units * trade[data].price;
+          myWallet.totalTradeAmount += trade[data].units * trade[data].price;
+          currency.boughtPrice = trade[data].price;
 
-
-    // for log
-    logMessage = '[' + name + ']  sell ' +  myWallet[key] * price + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') - ' + price;
-    console.log(logMessage);
-    log.write('log', logMessage + '\n', true);
+          // for log
+          logMessage = '[' + name + ']  sell ' + trade[data].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + trade[data].price;
+          console.log(logMessage);
+          log.write('log', logMessage + '\n', true);
+        }
+        currency.tradeStack = 5;
+        currency.maxMacd = 0;
+      } else {
+        console.log(key + ' : ' + result.message);
+      }
+    })
   }
 }
 
@@ -271,7 +288,6 @@ function checkStatus(){
     return false;
   }
 
-
   for (var i = 0; i < currArr.length; i++){
     checkTicker(currencyInfo[currArr[i]]);
   }
@@ -280,12 +296,16 @@ function checkStatus(){
 function getTotal() {
   var total = 0;
   for (var key in myWallet) {
-    if (key !== 'default' && key !== 'total' && key !== 'krw' && key !== 'startDate' && key !== 'totalTradeAmount') {
+    if (key !== 'default' && key !== 'total' && key !== 'krw' && key !== 'startDate' && key !== 'totalTradeAmount' && key.indexOf('available') !== 0) {
       var curPrice = myWallet[key] * currencyInfo[key].price.slice(-1)[0];
       total += isNaN(curPrice) ? 0 : curPrice;
     } else if(key === 'krw') {
       total += myWallet[key];
     }
+  }
+
+  if(stack == 1){
+    myWallet.default = myWallet.total;
   }
 
   return total;
@@ -298,24 +318,49 @@ function readData(){
       myWallet = JSON.parse(log.read('wallet.txt'));
       console.log('read my wallet');
       console.log('Data load Complete');
-      checkStatus();
+      readAPIWallet(checkStatus);
     
   } catch(e) {
     console.log('there is no wallet file');
     console.log('Data load Complete');
-    checkStatus();
+    readAPIWallet(checkStatus);
   }
+}
 
-  
+function readAPIWallet(checkStatus){
+  xCoin.getMyBalance(function(result){
+    if(result.status == '0000'){
+      var data = result.data;
+      for (var i = 0; i < currArr.length; i++){
+        var total = 'total_' + currArr[i].toLowerCase();
+        var available = 'available_' +  currArr[i].toLowerCase();
+        myWallet[currArr[i]] = Number(data[total]);
+        myWallet['available_' + currArr[i]] = Number(data[available]);
+      }
+
+      myWallet['krw'] = data['total_krw'];
+
+      checkStatus();
+    } else {
+      console.log(result.data + " : " + result.message)
+      eventEmitter.emit('failedGetBalance');
+    }
+  });
 }
 
 eventEmitter.on('collected', function() {
   if (tickCount == currArr.length) {
     tickCount = 0;
     setTimeout(function(){
-      checkStatus()
+      readAPIWallet(checkStatus);
     }, intervalTime);
   }
+});
+
+eventEmitter.on('failedGetBalance', function(){
+  setTimeout(function(){
+    readAPIWallet(checkStatus);
+  }, intervalTime/2);
 });
 
 eventEmitter.on('inited', function() {
@@ -324,8 +369,8 @@ eventEmitter.on('inited', function() {
 });
 
 module.exports = {
-  init: function(defaultMoney) {
-    myWallet = new Wallet(defaultMoney);
+  init: function() {
+    myWallet = new Wallet();
     makeWallet(myWallet, function() {
       console.log(myWallet);
       eventEmitter.emit('inited');
