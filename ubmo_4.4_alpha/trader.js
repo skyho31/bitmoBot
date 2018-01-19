@@ -32,7 +32,7 @@ function Currency(key, name, cap, minUnits) {
   this.price = [];
   this.histogram = [];
   this.maxMacd = 0;
-  this.initTrade = false;
+  //this.initTrade = false;
   this.tradeStack = 0;
   this.buyPrice = 0;
   this.sellPrice = 0;
@@ -134,11 +134,11 @@ function checkTicker(currency) {
           if(curHisto > 0){
             if(currency.maxMacd * 0.8 > curHisto){
               sellCoin(currency, sellPrice);
-            } else if(myWallet.krw >= 1000 && curHisto > 10 && isAlpha && currency.boughtPrice < curPrice && currency.tradeStack <= 0){
+            } else if(myWallet.krw >= 1000 && curHisto > 10 && isAlpha  && currency.tradeStack <= 0){
               if(curHisto * prevHisto < -1 || curHisto == currency.maxMacd){
                 buyCoin(currency, buyPrice);
-              } else if(!currency.initTrade){
-                currency.initTrade = true;
+              } else if(currency.boughtPrice < curPrice){
+                //currency.initTrade = true;
                 buyCoin(currency, buyPrice);
               }
             }
