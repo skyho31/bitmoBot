@@ -271,6 +271,8 @@ function checkStatus(){
     myWallet.startDate = date.getDate();
     defaultAlpha = previousAlpha = currentAlpha;
   }
+
+  var prevAlphaChange = (((previousAlpha/defaultAlpha) -1) * 100).toFixed(2);
   
 
   if(myWallet.startDate < date.getDate()){
@@ -283,7 +285,8 @@ function checkStatus(){
   if(currentAlpha >= 0){
     isAlpha = !!(currentAlpha >= previousAlpha * 1.1);
   } else {
-    isAlpha = !!(currentAlpha >= previousAlpha * 1.25);
+    //isAlpha = !!(currentAlpha >= previousAlpha * 1.25);
+    isAlpha = !!(prevAlphaChange * 3/4 <= alphaChange);
   }
 
   previousAlpha = Number(currentAlpha);
