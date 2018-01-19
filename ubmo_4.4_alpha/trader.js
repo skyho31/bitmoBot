@@ -127,7 +127,7 @@ function checkTicker(currency) {
       }
 
      
-      if (stack < 30){
+      if (stack < PERIODS.long){
         sellCoin(currency, sellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
@@ -264,7 +264,7 @@ function checkStatus(){
   var date = new Date();
   var time = (date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '/' + date.getDate() + ' ' + date.getHours() + 'h ' + date.getMinutes() + 'm ' + date.getSeconds() + 's';
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
-  var readyState = histogramCount > PERIODS.long ? 'ok' : 'ready';
+  var readyState = stack > PERIODS.long ? 'ok' : 'ready';
   var logMessage;
   var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
 
@@ -283,11 +283,12 @@ function checkStatus(){
     tradeAmount = 0;
   }
 
-  if(currentAlpha >= 0){
+  if(alphaChange >= 0){
     isAlpha = !!(currentAlpha >= previousAlpha * 1.0);
   } else {
     //isAlpha = !!(currentAlpha >= previousAlpha * 1.25);
-    isAlpha = !!(prevAlphaChange * 9/10 <= alphaChange);
+    isAlpha = !!(prevAlphaChange * 8/10 <= alphaChange);
+    // isAlpha = !!(currentAlpha >= previousAlpha * 1.1);
   }
 
   previousAlpha = Number(currentAlpha);
