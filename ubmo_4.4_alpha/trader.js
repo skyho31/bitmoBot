@@ -196,7 +196,7 @@ function buyCoin(currency, price) {
             console.log(logMessage);
             log.write('log', logMessage + '\n', true);
           }
-          currency.tradeStack = 5;
+          currency.tradeStack = 10;
           currency.maxMacd = 0;
         } else {
           console.log(key + ' : ' + result.message);
@@ -232,7 +232,7 @@ function sellCoin(currency, price) {
             console.log(logMessage);
             log.write('log', logMessage + '\n', true);
           }
-          currency.tradeStack = 5;
+          currency.tradeStack = 10;
           currency.maxMacd = 0;
         } else {
           console.log(key + ' : ' + result.message);
