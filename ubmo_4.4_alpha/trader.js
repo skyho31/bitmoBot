@@ -127,7 +127,7 @@ function checkTicker(currency) {
       }
 
      
-      if (stack < PERIODS.long){
+      if (stack < 30){
         sellCoin(currency, sellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
@@ -224,10 +224,11 @@ function sellCoin(currency, price) {
           for(var trade in data){
             tradeAmount += data[trade].units * data[trade].price;
             myWallet.totalTradeAmount += data[trade].units * data[trade].price;
-            currency.boughtPrice = data[trade].price;
+            var diff = (((data[trade].price / price) - 1) * 100).toFixed(2);
+
 
             // for log
-            logMessage = '[' + name + ']  sell ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + data[trade].price;
+            logMessage = '[' + name + ']  sell ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') diff :' + data[trade].price + '/' + price + '(' + diff +')';
             console.log(logMessage);
             log.write('log', logMessage + '\n', true);
           }
@@ -263,7 +264,7 @@ function checkStatus(){
   var date = new Date();
   var time = (date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '/' + date.getDate() + ' ' + date.getHours() + 'h ' + date.getMinutes() + 'm ' + date.getSeconds() + 's';
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
-  var readyState = stack > PERIODS.long ? 'ok' : 'ready';
+  var readyState = histogramCount > PERIODS.long ? 'ok' : 'ready';
   var logMessage;
   var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
 
@@ -283,10 +284,10 @@ function checkStatus(){
   }
 
   if(currentAlpha >= 0){
-    isAlpha = !!(currentAlpha >= previousAlpha * 1.1);
+    isAlpha = !!(currentAlpha >= previousAlpha * 1.0);
   } else {
     //isAlpha = !!(currentAlpha >= previousAlpha * 1.25);
-    isAlpha = !!(prevAlphaChange * 3/4 <= alphaChange);
+    isAlpha = !!(prevAlphaChange * 9/10 <= alphaChange);
   }
 
   previousAlpha = Number(currentAlpha);
