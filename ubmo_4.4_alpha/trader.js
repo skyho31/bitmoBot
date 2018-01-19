@@ -8,11 +8,11 @@ var eventEmitter = new events.EventEmitter();
 var currencyInfo = {};
 
 const PERIODS = {
-  long: 26 * 15,
-  short: 12 * 15,
-  signal: 9 * 15
+  long: 26 * 36,
+  short: 12 * 36,
+  signal: 9 * 36
 };
-const intervalTime = 5000;
+const intervalTime = 2000;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -75,7 +75,7 @@ function makeWallet(obj, cb) {
   
       for (var i = 0; i < currArr.length; i++) {
         obj[currArr[i]] = 0;
-        obj['available_' + currArr[i]] = 0;
+        //obj['available_' + currArr[i]] = 0;
         var key = currArr[i];
         var cap = myCapInfo[key].cap;
         currencyInfo[key] = new Currency(key, currObj[key], cap, minTradeUnits[key]);
@@ -125,8 +125,9 @@ function checkTicker(currency) {
         currency.maxMacd = 0;
         currency.boughtPrice = 0;
       }
-      
-      if (stack < 300){
+
+     
+      if (stack < PERIODS.long){
         sellCoin(currency, sellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
@@ -188,9 +189,10 @@ function buyCoin(currency, price) {
             tradeAmount += data[trade].units * data[trade].price;
             myWallet.totalTradeAmount += data[trade].units * data[trade].price;
             currency.boughtPrice = data[trade].price;
+            var diff = (((data[trade].price / price) - 1) * 100).toFixed(2);
   
             // for log
-            logMessage = '[' + name + ']  buy ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + data[trade].price;
+            logMessage = '[' + name + ']  buy ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') diff :' + data[trade].price + '/' + price + '(' + diff +')';
             console.log(logMessage);
             log.write('log', logMessage + '\n', true);
           }
@@ -209,7 +211,8 @@ function buyCoin(currency, price) {
 function sellCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
-  var sellCount = parseDecimal(myWallet['available_' + key]);
+  //var sellCount = parseDecimal(myWallet['available_' + key]);
+  var sellCount = parseDecimal(myWallet[key]);
   var logMessage;
 
   if (sellCount >= currency.minTradeUnits) {
@@ -258,16 +261,17 @@ function checkStatus(){
   var realTotal = totalMoney - fee;
   var profitRate = (realTotal / myWallet.default - 1) * 100;
   var date = new Date();
-  var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
   var time = (date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '/' + date.getDate() + ' ' + date.getHours() + 'h ' + date.getMinutes() + 'm ' + date.getSeconds() + 's';
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
   var readyState = stack > PERIODS.long ? 'ok' : 'ready';
   var logMessage;
+  var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
 
   if(stack <= 1){
     myWallet.startDate = date.getDate();
     defaultAlpha = previousAlpha = currentAlpha;
   }
+  
 
   if(myWallet.startDate < date.getDate()){
     myWallet.default = totalMoney;
@@ -277,9 +281,9 @@ function checkStatus(){
   }
 
   if(currentAlpha >= 0){
-    isAlpha = !!(currentAlpha >= previousAlpha);
-  } else {
     isAlpha = !!(currentAlpha >= previousAlpha * 1.1);
+  } else {
+    isAlpha = !!(currentAlpha >= previousAlpha * 1.25);
   }
 
   previousAlpha = Number(currentAlpha);
@@ -322,7 +326,9 @@ function checkStatus(){
 function getTotal() {
   var total = 0;
   for (var key in myWallet) {
-    if (key !== 'default' && key !== 'total' && key !== 'krw' && key !== 'startDate' && key !== 'totalTradeAmount' && key.indexOf('available') !== 0) {
+    //if (key !== 'default' && key !== 'total' && key !== 'krw' && key !== 'startDate' && key !== 'totalTradeAmount' && key.indexOf('available') !== 0) {
+    if (key !== 'default' && key !== 'total' && key !== 'krw' && key !== 'startDate' && key !== 'totalTradeAmount') {
+
       var curPrice = myWallet[key] * currencyInfo[key].price.slice(-1)[0];
       total += isNaN(curPrice) ? 0 : curPrice;
     } else if(key === 'krw') {
@@ -359,9 +365,9 @@ function readAPIWallet(checkStatus){
       var data = result.data;
       for (var i = 0; i < currArr.length; i++){
         var total = 'total_' + currArr[i].toLowerCase();
-        var available = 'available_' +  currArr[i].toLowerCase();
+        //var available = 'available_' +  currArr[i].toLowerCase();
         myWallet[currArr[i]] = Number(data[total]);
-        myWallet['available_' + currArr[i]] = Number(data[available]);
+        //myWallet['available_' + currArr[i]] = Number(data[available]);
       }
 
       myWallet['krw'] = data['total_krw'];
