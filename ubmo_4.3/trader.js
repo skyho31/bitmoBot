@@ -7,11 +7,11 @@ var eventEmitter = new events.EventEmitter();
 var currencyInfo = {};
 
 const PERIODS = {
-  long: 26 * 15,
-  short: 12 * 15,
-  signal: 9 * 15
+  long: 60 * 10,
+  short: 15 * 10,
+  signal: 9 * 10
 };
-const intervalTime = 5000;
+const intervalTime = 3000;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -24,7 +24,7 @@ var currentAlpha = 0;
 var previousAlpha = 0;
 var isAlpha = false;
 
-function Currency(key, name, cap) {
+function Currency(key, name, cap, minUnits) {
   this.name = name;
   this.key = key;
   this.price = [];
@@ -38,6 +38,7 @@ function Currency(key, name, cap) {
   this.startDate = 0;
   this.cap = cap;
   this.boughtPrice = 0;
+  this.minTradeUnits = minUnits;
 }
 
 function Wallet(defaultMoney) {
@@ -45,6 +46,21 @@ function Wallet(defaultMoney) {
   this.total = 0;
   this.krw = defaultMoney;
   this.totalTradeAmount = 0;
+}
+
+var minTradeUnits = {
+  BTC: 0.001,
+  ETH: 0.001, 
+  DASH: 0.001, 
+  LTC: 0.01, 
+  ETC: 0.1, 
+  XRP: 10, 
+  BCH: 0.001, 
+  XMR: 0.01, 
+  ZEC: 0.01, 
+  QTUM: 0.1, 
+  BTG: 0.01, 
+  EOS: 0.1
 }
 
 function makeWallet(obj, cb) {
@@ -59,7 +75,7 @@ function makeWallet(obj, cb) {
         obj[currArr[i]] = 0;
         var key = currArr[i];
         var cap = myCapInfo[key].cap;
-        currencyInfo[key] = new Currency(key, currObj[key], cap);
+        currencyInfo[key] = new Currency(key, currObj[key], cap, minTradeUnits[key]);
       }
 
       cb();
@@ -130,7 +146,7 @@ function checkTicker(currency) {
 
       currentAlpha += currency.cap * curPrice; 
 
-      if(curHisto > 0 && myWallet[key] > 0){
+      if(curHisto > 0 && myWallet[key] > currency.minTradeUnits){
         console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`);
       }
 
@@ -152,13 +168,15 @@ function buyCoin(currency, price, curPrice) {
   var name = currency.name;
   var key = currency.key;
   var krw = myWallet.krw;
-  var buyCount = krw / 4 / price;
+  var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
+
+  var buyCount = parseDecimal(cost / price);
   var logMessage;
 
-  if (buyCount > 0.0001) {
-    tradeAmount += krw * 0.25;
-    myWallet.totalTradeAmount += krw * 0.25;
-    myWallet.krw = krw * 0.75;
+  if (buyCount > currency.minTradeUnits) {
+    tradeAmount += cost;
+    myWallet.totalTradeAmount += cost
+    myWallet.krw = krw - cost;
     myWallet[key] += buyCount;
     currency.tradeStack = 5;
     currency.maxMacd = 0;
@@ -174,12 +192,13 @@ function buyCoin(currency, price, curPrice) {
 function sellCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
+  var sellCount = parseDecimal(myWallet[key]);
 
-  if (myWallet[key] >= 0.0001) {
-    tradeAmount += myWallet[key] * price;
-    myWallet.totalTradeAmount += myWallet[key] * price;
-    myWallet.krw += myWallet[key] * price;
-    myWallet[key] = 0;
+  if (sellCount >= currency.minTradeUnits) {
+    tradeAmount += sellCount * price;
+    myWallet.totalTradeAmount += sellCount * price;
+    myWallet.krw += sellCount * price;
+    myWallet[key] -= sellCount;
     currency.tradeStack = 5;
     currency.maxMacd = 0;
 
@@ -202,11 +221,15 @@ function checkStatus(){
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
   var readyState = histogramCount > PERIODS.long ? 'ok' : 'ready';
   var logMessage;
+  var prevAlphaChange;
 
   if(stack <= 1){
     myWallet.startDate = date.getDate();
     defaultAlpha = previousAlpha = currentAlpha;
   }
+
+  prevAlphaChange = (((previousAlpha/defaultAlpha) -1) * 100).toFixed(2);
+
 
   if(myWallet.startDate < date.getDate()){
     myWallet.default = totalMoney;
@@ -215,10 +238,10 @@ function checkStatus(){
     tradeAmount = 0;
   }
 
-  if(currentAlpha >= 0){
+  if(alphaChange >= 0){
     isAlpha = !!(currentAlpha >= previousAlpha);
   } else {
-    isAlpha = !!(currentAlpha > previousAlpha);
+    isAlpha = !!(prevAlphaChange * 8/10 <= alphaChange);
   }
 
   previousAlpha = Number(currentAlpha);
@@ -258,6 +281,18 @@ function checkStatus(){
   }
 }
 
+function parseDecimal(num){
+  if (num == 0){
+    return 0;
+  }
+  
+  var str = String(num);
+  var arr = str.split('.');
+  arr[1] = arr[1].slice(0, 4);
+  
+  return Number(arr.join('.'));
+}
+
 function getTotal() {
   var total = 0;
   for (var key in myWallet) {
@@ -267,6 +302,10 @@ function getTotal() {
     } else if(key === 'krw') {
       total += myWallet[key];
     }
+  }
+
+  if(stack <= 2){
+    myWallet.default = total;
   }
 
   return total;

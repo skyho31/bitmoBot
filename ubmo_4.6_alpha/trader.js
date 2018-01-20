@@ -8,11 +8,11 @@ var eventEmitter = new events.EventEmitter();
 var currencyInfo = {};
 
 const PERIODS = {
-  long: 26 * 18,
-  short: 12 * 18,
-  signal: 9 * 18
+  long: 60 * 10,
+  short: 15 * 10,
+  signal: 9 * 10
 };
-const intervalTime = 2000;
+const intervalTime = 3000;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -132,20 +132,20 @@ function checkTicker(currency) {
         console.log('Go to HanRIVER!');
       }
      
-      if (stack < PERIODS.signal){
+      if (stack < 10){
         sellCoin(currency, sellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
-            if(currency.maxMacd * 0.5 > curHisto){
+            if(currency.maxMacd * 0.3 > curHisto){
               sellCoin(currency, sellPrice);
-            } else if(myWallet.krw >= 1000 && curHisto > 100 && isAlpha  && currency.tradeStack <= 0){
-              if(currency.boughtPrice < curPrice && !currency.initTrade){
+            } else if(myWallet.krw >= 1000 && curHisto > 10 && isAlpha && currency.boughtPrice < curPrice && currency.tradeStack <= 0){
+              if(curHisto * prevHisto < -1 || curHisto == currency.maxMacd){
+                buyCoin(currency, buyPrice);
+              } else if(!currency.initTrade){
                 currency.initTrade = true;
                 buyCoin(currency, buyPrice);
-              } else if(curHisto * prevHisto < -1 || curHisto == currency.maxMacd){
-                buyCoin(currency, buyPrice);
-              }  
+              }
             }
           } else {
             sellCoin(currency, sellPrice);
@@ -193,7 +193,7 @@ function buyCoin(currency, price) {
           for(var trade in data){
             tradeAmount += data[trade].units * data[trade].price;
             myWallet.totalTradeAmount += data[trade].units * data[trade].price;
-            currency.boughtPrice = data[trade].price;
+            currency.boughtPrice = price;
             var diff = (((data[trade].price / price) - 1) * 100).toFixed(2);
   
             // for log
@@ -201,7 +201,7 @@ function buyCoin(currency, price) {
             console.log(logMessage);
             log.write('log', logMessage + '\n', true);
           }
-          currency.tradeStack = 10;
+          currency.tradeStack = 5;
           currency.maxMacd = 0;
         } else {
           console.log(key + ' : ' + result.message);
@@ -237,7 +237,7 @@ function sellCoin(currency, price) {
             console.log(logMessage);
             log.write('log', logMessage + '\n', true);
           }
-          currency.tradeStack = 10;
+          currency.tradeStack = 5;
           currency.maxMacd = 0;
         } else {
           console.log(key + ' : ' + result.message);
@@ -269,16 +269,17 @@ function checkStatus(){
   var date = new Date();
   var time = (date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '/' + date.getDate() + ' ' + date.getHours() + 'h ' + date.getMinutes() + 'm ' + date.getSeconds() + 's';
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
-  var readyState = stack > PERIODS.signal ? 'ok' : 'ready';
+  var readyState = histogramCount > PERIODS.long ? 'ok' : 'ready';
   var logMessage;
   var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
+  var prevAlphaChange; 
 
   if(stack <= 1){
     myWallet.startDate = date.getDate();
     defaultAlpha = previousAlpha = currentAlpha;
   }
 
-  var prevAlphaChange = (((previousAlpha/defaultAlpha) -1) * 100).toFixed(2);
+  prevAlphaChange = (((previousAlpha/defaultAlpha) -1) * 100).toFixed(2);
   
 
   if(myWallet.startDate < date.getDate()){
@@ -400,6 +401,12 @@ eventEmitter.on('collected', function() {
 });
 
 eventEmitter.on('failedGetBalance', function(){
+
+  for(var key in currencyInfo){
+    if(currencyInfo[key].tradeStack > 0){
+      currencyInfo[key].tradeStack--;
+    }
+  }
   setTimeout(function(){
     readAPIWallet(checkStatus);
   }, 2000);

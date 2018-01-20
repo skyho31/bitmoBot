@@ -7,11 +7,11 @@ var eventEmitter = new events.EventEmitter();
 var currencyInfo = {};
 
 const PERIODS = {
-  long: 26 * 36,
-  short: 12 * 36,
-  signal: 9 * 36
+  long: 26 * 15,
+  short: 12 * 15,
+  signal: 9 * 15
 };
-const intervalTime = 2000;
+const intervalTime = 5000;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -93,7 +93,7 @@ function checkTicker(currency) {
       
       var profitRate = Math.floor(curHisto/currency.maxMacd*100).toFixed(2);
 
-      console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${profitRate > 0 ? profitRate : 'minus'})`);
+      console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${profitRate > 0 ? profitRate : 'minus'}) + ${curPrice}`);
 
       tickCount++;
       eventEmitter.emit('collected');
