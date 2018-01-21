@@ -133,12 +133,15 @@ function checkTicker(currency) {
         console.log('Go to HanRIVER!'.red);
       }
 
-      if (stack < 10){
+
+      if (stack < 10 && stack > 2 && curHisto < 0){
         sellCoin(currency, sellPrice);
+      } else if(stack < 10){
+        // console.log('isTradable after ' + (10 - stack) + ' stack');
       } else {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
-            if(currency.maxMacd * 0.8 > curHisto){
+            if(currency.maxMacd * 0.5 > curHisto){
               sellCoin(currency, sellPrice);
             } else if(myWallet.krw >= 1000 && curHisto > 10 && isAlpha && currency.tradeStack <= 0){
               if(curHisto * prevHisto < -1 || curHisto == currency.maxMacd){
