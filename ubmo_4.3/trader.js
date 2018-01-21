@@ -123,7 +123,7 @@ function checkTicker(currency) {
         currency.boughtPrice = 0;
       }
       
-      if (stack < PERIODS.long){
+      if (stack < 10){
         sellCoin(currency, sellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {

@@ -42,6 +42,7 @@ function Currency(key, name, cap, minUnits) {
   this.cap = cap;
   this.boughtPrice = 0;
   this.minTradeUnits = minUnits;
+  this.tradeFailed = false;
 }
 
 function Wallet() {
@@ -142,7 +143,7 @@ function checkTicker(currency) {
             } else if(myWallet.krw >= 1000 && curHisto > 10 && isAlpha && currency.tradeStack <= 0){
               if(curHisto * prevHisto < -1 || curHisto == currency.maxMacd){
                 buyCoin(currency, buyPrice);
-              } else if(!currency.initTrade){
+              } else if(!currency.initTrade || currency.tradeFailed){
                 currency.initTrade = true;
                 buyCoin(currency, buyPrice);
               }
@@ -204,8 +205,10 @@ function buyCoin(currency, price) {
           }
           currency.maxMacd = 0;
           currency.tradeStack = 10;
+          currency.tradeFailed = false;
         } else {
           tryStack++;
+          currency.tradeFailed = true;
           console.log(key + ' : ' + result.message);
           if(tryStack < 2){
             setTimeout(function(){
@@ -217,6 +220,7 @@ function buyCoin(currency, price) {
     } catch(e){
       console.log(key + ' : ' + e);
       tryStack++;
+      currency.tradeFailed = true;
       if(tryStack < 2){
         setTimeout(function(){
           xCoinBuy(key, buyCount);
@@ -325,9 +329,9 @@ function checkStatus(){
   if(alphaChange >= 0){
     isAlpha = !!(currentAlpha >= previousAlpha * 1.0);
   } else {
-    //isAlpha = !!(currentAlpha >= previousAlpha * 1.25);
-    isAlpha = !!(prevAlphaChange * 8/10 <= alphaChange);
-    // isAlpha = !!(currentAlpha >= previousAlpha * 1.1);
+    // isAlpha = !!(currentAlpha >= previousAlpha * 1.25);
+    // isAlpha = !!(prevAlphaChange * 8/10 <= alphaChange);
+    isAlpha = !!(currentAlpha >= previousAlpha * 1.1);
   }
 
   previousAlpha = Number(currentAlpha);
