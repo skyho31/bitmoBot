@@ -13,20 +13,18 @@ const PERIODS = {
   short: 12 * 10,
   signal: 9 * 10
 };
-const intervalTime = 60 * 1000;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
 var myCapInfo = {};
 var myWallet;
 var currArr;
-var tradeInterval;
 var defaultAlpha = 0;
 var currentAlpha = 0;
 var previousAlpha = 0;
 var isAlpha = false;
-var tempKrw = 0;
 var goToRiver = false;
+var tryCount = 0;
 
 function Currency(key, name, cap, minUnits) {
   this.name = name;
@@ -133,27 +131,49 @@ function checkTicker(currency) {
         console.log('Go to HanRIVER!');
       }
      
+      // if (stack < PERIODS.long){
+      //   sellCoin(currency, sellPrice);
+      // } else {
+      //   if (_histogram.length > PERIODS.long) {
+      //     if(curHisto >= currency.maxMacd){
+      //       buyCoin(currency, buyPrice);
+      //     } else {
+      //       sellCoin(currency, sellPrice);
+      //     }
+      //   } else {
+      //     sellCoin(currency, sellPrice);
+      //   }
+      // }
+
       if (stack < PERIODS.long){
         sellCoin(currency, sellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
-          if(curHisto >= currency.maxMacd){
-            buyCoin(currency, buyPrice);
+          if(curHisto > 0){
+            if(currency.maxMacd * 0.2 > curHisto){
+              sellCoin(currency, sellPrice);
+            } else if(myWallet.krw >= 1000 && curHisto > 10 && isAlpha && currency.boughtPrice < curPrice && currency.tradeStack <= 0){
+              if(curHisto * prevHisto < -1 || curHisto == currency.maxMacd){
+                buyCoin(currency, buyPrice);
+              } else if(!currency.initTrade){
+                currency.initTrade = true;
+                buyCoin(currency, buyPrice);
+              }
+            }
           } else {
             sellCoin(currency, sellPrice);
           }
-        } else {
-          sellCoin(currency, sellPrice);
         }
       }
 
       currentAlpha += currency.cap * curPrice; 
 
       if(curHisto > 0 && myWallet[key] > currency.minTradeUnits){
-        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)})`);
+        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`);
       }
 
       tickCount++;
+      if(currency.tradeStack > 0) currency.tradeStack--;
       eventEmitter.emit('collected');
     } catch (e) {
       
@@ -161,6 +181,7 @@ function checkTicker(currency) {
       myWallet.total += myWallet[key] * currencyInfo[key].price.slice(-1)[0];
       tickCount++;
       console.log('restart server........')
+      if(currency.tradeStack > 0) currency.tradeStack--;
       eventEmitter.emit('collected');
     }
   });
@@ -192,6 +213,7 @@ function buyCoin(currency, price) {
             log.write('log', logMessage + '\n', true);
           }
           currency.maxMacd = 0;
+          currency.tradeStack = 10;
         } else {
           tryStack++;
           console.log(key + ' : ' + result.message);
@@ -242,6 +264,8 @@ function sellCoin(currency, price) {
             log.write('log', logMessage + '\n', true);
           }
           currency.maxMacd = 0;
+          currency.tradeStack = 5;
+
         } else {
           console.log(key + ' : ' + result.message);
           setTimeout(function(){
@@ -397,9 +421,7 @@ function readAPIWallet(checkStatus){
       var data = result.data;
       for (var i = 0; i < currArr.length; i++){
         var total = 'total_' + currArr[i].toLowerCase();
-        //var available = 'available_' +  currArr[i].toLowerCase();
         myWallet[currArr[i]] = Number(data[total]);
-        //myWallet['available_' + currArr[i]] = Number(data[available]);
       }
 
       myWallet['krw'] = data['total_krw'];
@@ -415,22 +437,27 @@ function readAPIWallet(checkStatus){
 eventEmitter.on('collected', function() {
   if (tickCount == currArr.length) {
     tickCount = 0;
-    // setTimeout(function(){
-    //   readAPIWallet(checkStatus);
-    // }, intervalTime);
   }
+  tryCount = 0;
 });
 
 eventEmitter.on('failedGetBalance', function(){
-
   for(var key in currencyInfo){
     if(currencyInfo[key].tradeStack > 0){
       currencyInfo[key].tradeStack--;
     }
   }
-  setTimeout(function(){
-    readAPIWallet(checkStatus);
-  }, 2000);
+
+  tryCount++;
+  console.log('retry count..... ' + tryCount);
+  if(tryCount < 2){
+    setTimeout(function(){
+      readAPIWallet(checkStatus);
+    }, 2000);
+  }
+
+  if(tryCount >= 2) tryCount = 0;
+  
 });
 
 eventEmitter.on('inited', function() {

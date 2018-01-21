@@ -11,7 +11,7 @@ const PERIODS = {
   short: 12 * 1,
   signal: 9 * 1
 };
-const intervalTime = 6000;
+const intervalTime = 60 * 1000;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
