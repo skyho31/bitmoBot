@@ -3,6 +3,7 @@ var fs = require('fs');
 var log = require('../../logger');
 var events = require('events');
 var eventEmitter = new events.EventEmitter();
+var common;
 
 var currencyInfo = {};
 
@@ -11,7 +12,6 @@ const PERIODS = {
   short: 15 * 10,
   signal: 9 * 10
 };
-const intervalTime = 3000;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -64,10 +64,10 @@ var minTradeUnits = {
 }
 
 function makeWallet(obj, cb) {
-  fs.readFile('../../logs/alphaCap.json', function(err, capData){
+  fs.readFile('./logs/alphaCap.json', function(err, capData){
     myCapInfo = JSON.parse(decodeURIComponent(capData));
                                                                                                     
-    fs.readFile('../../currency.json', function(err, data) {
+    fs.readFile('./currency.json', function(err, data) {
       var currObj = JSON.parse(decodeURIComponent(data))[0];
       currArr = Object.keys(currObj);
   
@@ -90,7 +90,7 @@ function checkTicker(currency) {
   var curPrice;
   var _histogram;
 
-  fs.readFile('../../logs/' + key + '.txt', 'utf8', function(err, body){
+  fs.readFile('./logs/' + key + '.txt', 'utf8', function(err, body){
     try {
       var result = JSON.parse(body); 
       var price = currencyInfo[key].price = result.price.slice(0);
@@ -123,7 +123,7 @@ function checkTicker(currency) {
         currency.boughtPrice = 0;
       }
       
-      if (stack < 10){
+      if (stack < PERIODS.long){
         sellCoin(currency, sellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
@@ -159,6 +159,7 @@ function checkTicker(currency) {
       myWallet.total += myWallet[key] * currencyInfo[key].price.slice(-1)[0];
       tickCount++;
       console.log('restart server........')
+      if(currency.tradeStack > 0) currency.tradeStack--;
       eventEmitter.emit('collected');
     }
   });
@@ -318,11 +319,17 @@ function readData(){
       myWallet = JSON.parse(log.read('wallet.txt'));
       console.log('read my wallet');
       console.log('Data load Complete');
+      common.on('collected1', function(){
+        checkStatus();
+      });
       checkStatus();
     
   } catch(e) {
     console.log('there is no wallet file');
     console.log('Data load Complete');
+    common.on('collected1', function(){
+      checkStatus();
+    });
     checkStatus();
   }
 
@@ -332,10 +339,8 @@ function readData(){
 eventEmitter.on('collected', function() {
   if (tickCount == currArr.length) {
     tickCount = 0;
-    setTimeout(function(){
-      checkStatus()
-    }, intervalTime);
   }
+  tryCount = 0;
 });
 
 eventEmitter.on('inited', function() {
@@ -344,11 +349,14 @@ eventEmitter.on('inited', function() {
 });
 
 module.exports = {
-  init: function(defaultMoney) {
+  init: function(event, defaultMoney) {
+    common = event;
     myWallet = new Wallet(defaultMoney);
-    makeWallet(myWallet, function() {
-      console.log(myWallet);
-      eventEmitter.emit('inited');
-    });
+    common.on('collected_init', function(){
+      makeWallet(myWallet, function() {
+        console.log(myWallet);
+        eventEmitter.emit('inited');
+      });
+    })
   }
 };

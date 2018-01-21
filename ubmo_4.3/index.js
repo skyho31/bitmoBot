@@ -1,3 +1,9 @@
 var trader = require('./trader');
 
-trader.init(69812);
+
+module.exports = {
+  init : function(event){
+    trader.init(event, 1000000);
+
+  }
+}
