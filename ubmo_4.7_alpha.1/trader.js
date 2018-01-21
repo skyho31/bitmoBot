@@ -131,20 +131,6 @@ function checkTicker(currency) {
         sellCoin(currency, sellPrice);
         console.log('Go to HanRIVER!'.red);
       }
-     
-      // if (stack < PERIODS.long){
-      //   sellCoin(currency, sellPrice);
-      // } else {
-      //   if (_histogram.length > PERIODS.long) {
-      //     if(curHisto >= currency.maxMacd){
-      //       buyCoin(currency, buyPrice);
-      //     } else {
-      //       sellCoin(currency, sellPrice);
-      //     }
-      //   } else {
-      //     sellCoin(currency, sellPrice);
-      //   }
-      // }
 
       if (stack < 10){
         sellCoin(currency, sellPrice);
@@ -221,18 +207,17 @@ function buyCoin(currency, price) {
         } else {
           tryStack++;
           console.log(key + ' : ' + result.message);
-          if(tryStack < 10){
+          if(tryStack < 2){
             setTimeout(function(){
               xCoinBuy(key, buyCount);
             }, 2000);
           }
-          
         }
       })
     } catch(e){
       console.log(key + ' : ' + e);
       tryStack++;
-      if(tryStack < 10){
+      if(tryStack < 2){
         setTimeout(function(){
           xCoinBuy(key, buyCount);
         }, 2000);
@@ -250,6 +235,7 @@ function sellCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
   var sellCount = parseDecimal(myWallet[key]);
+  var tryStack = 0;
   var logMessage;
 
   var xCoinSell = function(key, sellCount){
@@ -272,17 +258,21 @@ function sellCoin(currency, price) {
 
         } else {
           console.log(key + ' : ' + result.message);
-          setTimeout(function(){
-            xCoinSell(key, sellCount);
-          }, 2000);
-
+          tryStack++;
+          if(tryStack < 2){
+            setTimeout(function(){
+              xCoinSell(key, sellCount);
+            }, 2000);
+          }
         }
       })
     } catch(e){
       console.log(key + ' : ' + e);
-      setTimeout(function(){
-        xCoinSell(key, sellCount);
-      }, 2000);
+      if(tryStack < 2){
+        setTimeout(function(){
+          xCoinSell(key, sellCount);
+        }, 2000);
+      }
     }
   }
 
