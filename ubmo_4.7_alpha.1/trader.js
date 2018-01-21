@@ -204,7 +204,7 @@ function buyCoin(currency, price) {
             // for log
             logMessage = '[' + name + ']  buy ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') diff :' + data[trade].price + '/' + price + '(' + diff +')';
             console.log(logMessage);
-            log.write('log', logMessage + '\n', true);
+            log.write('trade', logMessage + ' Date : ' + new Date() + '\n', true);
           }
           currency.maxMacd = 0;
           currency.tradeStack = 10;
@@ -258,7 +258,7 @@ function sellCoin(currency, price) {
             // for log
             logMessage = '[' + name + ']  sell ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') diff :' + data[trade].price + '/' + price + '(' + diff +')';
             console.log(logMessage);
-            log.write('log', logMessage + '\n', true);
+            log.write('log', logMessage +  ' Date : ' + new Date() + '\n', true);
           }
           currency.maxMacd = 0;
           currency.tradeStack = 5;
