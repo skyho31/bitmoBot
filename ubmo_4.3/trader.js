@@ -3,13 +3,14 @@ var fs = require('fs');
 var log = require('../../logger');
 var events = require('events');
 var eventEmitter = new events.EventEmitter();
+var colors = require('colors');
 var common;
 
 var currencyInfo = {};
 
 const PERIODS = {
-  long: 60 * 10,
-  short: 15 * 10,
+  long: 26 * 10,
+  short: 12 * 10,
   signal: 9 * 10
 };
 var stack = 0;
@@ -23,6 +24,7 @@ var defaultAlpha = 0;
 var currentAlpha = 0;
 var previousAlpha = 0;
 var isAlpha = false;
+var goToRiver = false;
 
 function Currency(key, name, cap, minUnits) {
   this.name = name;
@@ -39,6 +41,7 @@ function Currency(key, name, cap, minUnits) {
   this.cap = cap;
   this.boughtPrice = 0;
   this.minTradeUnits = minUnits;
+  this.tradeFailed = false;
 }
 
 function Wallet(defaultMoney) {
@@ -122,18 +125,23 @@ function checkTicker(currency) {
         currency.maxMacd = 0;
         currency.boughtPrice = 0;
       }
+
+      if(goToRiver){
+        sellCoin(currency, sellPrice);
+        console.log('Go to HanRIVER!'.red);
+      }
       
-      if (stack < 10){
+      if(stack < 10 && curHisto < 0){
         sellCoin(currency, sellPrice);
       } else {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
             if(currency.maxMacd * 0.8 > curHisto){
               sellCoin(currency, sellPrice);
-            } else if(myWallet.krw >= 1000 && curHisto > 10 && isAlpha && currency.boughtPrice < curPrice && currency.tradeStack <= 0){
+            } else if(myWallet.krw >= 1000 && curHisto > 10 && currency.boughtPrice < curPrice && currency.tradeStack <= 0){
               if(curHisto * prevHisto < -1 || curHisto == currency.maxMacd){
                 buyCoin(currency, buyPrice, curPrice);
-              } else if(!currency.initTrade){
+              } else if(!currency.initTrade || currency.tradeFailed){
                 currency.initTrade = true;
                 buyCoin(currency, buyPrice, curPrice);
               }
@@ -147,7 +155,9 @@ function checkTicker(currency) {
       currentAlpha += currency.cap * curPrice; 
 
       if(curHisto > 0 && myWallet[key] > currency.minTradeUnits){
-        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`);
+        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`.green);
+      } else {
+        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`.red);
       }
 
       tickCount++;
@@ -179,14 +189,15 @@ function buyCoin(currency, price, curPrice) {
     myWallet.totalTradeAmount += cost
     myWallet.krw = krw - cost;
     myWallet[key] += buyCount;
-    currency.tradeStack = 5;
+    currency.tradeStack = 10;
     currency.maxMacd = 0;
     currency.boughtPrice = curPrice;
+    currency.tradeFailed = false;
 
     // for log
     logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
     console.log(logMessage);
-    log.write('log', logMessage + '\n', true);
+    log.write('trade', logMessage + '\n', true);
   }
 }
 
@@ -207,7 +218,7 @@ function sellCoin(currency, price) {
     // for log
     logMessage = '[' + name + ']  sell ' +  myWallet[key] * price + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') - ' + price;
     console.log(logMessage);
-    log.write('log', logMessage + '\n', true);
+    log.write('trade', logMessage + '\n', true);
   }
 }
 
@@ -216,11 +227,12 @@ function checkStatus(){
   var fee = myWallet.totalTradeAmount * 0.00075;
   var realTotal = totalMoney - fee;
   var profitRate = (realTotal / myWallet.default - 1) * 100;
+  var profitStr = profitRate >= 0 ? (profitRate.toFixed(2) + '%').green : (profitRate.toFixed(2) + '%').red;
   var date = new Date();
   var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
   var time = (date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '/' + date.getDate() + ' ' + date.getHours() + 'h ' + date.getMinutes() + 'm ' + date.getSeconds() + 's';
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
-  var readyState = histogramCount > PERIODS.long ? 'ok' : 'ready';
+  var readyState = (histogramCount > PERIODS.long && stack > 10) ? 'ok' : 'ready';
   var logMessage;
   var prevAlphaChange;
 

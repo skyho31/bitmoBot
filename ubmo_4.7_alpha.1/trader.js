@@ -134,10 +134,8 @@ function checkTicker(currency) {
       }
 
 
-      if (stack < 10 && stack > 2 && curHisto < 0){
+      if (stack < 10 && curHisto < 0){
         sellCoin(currency, sellPrice);
-      } else if(stack < 10){
-        // console.log('isTradable after ' + (10 - stack) + ' stack');
       } else {
         if (_histogram.length > PERIODS.long) {
           if(curHisto > 0){
@@ -163,7 +161,6 @@ function checkTicker(currency) {
         console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`.green);
       } else {
         console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`.red);
-
       }
 
       tickCount++;
@@ -258,7 +255,7 @@ function sellCoin(currency, price) {
             // for log
             logMessage = '[' + name + ']  sell ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') diff :' + data[trade].price + '/' + price + '(' + diff +')';
             console.log(logMessage);
-            log.write('log', logMessage +  ' Date : ' + new Date() + '\n', true);
+            log.write('trade', logMessage +  ' Date : ' + new Date() + '\n', true);
           }
           currency.maxMacd = 0;
           currency.tradeStack = 5;
@@ -334,7 +331,7 @@ function checkStatus(){
   } else {
     // isAlpha = !!(currentAlpha >= previousAlpha * 1.25);
     // isAlpha = !!(prevAlphaChange * 8/10 <= alphaChange);
-    isAlpha = !!(currentAlpha >= previousAlpha * 1.1);
+    isAlpha = !!(currentAlpha >= previousAlpha * 8/10);
   }
 
   previousAlpha = Number(currentAlpha);
