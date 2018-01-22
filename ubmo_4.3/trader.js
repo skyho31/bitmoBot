@@ -160,7 +160,7 @@ function checkTicker(currency) {
           if(curHisto > 0){
             if(currency.maxMacd * 0.8 > curHisto){
               // sellCoin(currency, sellPrice);
-            } else if(myWallet.krw >= 1000 && curHisto > 0 && isAlpha && currency.tradeStack <= 0 && diff >= 0.1){
+            } else if(myWallet.krw >= 1000 && currency.tradeStack <= 0 && slope > 0){//curHisto > 0 && isAlpha &&  diff >= 0.1){
               if(curHisto * prevHisto < -1 || currency.maxMacd == curHisto){
                 buyCoin(currency, buyPrice, curPrice);
               } else if(!currency.initTrade || currency.tradeFailed){
