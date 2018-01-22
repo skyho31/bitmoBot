@@ -144,9 +144,9 @@ function checkTicker(currency) {
             if(currency.maxMacd * 0.8 > curHisto){
               sellCoin(currency, sellPrice);
             } else if(myWallet.krw >= 1000 && curHisto > 10 && isAlpha && currency.tradeStack <= 0){
-              if(curHisto * prevHisto < -1 || curHisto == currency.maxMacd){
+              if(curHisto * prevHisto < -1){
                 buyCoin(currency, buyPrice);
-              } else if(!currency.initTrade || currency.tradeFailed){
+              } else if((!currency.initTrade || currency.tradeFailed) && curHisto == currency.maxMacd){
                 currency.initTrade = true;
                 buyCoin(currency, buyPrice);
               }
