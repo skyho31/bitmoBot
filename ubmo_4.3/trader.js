@@ -157,10 +157,10 @@ function checkTicker(currency) {
         sellCoin(currency, sellPrice);
       } else if(stack > 10){
         if (_histogram.length > PERIODS.long) {
-          if(curHisto > 0){
+          if(curHisto > 0 && myWallet[key] <= currency.minTradeUnits){
             if(currency.maxMacd * 0.8 > curHisto){
-              sellCoin(currency, sellPrice);
-            } else if(myWallet.krw >= 1000 && currency.tradeStack <= 0 && isAlpha &&  diff >= 0.1){
+              //sellCoin(currency, sellPrice);
+            } else if(myWallet.krw >= 1000 && isAlpha &&  diff >= 0.1){
               if(curHisto * prevHisto < -1 || currency.maxMacd == curHisto){
                 buyCoin(currency, buyPrice, curPrice);
               } else if(!currency.initTrade || currency.tradeFailed){
@@ -202,7 +202,8 @@ function buyCoin(currency, price, curPrice) {
   var name = currency.name;
   var key = currency.key;
   var krw = myWallet.krw;
-  var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
+  //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
+  var cost = myWallet.default / 5;
   var buyCount = parseDecimal(cost / price);
   var logMessage;
 

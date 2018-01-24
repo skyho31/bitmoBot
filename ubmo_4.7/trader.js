@@ -9,9 +9,9 @@ var common;
 var currencyInfo = {};
 
 const PERIODS = {
-  long: 26 * 20,
-  short: 12 * 20,
-  signal: 9 * 20
+  long: 60 * 12,
+  short: 20 * 12,
+  signal: 5 * 12
 };
 var stack = 0;
 var tradeAmount = 0;
@@ -145,48 +145,24 @@ function checkTicker(currency) {
         console.log('Go to HanRIVER!'.red);
       }
       
-      // if(stack < 10 && curHisto < 0){
-      //   sellCoin(currency, sellPrice);
-      // } else if(stack > 10){
-      //   if (_histogram.length > PERIODS.long) {
-      //     if(curHisto > 10){
-      //       // if(currency.maxMacd * 0.8 > curHisto){
-      //       //   // sellCoin(currency, sellPrice);
-      //       // } else 
-      //       if(myWallet.krw >= 1000 && currency.tradeStack <= 0 && diff >= 0.1 && curMacd > 0 && curSignal > 0 ){
-      //         if(curHisto * prevHisto < -1 || currency.maxMacd == curHisto){
-      //           buyCoin(currency, buyPrice, curPrice);
-      //         } else if(!currency.initTrade || currency.tradeFailed){
-      //           currency.initTrade = true;
-      //           buyCoin(currency, buyPrice, curPrice);
-      //         }
-      //       }
-      //     } else if (currency.maxMacd * -0.03 > curHisto && currency.minusStack >= 3){
-      //       sellCoin(currency, sellPrice);
-      //     } else if (curMacd < 0 && curSignal <0){
-      //       sellCoin(currency, sellPrice);
-      //     }
-      //   }
-      // }
-
-      if(stack > 10){
-        if (_histogram.length > PERIODS.long && myWallet.krw >= 1000) {
-          if (curHisto * prevHisto < 0) {
-            if (curHisto < 0 && myWallet[key] >= 0.0001) {
-              sellCoin(currency, sellPrice);
-            } else if (curHisto > 0 && myWallet[key] < 0.0001 && myWallet.krw >= 1000) {
-              buyCoin(currency, buyPrice);
+      if(stack < 10 && curHisto < 0){
+        sellCoin(currency, sellPrice);
+      } else if(stack > 10){
+        if (_histogram.length > PERIODS.long) {
+          if(curHisto > 10){
+            if(myWallet.krw >= 1000 && currency.tradeStack <= 0 && diff >= 0.1 && myWallet[key] <= currency.minTradeUnits){
+              if(curHisto * prevHisto < -1 || currency.maxMacd == curHisto){
+                buyCoin(currency, buyPrice, curPrice);
+              } else if(!currency.initTrade || currency.tradeFailed){
+                currency.initTrade = true;
+                buyCoin(currency, buyPrice, curPrice);
+              }
             }
-          } else if(curHisto > 0 && myWallet.krw >= 1000){
-            buyCoin(currency, buyPrice);
+          } else if (currency.maxMacd * -0.03 > curHisto && currency.minusStack >= 3){
+            sellCoin(currency, sellPrice);
           }
-        } else if (stack < 5 && _histogram.length < PERIODS.long && curHisto < 0 && myWallet[key] >= 0.0001) {
-          sellCoin(currency, sellPrice);
-        } else if(_histogram.length > PERIODS.long && curHisto < 0){
-          sellCoin(currency, sellPrice);
         }
       }
-
 
       currentAlpha += currency.cap * curPrice;
 
@@ -216,7 +192,8 @@ function buyCoin(currency, price, curPrice) {
   var name = currency.name;
   var key = currency.key;
   var krw = myWallet.krw;
-  var cost = krw > 10000 ? Math.floor(krw / 2) : krw;
+  //var cost = krw > 10000 ? Math.floor(krw / 2) : krw;
+  var cost = myWallet.default / 4;
   var buyCount = parseDecimal(cost / price);
   var logMessage;
 
