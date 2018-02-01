@@ -10,11 +10,11 @@ var common;
 var currencyInfo = {};
 
 const PERIODS = {
-  long: 26 * 200,
-  short: 12 * 200, 
-  signal: 9 * 200 
+  long: 26 * 90,
+  short: 12 * 90, 
+  signal: 9 * 90 
 };
-const readyStack = 20;
+const readyStack = 5;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -33,8 +33,8 @@ function Currency(key, name, cap, minUnits) {
   this.key = key;
   this.price = [];
   this.histogram = [];
+  this.macdGraph = [];
   this.maxMacd = 0;
-  this.initTrade = false;
   this.tradeStack = 0;
   this.buyPrice = 0;
   this.sellPrice = 0;
@@ -44,8 +44,11 @@ function Currency(key, name, cap, minUnits) {
   this.boughtPrice = 0;
   this.minTradeUnits = minUnits;
   this.tradeFailed = false;
+  this.signalGraph = [];
+  this.predStack = 0;
   this.minusStack = 0;
-  this.plusStack = 0;
+  this.isPlus = 0;
+  this.initialTrade = true;
 }
 
 function Wallet() {
@@ -134,47 +137,82 @@ function checkTicker(currency) {
 
       if(currency.maxMacd < curHisto && curHisto >= 0){
         currency.maxMacd = curHisto;
-        currency.plusStack++;
-      } else {
-        currency.plusStack = 0
       }
-
-      // if(curHisto < currency.maxMacd * -0.03){
-      //   currency.boughtPrice = 0;
-      //   currency.minusStack++;
-      // }
 
       if(goToRiver){
         sellCoin(currency, sellPrice);
         console.log('Go to HanRIVER!'.red);
       }
 
+      var macdDiff = curMacd - prevMacd;
+      if(macdDiff > 0){
+        currency.predStack++;
+        if (currency.minusStack > 12 && currency.predStack > 0){
+          currency.predStack = 0;
+        }
+      } else if (macdDiff < 0){
+        currency.predStack--;
+        currency.minusStack++;
+      }
+
+      if(curHisto * prevHisto <= 0){
+        currency.isPlus = curHisto >= 0 ? 1 : -1;
+      }
+
       if(stack < readyStack && curHisto < 0){
         sellCoin(currency, sellPrice);
       } else if(stack > readyStack){
         if (_histogram.length > PERIODS.long) {
-          if (curHisto < 0){ //&& currency.minusStack >= 3
+          if(curHisto < 0) {
             sellCoin(currency, sellPrice);
-          } else if(curHisto > 100 && myWallet.krw >= 1000 && currency.plusStack >= 3){
-            if(curHisto * prevHisto < -1){ //|| currency.maxMacd == curHisto){
-              buyCoin(currency, buyPrice);
-            } 
-            // else if(!currency.initTrade || currency.tradeFailed){
-            //   currency.initTrade = true;
-            //   buyCoin(currency, buyPrice);
-            // }
-          }  
+          } else if (curHisto > 100 && currency.isPlus === 1 && predStack > 0 ){
+            if(myWallet.krw >= 1000){
+              if(curHisto * prevHisto < -1){
+                buyCoin(currency, buyPrice);
+              }
+            }
+          }        
+          // else if (currency.initialTrade && currency.isPlus !== -1 && curHisto > 100 && predStack >= readyStack){
+          //   buyCoin(currency, buyPrice);
+          //   currency.initialTrade = false;
+          // }
         }
       }
 
-      currentAlpha += currency.cap * curPrice; 
+      currentAlpha += currency.cap * curPrice;
+      var histoTemplate = `${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)})`;
+      histoTemplate += ' '.repeat(30 - histoTemplate.length);
+
+      var diffTemplate = `diff : ${macdDiff}`;
+      diffTemplate += ' '.repeat(15 - diffTemplate.length);
+
+      var signTemplate = `sign : ${currency.predStack}`
+      signTemplate += ' '.repeat(15 - signTemplate.length);
+
+      var diff = (((curPrice / prevPrice) - 1) * 100).toFixed(2);
+      var diffStr = diff >= 0 ? (diff == 0 ? diff + '%' + '('+ (curPrice - prevPrice) + ')' : (diff + '%' + '('+ (curPrice - prevPrice) + ')').green) : (diff + '%'+ '('+ (curPrice - prevPrice) + ')').red
+
+      var isPlusStr;
+
+      switch(currency.isPlus){
+        case -1:
+          isPlusStr = '(-)'.red;
+          break;
+        case 0:
+          isPlusStr = '(*)'
+          break;
+        case 1:
+          isPlusStr = '(+)'.green;
+          break;
+        default :
+          isPlusStr = '(*)'
+      }
+
 
       if(myWallet[key] >= currency.minTradeUnits){
-        logMessage = `${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) MA: ${curMacd} Signal: ${curSignal} TS : ${currency.tradeStack} PS : ${currency.plusStack}`.green + ` price : ${diffStr}`;
-        console.log(logMessage);
+        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr}`);
       } else {
-        logMessage = `${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) MA: ${curMacd} Signal: ${curSignal} TS : ${currency.tradeStack} PS : ${currency.plusStack}`.red + ` price : ${diffStr}`;
-        console.log(logMessage);
+        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.red + ` ${isPlusStr} price : ${diffStr} `);
       }
 
       tickCount++;
