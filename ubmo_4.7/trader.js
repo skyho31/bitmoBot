@@ -185,7 +185,7 @@ function checkTicker(currency) {
       diffTemplate += ' '.repeat(10 - diffTemplate.length);
 
       var signTemplate = `sign : ${currency.predStack}`
-      signTemplate += ' '.repeat(10 - signTemplate.length);
+      signTemplate += ' '.repeat(12 - signTemplate.length);
 
       var diff = (((curPrice / prevPrice) - 1) * 100).toFixed(2);
       var diffStr = diff >= 0 ? (diff == 0 ? diff + '%' + '('+ (curPrice - prevPrice) + ')' : (diff + '%' + '('+ (curPrice - prevPrice) + ')').green) : (diff + '%'+ '('+ (curPrice - prevPrice) + ')').red
@@ -194,13 +194,13 @@ function checkTicker(currency) {
 
       switch(currency.isPlus){
         case -1:
-          isPlusStr = '(-)'
+          isPlusStr = '(-)'.red;
           break;
         case 0:
           isPlusStr = '(*)'
           break;
         case 1:
-          isPlusStr = '(+)'
+          isPlusStr = '(+)'.green;
           break;
         default :
           isPlusStr = '(*)'
@@ -208,9 +208,9 @@ function checkTicker(currency) {
 
 
       if(myWallet[key] >= currency.minTradeUnits){
-        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate} ${isPlusStr}`.green + ` price : ${diffStr}`);
+        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr}`);
       } else {
-        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate} ${isPlusStr}`.red + ` price : ${diffStr} `);
+        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.red + ` ${isPlusStr} price : ${diffStr} `);
       }
 
       tickCount++;
