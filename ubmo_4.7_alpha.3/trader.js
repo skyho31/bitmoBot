@@ -2,29 +2,31 @@ var macd = require('macd');
 var fs = require('fs');
 var log = require('../../logger');
 var events = require('events');
+var xCoin = require('../lib/xCoin');
 var eventEmitter = new events.EventEmitter();
-var colors = require('colors');
+var colors = require('colors')
 var common;
 
 var currencyInfo = {};
 
 const PERIODS = {
-  long: 26 * 60,
-  short: 12 * 60,
-  signal: 9 * 60
+  long: 26 * 200,
+  short: 12 * 200, 
+  signal: 9 * 200 
 };
+const readyStack = 20;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
 var myCapInfo = {};
 var myWallet;
 var currArr;
-var tradeInterval;
 var defaultAlpha = 0;
 var currentAlpha = 0;
 var previousAlpha = 0;
 var isAlpha = false;
 var goToRiver = false;
+var tryCount = 0;
 
 function Currency(key, name, cap, minUnits) {
   this.name = name;
@@ -32,8 +34,6 @@ function Currency(key, name, cap, minUnits) {
   this.price = [];
   this.histogram = [];
   this.maxMacd = 0;
-  this.minMacd = 0;
-  this.underStack = 0;
   this.initTrade = false;
   this.tradeStack = 0;
   this.buyPrice = 0;
@@ -44,14 +44,14 @@ function Currency(key, name, cap, minUnits) {
   this.boughtPrice = 0;
   this.minTradeUnits = minUnits;
   this.tradeFailed = false;
-  this.slope = 0;
-
+  this.minusStack = 0;
+  this.plusStack = 0;
 }
 
-function Wallet(defaultMoney) {
-  this.default = defaultMoney;
+function Wallet() {
+  this.default = 0;
   this.total = 0;
-  this.krw = defaultMoney;
+  this.krw = 0;
   this.totalTradeAmount = 0;
 }
 
@@ -96,6 +96,8 @@ function checkTicker(currency) {
   var name = currency.name;
   var curPrice;
   var _histogram;
+  var _macd;
+  var _signal;
 
   fs.readFile('./logs/' + key + '.txt', 'utf8', function(err, body){
     try {
@@ -103,6 +105,7 @@ function checkTicker(currency) {
       var price = currencyInfo[key].price = result.price.slice(0);
       var sellPrice = currencyInfo[key].sellPrice = result.sellPrice;
       var buyPrice = currencyInfo[key].buyPrice = result.buyPrice;
+      var logMessage;
 
       curPrice = price.slice(-1)[0];
       prevPrice = price.slice(-2, -1)[0];
@@ -117,70 +120,61 @@ function checkTicker(currency) {
        */
       var graph = macd(price, PERIODS.long, PERIODS.short, PERIODS.signal);
       currency.histogram = _histogram = graph.histogram.slice(0);
+      currency.macdGraph = _macd = graph.MACD.slice(0);
+      currency.signalGraph = _signal = graph.signal.slice(0);
 
       var curHisto = _histogram.slice(-1)[0];
       var prevHisto = _histogram.slice(-2, -1)[0];
+      var curMacd = Math.floor(_macd.slice(-1)[0]);
+      var curSignal = Math.floor(_signal.slice(-1)[0]);
       var readyState;
 
       var diff = (((curPrice / prevPrice) - 1) * 100).toFixed(2);
-      var diffStr = diff >= 0 ? (diff + '%' + '('+ (curPrice - prevPrice) + ')').green : (diff + '%'+ '('+ (curPrice - prevPrice) + ')').red
+      var diffStr = diff >= 0 ? (diff > 0 ? (diff + '%' + '('+ (curPrice - prevPrice) + ')').green : (diff + '%' + '('+ (curPrice - prevPrice) + ')')) : (diff + '%'+ '('+ (curPrice - prevPrice) + ')').red;
 
       if(currency.maxMacd < curHisto && curHisto >= 0){
         currency.maxMacd = curHisto;
+        currency.plusStack++;
+      } else {
+        currency.plusStack = 0
       }
 
-      if(currency.minMacd > curHisto && curHisto < 0){
-        currency.minMacd = curHisto;
-        currency.underStack = 0;
-      }
-
-
-      if(curHisto < 0){
-        currency.maxMacd = 0;
-        currency.boughtPrice = 0;
-      }
-
-      currency.underStack++;
-
-
-      var slope = (currency.minMacd / currency.underStack).toFixed(2);
-      currency.slope = slope;
-
-      var slopeStr = slope >= 0 ? slope.green : slope.red;
+      // if(curHisto < currency.maxMacd * -0.03){
+      //   currency.boughtPrice = 0;
+      //   currency.minusStack++;
+      // }
 
       if(goToRiver){
         sellCoin(currency, sellPrice);
         console.log('Go to HanRIVER!'.red);
       }
-      
-      if(stack < 10 && curHisto < 0){
+
+      if(stack < readyStack && curHisto < 0){
         sellCoin(currency, sellPrice);
-      } else if(stack > 10){
+      } else if(stack > readyStack){
         if (_histogram.length > PERIODS.long) {
-          if(curHisto > 0 && myWallet[key] <= currency.minTradeUnits){
-            if(currency.maxMacd * 0.8 > curHisto){
-              //sellCoin(currency, sellPrice);
-            } else if(myWallet.krw >= 1000 && isAlpha &&  diff >= 0.1){
-              if(curHisto * prevHisto < -1 || currency.maxMacd == curHisto){
-                buyCoin(currency, buyPrice, curPrice);
-              } else if(!currency.initTrade || currency.tradeFailed){
-                currency.initTrade = true;
-                buyCoin(currency, buyPrice, curPrice);
-              }
-            }
-          } else {
+          if (curHisto < 0){ //&& currency.minusStack >= 3
             sellCoin(currency, sellPrice);
-          }
+          } else if(curHisto > 100 && myWallet.krw >= 1000 && currency.plusStack >= 3){
+            if(curHisto * prevHisto < -1){ //|| currency.maxMacd == curHisto){
+              buyCoin(currency, buyPrice);
+            } 
+            // else if(!currency.initTrade || currency.tradeFailed){
+            //   currency.initTrade = true;
+            //   buyCoin(currency, buyPrice);
+            // }
+          }  
         }
       }
 
-      currentAlpha += currency.cap * curPrice;
+      currentAlpha += currency.cap * curPrice; 
 
-
-      if(curHisto > 0 && myWallet[key] > currency.minTradeUnits){
-        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`.green + ` price : ${diffStr}`);
+      if(myWallet[key] >= currency.minTradeUnits){
+        logMessage = `${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) MA: ${curMacd} Signal: ${curSignal} TS : ${currency.tradeStack} PS : ${currency.plusStack}`.green + ` price : ${diffStr}`;
+        console.log(logMessage);
       } else {
-        console.log(`${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) tradeStack : ${currency.tradeStack}`.red + ` price : ${diffStr} `);
+        logMessage = `${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)}) MA: ${curMacd} Signal: ${curSignal} TS : ${currency.tradeStack} PS : ${currency.plusStack}`.red + ` price : ${diffStr}`;
+        console.log(logMessage);
       }
 
       tickCount++;
@@ -198,36 +192,61 @@ function checkTicker(currency) {
   });
 }
 
-function buyCoin(currency, price, curPrice) {
+function buyCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
   var krw = myWallet.krw;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
-  var cost = myWallet.default / 5;
+  var cost = krw > 20000 ? 20000 : myWallet.krw;
   var buyCount = parseDecimal(cost / price);
   var logMessage;
+  var tryStack = 0;
 
-
-  // delay simual
-  cost *= 1.005;
-
+  var xCoinBuy = function(key, buyCount){
+    try {
+      xCoin.buyCoin(key, buyCount, function(result){
+        if(result.status == '0000'){
+          var data = result.data;
+          for(var trade in data){
+            tradeAmount += data[trade].units * data[trade].price;
+            myWallet.totalTradeAmount += data[trade].units * data[trade].price;
+            currency.boughtPrice = price;
+            var diff = (((data[trade].price / price) - 1) * 100).toFixed(2);
+  
+            // for log
+            logMessage = '[' + name + ']  buy ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') diff :' + data[trade].price + '/' + price + '(' + diff +')';
+            console.log(logMessage);
+            log.write('trade', logMessage + ' Date : ' + new Date() + '\n', true);
+          }
+          currency.tradeStack = 5;
+          currency.maxMacd = 0;
+          currency.tradeFailed = false;
+        } else {
+          // tryStack++;
+          // currency.tradeFailed = true;
+          // console.log(key + ' : ' + result.message);
+          // if(tryStack < 2){
+          //   setTimeout(function(){
+          //     xCoinBuy(key, buyCount);
+          //   }, 2000);
+          // }
+        }
+      })
+    } catch(e){
+      console.log(key + ' : ' + e);
+      tryStack++;
+      currency.tradeFailed = true;
+      if(tryStack < 2){
+        setTimeout(function(){
+          xCoinBuy(key, buyCount);
+        }, 2000);
+      }
+    }
+  }
 
   if (buyCount > currency.minTradeUnits) {
-    tradeAmount += cost;
-    myWallet.totalTradeAmount += cost
-    myWallet.krw = krw - cost;
-    myWallet[key] += buyCount;
-    currency.tradeStack = 10;
-    currency.maxMacd = 0;
-    currency.boughtPrice = curPrice;
-    currency.tradeFailed = false;
-    currency.minMacd = 0;
-    currency.underStack = 0;
-
-    // for log
-    logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') -' + price;
-    console.log(logMessage);
-    log.write('trade', logMessage + '\n', true);
+    myWallet.krw -= cost;
+    xCoinBuy(key, buyCount);
   }
 }
 
@@ -235,23 +254,67 @@ function sellCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
   var sellCount = parseDecimal(myWallet[key]);
-  var sellPrice;
+  var tryStack = 0;
+  var logMessage;
+  var profit;
+
+  var xCoinSell = function(key, sellCount){
+    try {
+      xCoin.sellCoin(key, sellCount, function(result){
+        if(result.status == '0000'){
+          var data = result.data;
+          for(var trade in data){
+            tradeAmount += data[trade].units * data[trade].price;
+            myWallet.totalTradeAmount += data[trade].units * data[trade].price;
+            var diff = (((data[trade].price / price) - 1) * 100).toFixed(2);
+            profit = Math.floor(sellCount * (data[trade].price - currency.boughtPrice));
+
+            // for log
+            logMessage = '[' + name + ']  sell ' + data[trade].units + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') diff :' + data[trade].price + '/' + price + '(' + diff +')' + ' profit : ' + profit;
+            console.log(logMessage);
+            log.write('trade', logMessage +  ' Date : ' + new Date() + '\n', true);
+          }
+          currency.tradeStack = 5;
+          currency.maxMacd = 0;
+          currency.minusStack = 0;
+          currency.plusStack = 0;
+          currency.boughtPrice = 0;
+
+        } else {
+          console.log(key + ' : ' + result.message);
+          tryStack++;
+          if(tryStack < 2){
+            setTimeout(function(){
+              xCoinSell(key, sellCount);
+            }, 2000);
+          }
+        }
+      })
+    } catch(e){
+      console.log(key + ' : ' + e);
+      if(tryStack < 2){
+        setTimeout(function(){
+          xCoinSell(key, sellCount);
+        }, 2000);
+      }
+    }
+  }
 
   if (sellCount >= currency.minTradeUnits) {
-    sellPrice = sellCount * price * 0.995;
-    tradeAmount += sellPrice;
-    myWallet.totalTradeAmount += sellPrice;
-    myWallet.krw += sellPrice;
-    myWallet[key] -= sellCount;
-    currency.tradeStack = 5;
-    currency.maxMacd = 0;
-
-
-    // for log
-    logMessage = '[' + name + ']  sell ' +  myWallet[key] * price + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ') - ' + price;
-    console.log(logMessage);
-    log.write('trade', logMessage + '\n', true);
+    xCoinSell(key, sellCount);
   }
+}
+
+function parseDecimal(num){
+  if (num == 0){
+    return 0;
+  }
+  
+  var str = String(num);
+  var arr = str.split('.');
+  arr[1] = arr[1].slice(0, 4);
+  
+  return Number(arr.join('.'));
 }
 
 function checkStatus(){
@@ -261,13 +324,13 @@ function checkStatus(){
   var profitRate = (realTotal / myWallet.default - 1) * 100;
   var profitStr = profitRate >= 0 ? (profitRate.toFixed(2) + '%').green : (profitRate.toFixed(2) + '%').red;
   var date = new Date();
-  var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
   var time = (date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '/' + date.getDate() + ' ' + date.getHours() + 'h ' + date.getMinutes() + 'm ' + date.getSeconds() + 's';
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
-  var readyState = (histogramCount > PERIODS.long && stack > 10) ? 'ok' : 'ready';
+  var readyState = (histogramCount > PERIODS.long && stack > readyStack) ? 'ok' : 'ready';
+  var logMessage;
+  var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
   var beta = profitRate - alphaChange;
   beta = (beta >= 0) ? (beta.toFixed(2) + '%').green : (beta.toFixed(2) + '%').red;
-  var logMessage;
   var prevAlphaChange;
 
   if(stack <= 1){
@@ -276,7 +339,7 @@ function checkStatus(){
   }
 
   prevAlphaChange = (((previousAlpha/defaultAlpha) -1) * 100).toFixed(2);
-
+  
 
   if(myWallet.startDate < date.getDate()){
     myWallet.default = totalMoney;
@@ -286,9 +349,9 @@ function checkStatus(){
   }
 
   if(alphaChange >= 0){
-    isAlpha = !!(currentAlpha >= previousAlpha);
+    isAlpha = !!(currentAlpha >= previousAlpha * 1.0);
   } else {
-    isAlpha = !!(prevAlphaChange * 8/10 <= alphaChange);
+    isAlpha = !!(currentAlpha >= previousAlpha * 8/10);
   }
 
   previousAlpha = Number(currentAlpha);
@@ -309,6 +372,7 @@ function checkStatus(){
       }
     }
     log.write('profitLog', walletStatus + '\b', true);
+    
     fs.writeFile('./logs/wallet.txt', JSON.stringify(myWallet), function(){
       console.log(walletStatus);
     })  
@@ -321,25 +385,12 @@ function checkStatus(){
 
   if(totalMoney < myWallet.default * 0.8 && stack > 1){
     console.log('The end, Go to the hanriver!!!');
-    return false;
+    goToRiver = true;
   }
-
 
   for (var i = 0; i < currArr.length; i++){
     checkTicker(currencyInfo[currArr[i]]);
   }
-}
-
-function parseDecimal(num){
-  if (num == 0){
-    return 0;
-  }
-  
-  var str = String(num);
-  var arr = str.split('.');
-  arr[1] = arr[1].slice(0, 4);
-  
-  return Number(arr.join('.'));
 }
 
 function getTotal() {
@@ -368,20 +419,38 @@ function readData(){
       console.log('read my wallet');
       console.log('Data load Complete');
       common.on('collected1', function(){
-        checkStatus();
+        readAPIWallet(checkStatus);
       });
-      checkStatus();
+      readAPIWallet(checkStatus);
+      
     
   } catch(e) {
     console.log('there is no wallet file');
     console.log('Data load Complete');
     common.on('collected1', function(){
-      checkStatus();
-    });
-    checkStatus();
+      readAPIWallet(checkStatus);
+    })
+    readAPIWallet(checkStatus);
   }
+}
 
-  
+function readAPIWallet(checkStatus){
+  xCoin.getMyBalance(function(result){
+    if(result.status == '0000'){
+      var data = result.data;
+      for (var i = 0; i < currArr.length; i++){
+        var total = 'total_' + currArr[i].toLowerCase();
+        myWallet[currArr[i]] = Number(data[total]);
+      }
+
+      myWallet['krw'] = data['total_krw'];
+
+      checkStatus();
+    } else {
+      console.log(result.data + " : " + result.message)
+      eventEmitter.emit('failedGetBalance');
+    }
+  });
 }
 
 eventEmitter.on('collected', function() {
@@ -391,15 +460,34 @@ eventEmitter.on('collected', function() {
   tryCount = 0;
 });
 
+eventEmitter.on('failedGetBalance', function(){
+  for(var key in currencyInfo){
+    if(currencyInfo[key].tradeStack > 0){
+      currencyInfo[key].tradeStack--;
+    }
+  }
+
+  tryCount++;
+  console.log('retry count..... ' + tryCount);
+  if(tryCount < 2){
+    setTimeout(function(){
+      readAPIWallet(checkStatus);
+    }, 2000);
+  }
+
+  if(tryCount >= 2) tryCount = 0;
+  
+});
+
 eventEmitter.on('inited', function() {
   console.log('inited');
   readData();
 });
 
 module.exports = {
-  init: function(event, defaultMoney) {
+  init: function(event) {
     common = event;
-    myWallet = new Wallet(defaultMoney);
+    myWallet = new Wallet();
     common.on('collected_init', function(){
       makeWallet(myWallet, function() {
         console.log(myWallet);
