@@ -9,9 +9,9 @@ var common;
 var currencyInfo = {};
 
 const PERIODS = {
-  long: 26 * 90,
-  short: 12 * 90, 
-  signal: 9 * 90 
+  long: 26 * 10,
+  short: 12 * 10, 
+  signal: 9 * 10 
 };
 const readyStack = 5;
 var stack = 0;
@@ -48,6 +48,7 @@ function Currency(key, name, cap, minUnits) {
   this.signalGraph = [];
   this.predStack = 0;
   this.minusStack = 0;
+  this.plusStack = 0;
   this.isPlus = 0;
   this.initialTrade = true;
 }
@@ -132,16 +133,10 @@ function checkTicker(currency) {
       var curSignal = Math.floor(_signal.slice(-1)[0]);
       var prevMacd = Math.floor(_macd.slice(-2, -1)[0]);
       var prevSignal = Math.floor(_signal.slice(-2, -1)[0]);
-      var readyState;
 
       
       if(currency.maxMacd < curHisto && curHisto >= 0){
         currency.maxMacd = curHisto;
-      }
-
-
-      if(curHisto < currency.maxMacd * -0.03){
-        currency.boughtPrice = 0;
       }
 
       if(goToRiver){
@@ -152,12 +147,17 @@ function checkTicker(currency) {
       var macdDiff = curMacd - prevMacd;
       if(macdDiff > 0){
         currency.predStack++;
-        if (currency.minusStack > 12 && currency.predStack > 0){
+        currency.plusStack++;
+        if (currency.plusStack > 12 && currency.predStack < 0){
           currency.predStack = 0;
         }
       } else if (macdDiff < 0){
+        currency.plusStack = 0;
         currency.predStack--;
         currency.minusStack++;
+        if (currency.minusStack > 12 && currency.predStack > 0){
+          currency.predStack = 0;
+        }
       }
 
       if(curHisto * prevHisto <= 0){
@@ -170,14 +170,13 @@ function checkTicker(currency) {
         if (_histogram.length > PERIODS.long) {
           if(curHisto < 0) {
             sellCoin(currency, sellPrice);
-          } else if (curHisto > 100 && currency.isPlus === 1 && predStack > 0 ){
-            if(myWallet.krw >= 1000){//&& myWallet[key] < currency.minTradeUnits && currency.tradeStack <= 0){
-              if(curHisto * prevHisto < -1){
+          } else if (curHisto > 100 && currency.isPlus === 1 && currency.predStack > 0 ){
+            if(myWallet.krw >= 1000){
                 buyCoin(currency, buyPrice, curPrice);
-              }
-            }
-          } else if (currency.initialTrade && currency.isPlus !== -1 && curHisto > 100 && predStack >= readyStack){
-            buyCoin(currency, buyPrice, curPrice);
+            } 
+          }        
+          else if (currency.initialTrade && currency.isPlus !== -1 && curHisto > 100 && currency.predStack >= readyStack){
+            buyCoin(currency, buyPrice);
             currency.initialTrade = false;
           }
         }
@@ -185,12 +184,12 @@ function checkTicker(currency) {
 
       currentAlpha += currency.cap * curPrice;
       var histoTemplate = `${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)})`;
-      histoTemplate += ' '.repeat(30 - histoTemplate.length);
+      histoTemplate += ' '.repeat(40 - histoTemplate.length);
 
       var diffTemplate = `diff : ${macdDiff}`;
       diffTemplate += ' '.repeat(15 - diffTemplate.length);
 
-      var signTemplate = `sign : ${currency.predStack}`
+      var signTemplate = `combo : ${currency.predStack}`
       signTemplate += ' '.repeat(15 - signTemplate.length);
 
       var diff = (((curPrice / prevPrice) - 1) * 100).toFixed(2);

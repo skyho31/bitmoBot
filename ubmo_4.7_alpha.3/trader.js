@@ -165,11 +165,9 @@ function checkTicker(currency) {
         if (_histogram.length > PERIODS.long) {
           if(curHisto < 0) {
             sellCoin(currency, sellPrice);
-          } else if (curHisto > 100 && currency.isPlus === 1 && predStack > 0 ){
+          } else if (curHisto > 100 && currency.isPlus === 1 && currency.predStack > 0 ){
             if(myWallet.krw >= 1000){
-              if(curHisto * prevHisto < -1){
                 buyCoin(currency, buyPrice);
-              }
             }
           }        
           // else if (currency.initialTrade && currency.isPlus !== -1 && curHisto > 100 && predStack >= readyStack){
