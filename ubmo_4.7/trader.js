@@ -9,9 +9,9 @@ var common;
 var currencyInfo = {};
 
 const PERIODS = {
-  long: 26 * 10,
-  short: 12 * 10, 
-  signal: 9 * 10 
+  long: 26 * 90,
+  short: 12 * 90, 
+  signal: 9 * 90 
 };
 const readyStack = 5;
 var stack = 0;
@@ -137,7 +137,11 @@ function checkTicker(currency) {
       
       if(currency.maxMacd < curHisto && curHisto >= 0){
         currency.maxMacd = curHisto;
+      } else if(curHisto < 0){
+        currency.maxMacd = 0;
       }
+
+      
 
       if(goToRiver){
         sellCoin(currency, sellPrice);
@@ -167,11 +171,11 @@ function checkTicker(currency) {
       if(stack < readyStack && curHisto < 0){
         sellCoin(currency, sellPrice);
       } else if(stack > readyStack){
-        if (_histogram.length > PERIODS.long) {
+        if (_histogram.length > PERIODS.long && currency.tradeStack <= 0) {
           if(curHisto < 0) {
             sellCoin(currency, sellPrice);
           } else if (curHisto > 100 && currency.isPlus === 1 && currency.predStack > 0 ){
-            if(myWallet.krw >= 1000){
+            if(myWallet.krw >= 1000 && myWallet[key] * curPrice < 200000){
                 buyCoin(currency, buyPrice, curPrice);
             } 
           }        
@@ -258,7 +262,7 @@ function buyCoin(currency, price, curPrice) {
     currency.tradeFailed = false;
 
     // for log
-    logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2);
+    logMessage = '[' + name + ']  buy ' + buyCount + '(' + currency.histogram.slice(-1)[0].toFixed(2) + ')';
     console.log(logMessage);
     log.write('trade', logMessage + '\n', true);
   }
@@ -353,10 +357,10 @@ function checkStatus(){
   log.write('log', logMessage + '\n', true);
   stack++;
 
-  if(totalMoney < myWallet.default * 0.8 && stack > 1){
-    console.log('The end, Go to the hanriver!!!');
-    return false;
-  }
+  // if(totalMoney < myWallet.default * 0.8 && stack > 1){
+  //   console.log('The end, Go to the hanriver!!!');
+  //   return false;
+  // }
 
 
   for (var i = 0; i < currArr.length; i++){

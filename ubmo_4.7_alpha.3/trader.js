@@ -14,7 +14,7 @@ const PERIODS = {
   short: 12 * 90, 
   signal: 9 * 90 
 };
-const readyStack = 5;
+const readyStack = 20;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -130,6 +130,9 @@ function checkTicker(currency) {
       var prevHisto = _histogram.slice(-2, -1)[0];
       var curMacd = Math.floor(_macd.slice(-1)[0]);
       var curSignal = Math.floor(_signal.slice(-1)[0]);
+      var prevMacd = Math.floor(_macd.slice(-2, -1)[0]);
+      var prevSignal = Math.floor(_signal.slice(-2, -1)[0]);
+
       var readyState;
 
       var diff = (((curPrice / prevPrice) - 1) * 100).toFixed(2);
@@ -137,6 +140,8 @@ function checkTicker(currency) {
 
       if(currency.maxMacd < curHisto && curHisto >= 0){
         currency.maxMacd = curHisto;
+      } else if (curHisto < 0){
+        currency.maxMacd = 0;
       }
 
       if(goToRiver){
@@ -147,12 +152,17 @@ function checkTicker(currency) {
       var macdDiff = curMacd - prevMacd;
       if(macdDiff > 0){
         currency.predStack++;
-        if (currency.minusStack > 12 && currency.predStack > 0){
+        currency.plusStack++;
+        if (currency.plusStack > 12 && currency.predStack < 0){
           currency.predStack = 0;
         }
       } else if (macdDiff < 0){
+        currency.plusStack = 0;
         currency.predStack--;
         currency.minusStack++;
+        if (currency.minusStack > 12 && currency.predStack > 0){
+          currency.predStack = 0;
+        }
       }
 
       if(curHisto * prevHisto <= 0){
@@ -162,24 +172,24 @@ function checkTicker(currency) {
       if(stack < readyStack && curHisto < 0){
         sellCoin(currency, sellPrice);
       } else if(stack > readyStack){
-        if (_histogram.length > PERIODS.long) {
+        if (_histogram.length > PERIODS.long && currency.tradeStack <= 0) {
           if(curHisto < 0) {
             sellCoin(currency, sellPrice);
           } else if (curHisto > 100 && currency.isPlus === 1 && currency.predStack > 0 ){
-            if(myWallet.krw >= 1000){
+            if(myWallet.krw >= 1000 && myWallet[key] * curPrice < 20000){
                 buyCoin(currency, buyPrice);
-            }
+            } 
           }        
-          // else if (currency.initialTrade && currency.isPlus !== -1 && curHisto > 100 && predStack >= readyStack){
-          //   buyCoin(currency, buyPrice);
-          //   currency.initialTrade = false;
-          // }
+          else if (currency.initialTrade && currency.isPlus !== -1 && curHisto > 100 && currency.predStack >= readyStack){
+            buyCoin(currency, buyPrice);
+            currency.initialTrade = false;
+          }
         }
       }
 
       currentAlpha += currency.cap * curPrice;
       var histoTemplate = `${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)})`;
-      histoTemplate += ' '.repeat(30 - histoTemplate.length);
+      histoTemplate += ' '.repeat(40 - histoTemplate.length);
 
       var diffTemplate = `diff : ${macdDiff}`;
       diffTemplate += ' '.repeat(15 - diffTemplate.length);
@@ -233,7 +243,9 @@ function buyCoin(currency, price) {
   var key = currency.key;
   var krw = myWallet.krw;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
-  var cost = krw > 20000 ? 20000 : myWallet.krw;
+  var cost = krw > 10000 ? Math.floor(krw/4) : myWallet.krw;
+
+ // var cost = krw > 20000 ? 20000 : myWallet.krw;
   var buyCount = parseDecimal(cost / price);
   var logMessage;
   var tryStack = 0;
@@ -280,7 +292,7 @@ function buyCoin(currency, price) {
     }
   }
 
-  if (buyCount > currency.minTradeUnits) {
+  if (buyCount > currency.minTradeUnits  && (krw - cost) >= 0) {
     myWallet.krw -= cost;
     xCoinBuy(key, buyCount);
   }
@@ -312,8 +324,8 @@ function sellCoin(currency, price) {
           }
           currency.tradeStack = 5;
           currency.maxMacd = 0;
-          currency.minusStack = 0;
-          currency.plusStack = 0;
+          // currency.minusStack = 0;
+          // currency.plusStack = 0;
           currency.boughtPrice = 0;
 
         } else {
@@ -355,7 +367,7 @@ function parseDecimal(num){
 
 function checkStatus(){
   var totalMoney = (myWallet.total = getTotal());
-  var fee = myWallet.totalTradeAmount * 0.00075;
+  var fee = tradeAmount * 0.00075;
   var realTotal = totalMoney - fee;
   var profitRate = (realTotal / myWallet.default - 1) * 100;
   var profitStr = profitRate >= 0 ? (profitRate.toFixed(2) + '%').green : (profitRate.toFixed(2) + '%').red;
