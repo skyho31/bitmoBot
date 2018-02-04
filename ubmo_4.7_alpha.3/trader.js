@@ -173,7 +173,7 @@ function checkTicker(currency) {
         sellCoin(currency, sellPrice);
       } else if(stack > readyStack){
         if (_histogram.length > PERIODS.long && currency.tradeStack <= 0) {
-          if(curHisto < 0 || (currency.predStack > -90 && currency.maxMacd * 0.5 > curHisto)) {
+          if(curHisto < 0 || (currency.maxMacd * 0.8 > curHisto && currency.boughtPrice > sellPrice)) {
             sellCoin(currency, sellPrice);
           } else if (curHisto > 100 && currency.isPlus === 1 && currency.predStack > 0 ){
             if(myWallet.krw >= 1000 && myWallet[key] * curPrice < 20000){
@@ -216,11 +216,13 @@ function checkTicker(currency) {
           isPlusStr = '(*)'
       }
 
+      
+
 
       if(myWallet[key] >= currency.minTradeUnits){
-        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr}`);
+        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr} profit: [${sellPrice - currency.boughtPrice}]`);
       } else {
-        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.red + ` ${isPlusStr} price : ${diffStr} `);
+        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.red + ` ${isPlusStr} price : ${diffStr} profit: [${sellPrice - currency.boughtPrice}]`);
       }
 
       tickCount++;
@@ -243,7 +245,7 @@ function buyCoin(currency, price) {
   var key = currency.key;
   var krw = myWallet.krw;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
-  var cost = krw > 10000 ? Math.floor(krw/4) : myWallet.krw;
+  var cost = krw > 10000 ? Math.floor(krw/5) : myWallet.krw;
 
  // var cost = krw > 20000 ? 20000 : myWallet.krw;
   var buyCount = parseDecimal(cost / price);
