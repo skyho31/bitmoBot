@@ -173,7 +173,7 @@ function checkTicker(currency) {
         sellCoin(currency, sellPrice);
       } else if(stack > readyStack){
         if (_histogram.length > PERIODS.long && currency.tradeStack <= 0) {
-          if(curHisto < 0) {
+          if(curHisto < 0 || (currency.predStack > -90 && currency.maxMacd * 0.5 > curHisto)) {
             sellCoin(currency, sellPrice);
           } else if (curHisto > 100 && currency.isPlus === 1 && currency.predStack > 0 ){
             if(myWallet.krw >= 1000 && myWallet[key] * curPrice < 20000){
