@@ -216,13 +216,14 @@ function checkTicker(currency) {
           isPlusStr = '(*)'
       }
 
-      
+      var expectProfit = sellPrice - currency.boughtPrice;
+      var profitStr = currency.boughtPrice > 0 ? `profit: [${sellPrice - currency.boughtPrice}]` : '';
 
 
       if(myWallet[key] >= currency.minTradeUnits){
-        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr} profit: [${sellPrice - currency.boughtPrice}]`);
+        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr} ${profitStr}`);
       } else {
-        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.red + ` ${isPlusStr} price : ${diffStr} profit: [${sellPrice - currency.boughtPrice}]`);
+        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.red + ` ${isPlusStr} price : ${diffStr}`);
       }
 
       tickCount++;
