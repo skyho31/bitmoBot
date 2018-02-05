@@ -169,11 +169,13 @@ function checkTicker(currency) {
         currency.isPlus = curHisto >= 0 ? 1 : -1;
       }
 
+      sellCoin(currency, sellPrice);
+
       if(stack < readyStack && curHisto < 0){
         sellCoin(currency, sellPrice);
       } else if(stack > readyStack){
         if (_histogram.length > PERIODS.long && currency.tradeStack <= 0) {
-          if(curHisto < 0 || (currency.maxMacd * 0.8 > curHisto && currency.boughtPrice > sellPrice)) {
+          if(curHisto < 0 || (currency.maxMacd * 0.5 > curHisto && currency.boughtPrice > sellPrice * 0.9985)) {
             sellCoin(currency, sellPrice);
           } else if (curHisto > 100 && currency.isPlus === 1 && currency.predStack > 0 ){
             if(myWallet.krw >= 1000 && myWallet[key] * curPrice < 20000){
@@ -216,8 +218,8 @@ function checkTicker(currency) {
           isPlusStr = '(*)'
       }
 
-      var expectProfit = sellPrice - currency.boughtPrice;
-      var profitStr = currency.boughtPrice > 0 ? `profit: [${sellPrice - currency.boughtPrice}]` : '';
+      var expectProfit = (sellPrice * 0.9985 - currency.boughtPrice);
+      var profitStr = currency.boughtPrice > 0 ? `profit: [${expectProfit.toFixed(2)}]` : '';
 
 
       if(myWallet[key] >= currency.minTradeUnits){
@@ -246,7 +248,7 @@ function buyCoin(currency, price) {
   var key = currency.key;
   var krw = myWallet.krw;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
-  var cost = krw > 10000 ? Math.floor(krw/5) : myWallet.krw;
+  var cost = krw > 10000 ? Math.floor(krw/7) : myWallet.krw;
 
  // var cost = krw > 20000 ? 20000 : myWallet.krw;
   var buyCount = parseDecimal(cost / price);
@@ -422,11 +424,11 @@ function checkStatus(){
         walletStatus += '[' + i + '] : ' + myWallet[i] + '\n';
       }
     }
-    log.write('profitLog', walletStatus + '\b', true);
+//    log.write('profitLog', walletStatus + '\b', true);
     
-    fs.writeFile('./logs/wallet.txt', JSON.stringify(myWallet), function(){
-      console.log(walletStatus);
-    })  
+//    fs.writeFile('./logs/wallet.txt', JSON.stringify(myWallet), function(){
+//      console.log(walletStatus);
+//    })  
   }
 
   if(stack > 0) console.log(logMessage);
