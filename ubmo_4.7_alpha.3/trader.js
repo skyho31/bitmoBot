@@ -173,7 +173,7 @@ function checkTicker(currency) {
         currency.plusStack = 0;
         currency.predStack--; 
         currency.minusStack++;
-        if (currency.minusStack > 100 && currency.predStack > 0 && warningMarket !== 2){
+        if (currency.minusStack > 12 && currency.predStack > 0 && warningMarket !== 2){
           currency.predStack = 0;
         }
       }
@@ -185,7 +185,7 @@ function checkTicker(currency) {
       if(currency.predStack < 0){
         tempPred++;
       }
-
+      // sellCoin(currency, sellPrice);
       /**
        * 기본적인 readyStack에 도다르기까지 현재의 histogram 값이 음수인 경우 가지고 있는 종목을 무조건 판매한다.
        */
@@ -206,6 +206,7 @@ function checkTicker(currency) {
              * 현재의 histogram 값이 양수여도 다음과 같은 조건으로 bitmo는 특수행동을 진행한다.
              * 먼저 warning market은 각 종목의 predStack(signal이 아닌 long macd 값이 오르거나 내릴 때마다 +-의 콤보 스택이 쌓인다.)이 
              * 5 이상은 warning 10 이상은 emergency의 경보를 발행한다.
+             * 위 시장이 전체 움직임과 개별 움직임의 차이가 없음을 전제한다.
              * 
              * 1. emergency의 경우 무조건 전부 판매한다.
              * 2. warning의 경우 predStack이 -로 변경되거나 판매가가 구매가보다 낮아질 경우 판매한다.
@@ -219,7 +220,7 @@ function checkTicker(currency) {
                 sellCoin(currency, sellPrice);
                 break;
               case 1:
-                if(currency.boughtPrice > sellPrice * 0.9985) {
+                if(currency.predStack < 0 || currency.boughtPrice > sellPrice * 0.9985) {
                   sellCoin(currency, sellPrice);
                 }
                 break;
@@ -266,7 +267,7 @@ function checkTicker(currency) {
           isPlusStr = '(*)'
       }
 
-      var expectProfit = (sellPrice * 0.9985 - currency.boughtPrice);
+      var expectProfit = (sellPrice * 0.9985 / currency.boughtPrice) * 100;
       var profitStr = currency.boughtPrice > 0 ? `profit: [${expectProfit.toFixed(2)}]` : '';
 
       if(myWallet[key] >= currency.minTradeUnits){
