@@ -160,6 +160,7 @@ function checkTicker(currency) {
        * 상승세를 늦게 타는 것을 방지하기 위한 로직.
        * 
        * 반대의 경우, 현재 누적된 plusCombo가 높아도 100연속 -가 되면 0으로 초기화 해서 빠른 매도를 가능하게 한다.
+       * -에서 +로의 복귀는 emergency의 경우, 초회복이 되지 않고 스택대로 풀어갈 때까지 천천히 상승한다. 
        */
       if(macdDiff > 0){
         currency.minusStack = 0;
@@ -170,7 +171,7 @@ function checkTicker(currency) {
         }
       } else if (macdDiff < 0){
         currency.plusStack = 0;
-        currency.predStack--;
+        currency.predStack--; 
         currency.minusStack++;
         if (currency.minusStack > 100 && currency.predStack > 0 && warningMarket !== 2){
           currency.predStack = 0;
@@ -185,42 +186,54 @@ function checkTicker(currency) {
         tempPred++;
       }
 
+      /**
+       * 기본적인 readyStack에 도다르기까지 현재의 histogram 값이 음수인 경우 가지고 있는 종목을 무조건 판매한다.
+       */
       if(stack < readyStack && curHisto < 0){
         sellCoin(currency, sellPrice);
       } else if(stack > readyStack){
+
+        /**
+         * 매매 후 바로 구매할 수 없도록 한 지표인 tradestack이 0이고, histogram을 계산하기 위한 충분한 stack이 모였을 때 거래가 시작된다
+         * 기본적으로 현재의 histogram 값이 음수인 경우 무조건 판매한다. 
+         */
         if (_histogram.length > PERIODS.long && currency.tradeStack <= 0) {
-          switch(warningMarket){
-            case 2:
-              sellCoin(currency, sellPrice);
-              break;
-            case 1:
-              if(curHisto < 0 || (currency.predStack < 0 && (currency.boughtPrice > sellPrice * 0.9985))) {
+          if(curHisto < 0){
+            sellCoin(currency, sellPrice);
+          } else {
+
+            /**
+             * 현재의 histogram 값이 양수여도 다음과 같은 조건으로 bitmo는 특수행동을 진행한다.
+             * 먼저 warning market은 각 종목의 predStack(signal이 아닌 long macd 값이 오르거나 내릴 때마다 +-의 콤보 스택이 쌓인다.)이 
+             * 5 이상은 warning 10 이상은 emergency의 경보를 발행한다.
+             * 
+             * 1. emergency의 경우 무조건 전부 판매한다.
+             * 2. warning의 경우 predStack이 -로 변경되거나 판매가가 구매가보다 낮아질 경우 판매한다.
+             * 3. 일반적인 경우 predStack이 -로 변경되거나 판매가가 구매가보다 낮아질 경우 판매한다.(일반적인 deadCross)
+             * 3-1. 구매는 3의 경우에만 가능하다. 구매의 경우 잡음을 없애기 위해 현재의 histogram이 100이 넘고, 
+             *      최대치를 갱신하고 있으며, 골든 크로스 조건을 달성하고 현재의 combo가 양수여야한다. 
+             * 4. 모든 경우에 있어 현재의 histogram이 -가 되면 판매한다. 
+             */
+            switch(warningMarket){
+              case 2:
                 sellCoin(currency, sellPrice);
-              }
-              break;
-            case 0:
-              if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
-                if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 5){
-                  buyCoin(currency, buyPrice);
+                break;
+              case 1:
+                if(currency.boughtPrice > sellPrice * 0.9985) {
+                  sellCoin(currency, sellPrice);
                 }
-              }
-              break;
+                break;
+              case 0:
+                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus !== -1 && currency.predStack > 0){
+                  if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 5){
+                    buyCoin(currency, buyPrice);
+                  }
+                } else if(currency.predStack < 0 && (currency.boughtPrice > sellPrice * 0.9985)) {
+                  sellCoin(currency, sellPrice);
+                }
+                break;
+            }
           }
-
-
-
-
-          // if(curHisto < 0 || (currency.predStack < 0 && (currency.boughtPrice > sellPrice * 0.9985 || warningMarket === 2))) {
-          //   sellCoin(currency, sellPrice);
-          // } else if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
-          //   if(myWallet.krw >= 1000 && myWallet[key] * curPrice < 20000){
-          //       buyCoin(currency, buyPrice);
-          //   } 
-          // }        
-          // else if (currency.initialTrade && currency.isPlus !== -1 && curHisto > 100 && currency.predStack >= readyStack){
-          //   buyCoin(currency, buyPrice);
-          //   currency.initialTrade = false;
-          // }
         }
       }
 
