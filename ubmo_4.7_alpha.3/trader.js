@@ -14,7 +14,7 @@ const PERIODS = {
   short: 12 * 90, 
   signal: 9 * 90 
 };
-const readyStack = 20;
+const readyStack = 100;//PERIODS.signal;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -27,6 +27,9 @@ var previousAlpha = 0;
 var isAlpha = false;
 var goToRiver = false;
 var tryCount = 0;
+var warningMarket = 0;
+var tempPred = 0;
+var emergencyTime = 0;
 
 function Currency(key, name, cap, minUnits) {
   this.name = name;
@@ -150,17 +153,26 @@ function checkTicker(currency) {
       }
 
       var macdDiff = curMacd - prevMacd;
+
+      /**
+       * macd 값이 + 방향으로 상승 시, 현재 누적 minusCombo가 높아도 100 연속이 되면 0으로 초기화 한다.
+       * 어차피 curHisto 자체가 0 이상이 아니면 구매하지 않기 때문에 상관 없다. 
+       * 상승세를 늦게 타는 것을 방지하기 위한 로직.
+       * 
+       * 반대의 경우, 현재 누적된 plusCombo가 높아도 100연속 -가 되면 0으로 초기화 해서 빠른 매도를 가능하게 한다.
+       */
       if(macdDiff > 0){
+        currency.minusStack = 0;
         currency.predStack++;
         currency.plusStack++;
-        if (currency.plusStack > 12 && currency.predStack < 0){
+        if (currency.plusStack > 100 && currency.predStack < 0){
           currency.predStack = 0;
         }
       } else if (macdDiff < 0){
         currency.plusStack = 0;
         currency.predStack--;
         currency.minusStack++;
-        if (currency.minusStack > 12 && currency.predStack > 0){
+        if (currency.minusStack > 100 && currency.predStack > 0 && warningMarket !== 2){
           currency.predStack = 0;
         }
       }
@@ -169,23 +181,46 @@ function checkTicker(currency) {
         currency.isPlus = curHisto >= 0 ? 1 : -1;
       }
 
-      sellCoin(currency, sellPrice);
+      if(currency.predStack < 0){
+        tempPred++;
+      }
 
       if(stack < readyStack && curHisto < 0){
         sellCoin(currency, sellPrice);
       } else if(stack > readyStack){
         if (_histogram.length > PERIODS.long && currency.tradeStack <= 0) {
-          if(curHisto < 0 || (currency.maxMacd * 0.5 > curHisto && currency.boughtPrice > sellPrice * 0.9985)) {
-            sellCoin(currency, sellPrice);
-          } else if (curHisto > 100 && currency.isPlus === 1 && currency.predStack > 0 ){
-            if(myWallet.krw >= 1000 && myWallet[key] * curPrice < 20000){
-                buyCoin(currency, buyPrice);
-            } 
-          }        
-          else if (currency.initialTrade && currency.isPlus !== -1 && curHisto > 100 && currency.predStack >= readyStack){
-            buyCoin(currency, buyPrice);
-            currency.initialTrade = false;
+          switch(warningMarket){
+            case 2:
+              sellCoin(currency, sellPrice);
+              break;
+            case 1:
+              if(curHisto < 0 || (currency.predStack < 0 && (currency.boughtPrice > sellPrice * 0.9985))) {
+                sellCoin(currency, sellPrice);
+              }
+              break;
+            case 0:
+              if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
+                if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 5){
+                  buyCoin(currency, buyPrice);
+                }
+              }
+              break;
           }
+
+
+
+
+          // if(curHisto < 0 || (currency.predStack < 0 && (currency.boughtPrice > sellPrice * 0.9985 || warningMarket === 2))) {
+          //   sellCoin(currency, sellPrice);
+          // } else if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
+          //   if(myWallet.krw >= 1000 && myWallet[key] * curPrice < 20000){
+          //       buyCoin(currency, buyPrice);
+          //   } 
+          // }        
+          // else if (currency.initialTrade && currency.isPlus !== -1 && curHisto > 100 && currency.predStack >= readyStack){
+          //   buyCoin(currency, buyPrice);
+          //   currency.initialTrade = false;
+          // }
         }
       }
 
@@ -220,7 +255,6 @@ function checkTicker(currency) {
 
       var expectProfit = (sellPrice * 0.9985 - currency.boughtPrice);
       var profitStr = currency.boughtPrice > 0 ? `profit: [${expectProfit.toFixed(2)}]` : '';
-
 
       if(myWallet[key] >= currency.minTradeUnits){
         console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr} ${profitStr}`);
@@ -386,6 +420,28 @@ function checkStatus(){
   beta = (beta >= 0) ? (beta.toFixed(2) + '%').green : (beta.toFixed(2) + '%').red;
   var prevAlphaChange;
 
+
+  if(tempPred >= 10){
+    warningMarket = 2;
+  } else if (tempPred >= 5){
+    warningMarket = 1;
+  } else {
+    warningMarket = 0;
+  }
+
+  var warningStr;
+
+  switch(warningMarket){
+    case 2:
+      warningStr = 'alert: emergency'.red;
+      break;
+    case 1:
+      warningStr = 'alert: warning'.yellow;
+      break;
+    case 0:
+      warningStr = 'alert: off'.green;
+  }
+
   if(stack <= 1){
     myWallet.startDate = date.getDate();
     defaultAlpha = previousAlpha = currentAlpha;
@@ -413,7 +469,7 @@ function checkStatus(){
   var alphaChangeStr = (alphaChange >= 0) ? (alphaChange + '%').green : (alphaChange + '%').red;
 
   logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + profitStr +
-  ')  market: ' + alphaChangeStr + '('+ (isAlpha ? '+' : '-') +')  beta : ' + beta + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) + ' || ' + time;
+  ')  market: ' + alphaChangeStr + '('+ (isAlpha ? '+' : '-') +')  beta : ' + beta + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + '|| ' + time;
 
   if (stack % 10 == 0) {
     var walletStatus = '\n////////My Wallet Status ///////// \n';
@@ -432,6 +488,8 @@ function checkStatus(){
   }
 
   if(stack > 0) console.log(logMessage);
+  tempPred = 0;
+
 
   log.write('log', logMessage + '\n', true);
   stack++;
