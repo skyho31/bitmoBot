@@ -207,6 +207,7 @@ function checkTicker(currency) {
              * 먼저 warning market은 각 종목의 predStack(signal이 아닌 long macd 값이 오르거나 내릴 때마다 +-의 콤보 스택이 쌓인다.)이 
              * 5 이상은 warning 10 이상은 emergency의 경보를 발행한다.
              * 위 시장이 전체 움직임과 개별 움직임의 차이가 없음을 전제한다.
+             * 모든 매수는 최초의 골든크로스에서 시작된다. 
              * 
              * 1. emergency의 경우 무조건 전부 판매한다.
              * 2. warning의 경우 predStack이 -로 변경되거나 판매가가 구매가보다 낮아질 경우 판매한다.
@@ -225,7 +226,7 @@ function checkTicker(currency) {
                 }
                 break;
               case 0:
-                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus !== -1 && currency.predStack > 0){
+                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
                   if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 5){
                     buyCoin(currency, buyPrice);
                   }
