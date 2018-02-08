@@ -14,7 +14,7 @@ const PERIODS = {
   short: 12 * 90, 
   signal: 9 * 90 
 };
-const readyStack = PERIODS.signal;
+const readyStack = 120; //PERIODS.signal
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -52,6 +52,8 @@ function Currency(key, name, cap, minUnits) {
   this.minusStack = 0;
   this.isPlus = 0;
   this.initialTrade = true;
+  this.expectedProfit = 0;
+  this.maxExpectedProfit = 0;
 }
 
 function Wallet() {
@@ -156,7 +158,7 @@ function checkTicker(currency) {
 
       /**
        * macd 값이 + 방향으로 상승 시, 현재 누적 minusCombo가 높아도 100 연속이 되면 0으로 초기화 한다.
-       * 어차피 curHisto 자체가 0 이상이 아니면 구매하지 않기 때문에 상관 없다. 
+       * 어차피 curHisto 자체가 0 이상이 아니면 구매하지 않기 때문에 상관 없다. myWallet.total / 10
        * 상승세를 늦게 타는 것을 방지하기 위한 로직.
        * 
        * 반대의 경우, 현재 누적된 plusCombo가 높아도 100연속 -가 되면 0으로 초기화 해서 빠른 매도를 가능하게 한다.
@@ -166,14 +168,14 @@ function checkTicker(currency) {
         currency.minusStack = 0;
         currency.predStack++;
         currency.plusStack++;
-        if (currency.plusStack > 100 && currency.predStack < 0){
+        if (currency.plusStack > 60 && currency.predStack < 0){
           currency.predStack = 0;
         }
       } else if (macdDiff < 0){
         currency.plusStack = 0;
         currency.predStack--; 
         currency.minusStack++;
-        if (currency.minusStack > 12 && currency.predStack > 0 && warningMarket !== 2){
+        if (currency.minusStack > 60 && currency.predStack > 0 && warningMarket !== 2){
           currency.predStack = 0;
         }
       }
@@ -185,6 +187,14 @@ function checkTicker(currency) {
       if(currency.predStack < 0){
         tempPred++;
       }
+
+      if(currency.boughtPrice !== 0){
+        currency.expectedProfit = ((sellPrice * 0.9985 / currency.boughtPrice) - 1) * 100;
+        if(currency.expectedProfit >= 5){
+          currency.maxExpectedProfit = currency.expectedProfit;
+        }
+      }
+      
       // sellCoin(currency, sellPrice);
       /**
        * 기본적인 readyStack에 도다르기까지 현재의 histogram 값이 음수인 경우 가지고 있는 종목을 무조건 판매한다.
@@ -221,18 +231,31 @@ function checkTicker(currency) {
                 sellCoin(currency, sellPrice);
                 break;
               case 1:
-                if(currency.predStack < 0 || currency.boughtPrice > sellPrice * 0.9985) {
+                if(currency.maxExpectedProfit !== 0 && currency.boughtPrice !== 0){
+                  if(currency.predStack < 0 || currency.expectedProfit < currency.maxExpectedProfit * 0.5 ||  sellPrice * 0.9985 < currency.boughtPrice) {
+                    sellCoin(currency, sellPrice);
+                  }
+                } else if(currency.predStack < 0 || sellPrice * 0.9985 < currency.boughtPrice) {
                   sellCoin(currency, sellPrice);
                 }
+
+                
                 break;
               case 0:
-                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus !== -1 && currency.predStack > 0){
+                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
                   if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 5){
                     buyCoin(currency, buyPrice);
                   }
-                } else if(currency.predStack < 0 && (currency.boughtPrice > sellPrice * 0.9985)) {
-                  sellCoin(currency, sellPrice);
-                }
+                } else {
+                  if(currency.maxExpectedProfit !== 0 && currency.boughtPrice !== 0){
+                    if(currency.predStack < 0 && currency.expectedProfit < currency.maxExpectedProfit * 0.5 ||  sellPrice * 0.9985 < currency.boughtPrice) {
+                      sellCoin(currency, sellPrice);
+                    }
+                  } else if(currency.predStack < 0 && sellPrice * 0.9985 < currency.boughtPrice) {
+                    sellCoin(currency, sellPrice);
+                  }
+                  
+                } 
                 break;
             }
           }
@@ -268,8 +291,8 @@ function checkTicker(currency) {
           isPlusStr = '(*)'
       }
 
-      var expectProfit = ((sellPrice * 0.9985 / currency.boughtPrice) - 1) * 100;
-      var profitStr = currency.boughtPrice > 0 ? `profit: [${expectProfit.toFixed(2)}%]` : '';
+      
+      var profitStr = currency.boughtPrice > 0 ? `profit: ${currency.expectedProfit.toFixed(2)}% ${currency.maxExpectedProfit === 0 ? '' : 'max : ' + currency.maxExpectedProfit.toFixed(2) }+ '%'` : '';
 
       if(myWallet[key] >= currency.minTradeUnits){
         console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr} ${profitStr}`);
@@ -297,7 +320,7 @@ function buyCoin(currency, price) {
   var key = currency.key;
   var krw = myWallet.krw;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
-  var cost = krw > 10000 ? Math.floor(krw/7) : myWallet.krw;
+  var cost = krw > myWallet.default / 5 ? Math.floor(myWallet.default/5) : myWallet.krw;
 
  // var cost = krw > 20000 ? 20000 : myWallet.krw;
   var buyCount = parseDecimal(cost / price);
@@ -381,6 +404,8 @@ function sellCoin(currency, price) {
           // currency.minusStack = 0;
           // currency.plusStack = 0;
           currency.boughtPrice = 0;
+          currency.expectedProfit = 0;
+          currency.maxExpectedProfit = 0;
 
         } else {
           console.log(key + ' : ' + result.message);
@@ -436,9 +461,9 @@ function checkStatus(){
   var prevAlphaChange;
 
 
-  if(tempPred >= 10){
+  if(tempPred >= 10){ // 10/12
     warningMarket = 2;
-  } else if (tempPred >= 5){
+  } else if (tempPred >= 6){ // 6/12
     warningMarket = 1;
   } else {
     warningMarket = 0;
@@ -466,6 +491,10 @@ function checkStatus(){
   
 
   if(myWallet.startDate < date.getDate()){
+
+    var message = `Date : ${myWallet.startDate}, Last Profit rate: ${profitRate.toFixed(2)}%, market rate: ${alphaChange}%, beta rate: ${beta}, default : ${myWallet.default}, last: ${myWallet.total}, earn : ${myWallet.total - myWallet.default}`
+    log.write('result', message + '\n', true);
+
     myWallet.default = totalMoney;
     myWallet.startDate = date.getDate();
     defaultAlpha = previousAlpha = currentAlpha;
@@ -495,11 +524,6 @@ function checkStatus(){
         walletStatus += '[' + i + '] : ' + myWallet[i] + '\n';
       }
     }
-//    log.write('profitLog', walletStatus + '\b', true);
-    
-//    fs.writeFile('./logs/wallet.txt', JSON.stringify(myWallet), function(){
-//      console.log(walletStatus);
-//    })  
   }
 
   if(stack > 0) console.log(logMessage);
