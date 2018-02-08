@@ -190,7 +190,7 @@ function checkTicker(currency) {
 
       if(currency.boughtPrice !== 0){
         currency.expectedProfit = ((sellPrice * 0.9985 / currency.boughtPrice) - 1) * 100;
-        if(currency.expectedProfit >= 5){
+        if(currency.expectedProfit >= 5 && currency.maxExpectedProfit < currency.expectedProfit){
           currency.maxExpectedProfit = currency.expectedProfit;
         }
       }
@@ -232,7 +232,7 @@ function checkTicker(currency) {
                 break;
               case 1:
                 if(currency.maxExpectedProfit !== 0 && currency.boughtPrice !== 0){
-                  if(currency.predStack < 0 || currency.expectedProfit < currency.maxExpectedProfit * 0.5 ||  sellPrice * 0.9985 < currency.boughtPrice) {
+                  if(currency.predStack < 0 || currency.expectedProfit < currency.maxExpectedProfit * 0.8 ||  sellPrice * 0.9985 < currency.boughtPrice) {
                     sellCoin(currency, sellPrice);
                   }
                 } else if(currency.predStack < 0 || sellPrice * 0.9985 < currency.boughtPrice) {
@@ -241,7 +241,7 @@ function checkTicker(currency) {
                 break;
               case 0:
                 if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
-                  if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 5){
+                  if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 10){
                     buyCoin(currency, buyPrice);
                   }
                 } else {
@@ -318,7 +318,7 @@ function buyCoin(currency, price) {
   var key = currency.key;
   var krw = myWallet.krw;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
-  var cost = krw > myWallet.default / 5 ? Math.floor(myWallet.default/5) : myWallet.krw;
+  var cost = krw > myWallet.default / 10 ? Math.floor(myWallet.default/10) : myWallet.krw;
 
  // var cost = krw > 20000 ? 20000 : myWallet.krw;
   var buyCount = parseDecimal(cost / price);
@@ -455,8 +455,9 @@ function checkStatus(){
   var logMessage;
   var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
   var beta = profitRate - alphaChange;
-  beta = (beta >= 0) ? (beta.toFixed(2) + '%').green : (beta.toFixed(2) + '%').red;
+  var betaStr = (beta >= 0) ? (beta.toFixed(2) + '%').green : (beta.toFixed(2) + '%').red;
   var prevAlphaChange;
+  var fileMessage;
 
 
   if(tempPred >= 10){ // 10/12
@@ -468,16 +469,20 @@ function checkStatus(){
   }
 
   var warningStr;
+  var warningStrForFile;
 
   switch(warningMarket){
     case 2:
-      warningStr = 'alert: emergency'.red;
+      warningStrForFile = 'alert: emergency'
+      warningStr = warningStrForFile.red;
       break;
     case 1:
-      warningStr = 'alert: warning'.yellow;
+      warningStrForFile = 'alert: warning';
+      warningStr = warningStrForFile.yellow;
       break;
     case 0:
-      warningStr = 'alert: off'.green;
+      warningStrForFile = 'alert: off';
+      warningStr = warningStrForFile.green;
   }
 
   if(stack <= 1){
@@ -490,7 +495,7 @@ function checkStatus(){
 
   if(myWallet.startDate < date.getDate()){
 
-    var message = `Date : ${myWallet.startDate}, Last Profit rate: ${profitRate.toFixed(2)}%, market rate: ${alphaChange}%, beta rate: ${beta}, default : ${myWallet.default}, last: ${myWallet.total}, earn : ${myWallet.total - myWallet.default}`
+    var message = `Date : ${myWallet.startDate}, Last Profit rate: ${profitRate.toFixed(2)}%, market rate: ${alphaChange}%, beta rate: ${betaStr}, default : ${myWallet.default}, last: ${myWallet.total}, earn : ${myWallet.total - myWallet.default}`
     log.write('result', message + '\n', true);
 
     myWallet.default = totalMoney;
@@ -511,7 +516,10 @@ function checkStatus(){
   var alphaChangeStr = (alphaChange >= 0) ? (alphaChange + '%').green : (alphaChange + '%').red;
 
   logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + profitStr +
-  ')  market: ' + alphaChangeStr + '('+ (isAlpha ? '+' : '-') +')  beta : ' + beta + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + '|| ' + time;
+  ')  market: ' + alphaChangeStr + '('+ (isAlpha ? '+' : '-') +')  beta : ' + betaStr + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + ' || ' + time;
+
+  fileMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + (profitRate.toFixed(2) + '%') +
+  ')  market: ' + (alphaChange + '%') + '('+ (isAlpha ? '+' : '-') +')  beta : ' + (beta.toFixed(2) + '%') + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStrForFile + ' wc : ' + tempPred  + ' || ' + time;
 
   if (stack % 10 == 0) {
     var walletStatus = '\n////////My Wallet Status ///////// \n';
@@ -528,7 +536,7 @@ function checkStatus(){
   tempPred = 0;
 
 
-  log.write('log', logMessage + '\n', true);
+  log.write('log', fileMessage + '\n', true);
   stack++;
 
   if(totalMoney < myWallet.default * 0.8 && stack > 1){
