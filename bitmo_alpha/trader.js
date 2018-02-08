@@ -238,8 +238,6 @@ function checkTicker(currency) {
                 } else if(currency.predStack < 0 || sellPrice * 0.9985 < currency.boughtPrice) {
                   sellCoin(currency, sellPrice);
                 }
-
-                
                 break;
               case 0:
                 if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
@@ -292,7 +290,7 @@ function checkTicker(currency) {
       }
 
       
-      var profitStr = currency.boughtPrice > 0 ? `profit: ${currency.expectedProfit.toFixed(2)}% ${currency.maxExpectedProfit === 0 ? '' : 'max : ' + currency.maxExpectedProfit.toFixed(2) }+ '%'` : '';
+      var profitStr = currency.boughtPrice > 0 ? `profit: ${currency.expectedProfit.toFixed(2)}% ${currency.maxExpectedProfit === 0 ? '' : 'max : ' + currency.maxExpectedProfit.toFixed(2) + '%'}` : '';
 
       if(myWallet[key] >= currency.minTradeUnits){
         console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr} ${profitStr}`);
