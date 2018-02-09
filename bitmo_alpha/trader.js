@@ -14,7 +14,7 @@ const PERIODS = {
   short: 12 * 90, 
   signal: 9 * 90 
 };
-const readyStack = 120; //PERIODS.signal
+const readyStack = PERIODS.long;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -318,10 +318,9 @@ function checkTicker(currency) {
 function buyCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
-  var krw = myWallet.krw - 1000000;
+  var krw = myWallet.krw;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
-  if(krw <= 1000000) return false;
-  var cost = krw > (myWallet.default - 1000000) / 10 ? Math.floor((myWallet.default -  1000000)/10) : krw;
+  var cost = krw > myWallet.default / 10 ? Math.floor(myWallet.default /10) : krw;
 
  // var cost = krw > 20000 ? 20000 : myWallet.krw;
   var buyCount = parseDecimal(cost / price);
@@ -544,7 +543,7 @@ function checkStatus(){
 
   if(totalMoney < myWallet.default * 0.8 && stack > 1){
     console.log('The end, Go to the hanriver!!!');
-    //sgoToRiver = true;
+    goToRiver = true;
   }
 
   for (var i = 0; i < currArr.length; i++){
