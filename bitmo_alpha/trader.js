@@ -194,8 +194,10 @@ function checkTicker(currency) {
           currency.maxExpectedProfit = currency.expectedProfit;
         }
       }
-      
-      // sellCoin(currency, sellPrice);
+
+      // if(curHisto !== currency.maxMacd){
+      //   sellCoin(currency, sellPrice);
+      // }
       /**
        * 기본적인 readyStack에 도다르기까지 현재의 histogram 값이 음수인 경우 가지고 있는 종목을 무조건 판매한다.
        */
@@ -241,12 +243,13 @@ function checkTicker(currency) {
                 break;
               case 0:
                 if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
-                  if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 10){
+                  // 100만 유보
+                  if(myWallet.krw >= 1000000 && myWallet[key] * curPrice < myWallet.total / 10){
                     buyCoin(currency, buyPrice);
                   }
                 } else {
                   if(currency.maxExpectedProfit !== 0 && currency.boughtPrice !== 0){
-                    if(currency.predStack < 0 && currency.expectedProfit < currency.maxExpectedProfit * 0.5 ||  sellPrice * 0.9985 < currency.boughtPrice) {
+                    if((currency.predStack < 0 && sellPrice * 0.9985 < currency.boughtPrice) || currency.expectedProfit < currency.maxExpectedProfit * 0.7 ) {
                       sellCoin(currency, sellPrice);
                     }
                   } else if(currency.predStack < 0 && sellPrice * 0.9985 < currency.boughtPrice) {
@@ -316,7 +319,9 @@ function checkTicker(currency) {
 function buyCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
-  var krw = myWallet.krw;
+
+  // 100만 유보
+  var krw = myWallet.krw - 1000000;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
   var cost = krw > myWallet.default / 10 ? Math.floor(myWallet.default/10) : myWallet.krw;
 
