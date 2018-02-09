@@ -318,9 +318,10 @@ function checkTicker(currency) {
 function buyCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
-  var krw = myWallet.krw;
+  var krw = myWallet.krw - 1000000;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
-  var cost = krw > myWallet.default / 10 ? Math.floor(myWallet.default/10) : myWallet.krw;
+  if(krw <= 1000000) return false;
+  var cost = krw > (myWallet.default - 1000000) / 10 ? Math.floor((myWallet.default -  1000000)/10) : krw;
 
  // var cost = krw > 20000 ? 20000 : myWallet.krw;
   var buyCount = parseDecimal(cost / price);
@@ -543,7 +544,7 @@ function checkStatus(){
 
   if(totalMoney < myWallet.default * 0.8 && stack > 1){
     console.log('The end, Go to the hanriver!!!');
-    goToRiver = true;
+    //sgoToRiver = true;
   }
 
   for (var i = 0; i < currArr.length; i++){
