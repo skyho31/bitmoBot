@@ -243,8 +243,7 @@ function checkTicker(currency) {
                 break;
               case 0:
                 if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
-                  // 100만 유보
-                  if(myWallet.krw >= 1000000 && myWallet[key] * curPrice < myWallet.total / 10){
+                  if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 10){
                     buyCoin(currency, buyPrice);
                   }
                 } else {
@@ -319,9 +318,7 @@ function checkTicker(currency) {
 function buyCoin(currency, price) {
   var name = currency.name;
   var key = currency.key;
-
-  // 100만 유보
-  var krw = myWallet.krw - 1000000;
+  var krw = myWallet.krw;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
   var cost = krw > myWallet.default / 10 ? Math.floor(myWallet.default/10) : myWallet.krw;
 
