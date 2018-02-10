@@ -8,14 +8,14 @@ var colors = require('colors')
 var common;
 
 var currencyInfo = {};
-var periodsControl = 40;
+var periodsControl = 80;
 
 var PERIODS = {
   long: 26 * periodsControl,
   short: 12 * periodsControl, 
   signal: 9 * periodsControl 
 };
-var readyStack = 120; //PERIODS.signal;
+var readyStack = PERIODS.signal; 
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -154,7 +154,7 @@ function checkTicker(currency) {
         currency.maxMacd = 0;
       }
 
-      if(goToRiver){
+      if(goToRiver && myWallet[key] > currency.minTradeUnits){
         sellCoin(currency, sellPrice);
         console.log('Go to HanRIVER!'.red);
       }
@@ -180,7 +180,7 @@ function checkTicker(currency) {
         currency.plusStack = 0;
         currency.predStack--; 
         currency.minusStack++;
-        if (currency.minusStack > 90 && currency.predStack > 0 && warningMarket !== 2){
+        if (currency.minusStack > 60 && currency.predStack > 0 && warningMarket !== 2){
           currency.predStack = 0;
         }
       }
@@ -201,7 +201,7 @@ function checkTicker(currency) {
       }
 
        if(curHisto !== currency.maxMacd){
-        // sellCoin(currency, sellPrice);
+         sellCoin(currency, sellPrice);
        }
 
 
@@ -250,8 +250,8 @@ function checkTicker(currency) {
                 }
                 break;
               case 0:
-                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus !== -1 && currency.predStack > 0){
-                  if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 10){
+                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
+                  if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 6){
                     buyCoin(currency, buyPrice);
                   }
                 } else {
@@ -338,7 +338,7 @@ function buyCoin(currency, price) {
   var key = currency.key;
   var krw = myWallet.krw;
   //var cost = krw > 10000 ? Math.floor(krw / 4) : krw;
-  var cost = krw > myWallet.default / 10 ? Math.floor(myWallet.default /10) : krw;
+  var cost = krw > myWallet.default / 6 ? Math.floor(myWallet.default /6) : krw;
 
  // var cost = krw > 20000 ? 20000 : myWallet.krw;
   var buyCount = parseDecimal(cost / price);
@@ -526,18 +526,19 @@ function checkStatus(){
 
 
   if(hasCoin > 0){
-    if(profitRate < maxProfit){
+    if(profitRate > maxProfit){
       maxProfit = profitRate;
-      if(alphaChange < maxMarket){
-        maxMarket = alphaChange;
-      }
     }
+    if(alphaChange > maxMarket){
+      maxMarket = alphaChange;
+    }
+
     if(maxMarket > 0){
-      if(alphaChange > maxMarket * 0.6){
+      if(alphaChange < maxMarket * 0.6 || profitRate < maxProfit * 0.6){
         warningMarket = -1;
       }
     } else if(maxMarket < 0) {
-      if(alphaChange > maxMarket * 1.4){
+      if(alphaChange < maxMarket * 1.4 || profitRate < maxProfit * 0.14){
         warningMarket = -1;
       }
     }
