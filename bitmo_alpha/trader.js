@@ -269,7 +269,7 @@ function checkTicker(currency) {
                   if(currency.predStack < 0 || currency.expectedProfit < currency.maxExpectedProfit * 0.6) {
                     sellCoin(currency, sellPrice);
                   }
-                } else if(currency.predStack < 0) {
+                } else if(currency.predStack < 0 || sellPrice * 0.9985 < currency.boughtPrice) {
                   sellCoin(currency, sellPrice);
                 }
                 break;
