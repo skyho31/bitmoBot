@@ -8,13 +8,14 @@ var colors = require('colors')
 var common;
 
 var currencyInfo = {};
+var periodsControl = 40;
 
-const PERIODS = {
-  long: 26 * 90,
-  short: 12 * 90, 
-  signal: 9 * 90 
+var PERIODS = {
+  long: 26 * periodsControl,
+  short: 12 * periodsControl, 
+  signal: 9 * periodsControl 
 };
-const readyStack = PERIODS.long;
+var readyStack = 120; //PERIODS.signal;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -30,6 +31,10 @@ var tryCount = 0;
 var warningMarket = 0;
 var tempPred = 0;
 var emergencyTime = 0;
+var alphaChange = 0;
+var alphaCombo = 0;
+var alphaPlus = 0;
+var alphaMinus = 0;
 
 function Currency(key, name, cap, minUnits) {
   this.name = name;
@@ -175,7 +180,7 @@ function checkTicker(currency) {
         currency.plusStack = 0;
         currency.predStack--; 
         currency.minusStack++;
-        if (currency.minusStack > 60 && currency.predStack > 0 && warningMarket !== 2){
+        if (currency.minusStack > 90 && currency.predStack > 0 && warningMarket !== 2){
           currency.predStack = 0;
         }
       }
@@ -195,9 +200,16 @@ function checkTicker(currency) {
         }
       }
 
-      // if(curHisto !== currency.maxMacd){
-      //   sellCoin(currency, sellPrice);
-      // }
+       if(curHisto !== currency.maxMacd){
+        // sellCoin(currency, sellPrice);
+       }
+
+      
+      if(alphaCombo < 0 && warningMarket == 0){
+       // warningMarket = -1;
+      }
+
+
       /**
        * 기본적인 readyStack에 도다르기까지 현재의 histogram 값이 음수인 경우 가지고 있는 종목을 무조건 판매한다.
        */
@@ -228,6 +240,7 @@ function checkTicker(currency) {
              *      최대치를 갱신하고 있으며, 골든 크로스 조건을 달성하고 현재의 combo가 양수여야한다. 
              * 4. 모든 경우에 있어 현재의 histogram이 -가 되면 판매한다. 
              */
+          
             switch(warningMarket){
               case 2:
                 sellCoin(currency, sellPrice);
@@ -242,21 +255,30 @@ function checkTicker(currency) {
                 }
                 break;
               case 0:
-                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus === 1 && currency.predStack > 0){
+                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus !== -1 && currency.predStack > 0){
                   if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 10){
                     buyCoin(currency, buyPrice);
                   }
                 } else {
                   if(currency.maxExpectedProfit !== 0 && currency.boughtPrice !== 0){
-                    if((currency.predStack < 0 && sellPrice * 0.9985 < currency.boughtPrice) || currency.expectedProfit < currency.maxExpectedProfit * 0.7 ) {
+                    if((currency.predStack < 0 && sellPrice * 0.9985 < currency.boughtPrice) || currency.expectedProfit < currency.maxExpectedProfit * 0.6) {
                       sellCoin(currency, sellPrice);
                     }
                   } else if(currency.predStack < 0 && sellPrice * 0.9985 < currency.boughtPrice) {
                     sellCoin(currency, sellPrice);
                   }
-                  
                 } 
                 break;
+              case -1:
+                if(currency.maxExpectedProfit !== 0 && currency.boughtPrice !== 0){
+                  if(currency.predStack < 0 || currency.expectedProfit < currency.maxExpectedProfit * 0.6) {
+                    sellCoin(currency, sellPrice);
+                  }
+                } else if(currency.predStack < 0) {
+                  sellCoin(currency, sellPrice);
+                }
+                break;
+              
             }
           }
         }
@@ -455,7 +477,7 @@ function checkStatus(){
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
   var readyState = (histogramCount > PERIODS.long && stack > readyStack) ? 'ok' : 'ready';
   var logMessage;
-  var alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
+  alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
   var beta = profitRate - alphaChange;
   var betaStr = (beta >= 0) ? (beta.toFixed(2) + '%').green : (beta.toFixed(2) + '%').red;
   var prevAlphaChange;
@@ -470,22 +492,6 @@ function checkStatus(){
     warningMarket = 0;
   }
 
-  var warningStr;
-  var warningStrForFile;
-
-  switch(warningMarket){
-    case 2:
-      warningStrForFile = 'alert: emergency'
-      warningStr = warningStrForFile.red;
-      break;
-    case 1:
-      warningStrForFile = 'alert: warning';
-      warningStr = warningStrForFile.yellow;
-      break;
-    case 0:
-      warningStrForFile = 'alert: off';
-      warningStr = warningStrForFile.green;
-  }
 
   if(stack <= 1){
     myWallet.startDate = date.getDate();
@@ -506,10 +512,31 @@ function checkStatus(){
     tradeAmount = 0;
   }
 
-  if(alphaChange >= 0){
-    isAlpha = !!(currentAlpha >= previousAlpha * 1.0);
+  if(currentAlpha > 0){
+    isAlpha = !!(currentAlpha > previousAlpha * 1.01);
+  } else if (currentAlpha < 0){
+    isAlpha = !!(currentAlpha > previousAlpha * 0.99);
+  }
+
+
+  if(alphaChange < 0){
+    if(currentAlpha > previousAlpha){
+      alphaCombo++;
+      alphaPlus++;
+      alphaMinus = 0;
+      if(alphaMinus > 10){
+        alphaCombo = 0;
+      }
+    } else {
+      alphaMinus++;
+      alphaPlus = 0;
+      alphaCombo--;
+      if(alphaPlus > 10){
+        alphaCombo = 0;
+      }
+    }
   } else {
-    isAlpha = !!(currentAlpha >= previousAlpha * 8/10);
+    alphaCombo = 0;
   }
 
   previousAlpha = Number(currentAlpha);
@@ -517,8 +544,34 @@ function checkStatus(){
 
   var alphaChangeStr = (alphaChange >= 0) ? (alphaChange + '%').green : (alphaChange + '%').red;
 
+  var warningStr;
+  var warningStrForFile;
+
+  if(alphaCombo < 0 && warningMarket == 0){
+    warningMarket = -1;
+  }
+
+  switch(warningMarket){
+    case 2:
+      warningStrForFile = 'alert: emergency'
+      warningStr = warningStrForFile.red;
+      break;
+    case 1:
+      warningStrForFile = 'alert: warning';
+      warningStr = warningStrForFile.yellow;
+      break;
+    case 0:
+      warningStrForFile = 'alert: off';
+      warningStr = warningStrForFile.green;
+      break;
+    case -1:
+      warningStrForFile = 'alert: marketDown';
+      warningStr = warningStrForFile.blue;
+      break;
+  }
+
   logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + profitStr +
-  ')  market: ' + alphaChangeStr + '('+ (isAlpha ? '+' : '-') +')  beta : ' + betaStr + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + ' || ' + time;
+  ')  market: ' + alphaChangeStr + '('+ (isAlpha ? '+' : '-') +')  beta : ' + betaStr + '  alphaCombo : '+ alphaCombo + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + ' || ' + time;
 
   fileMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + (profitRate.toFixed(2) + '%') +
   ')  market: ' + (alphaChange + '%') + '('+ (isAlpha ? '+' : '-') +')  beta : ' + (beta.toFixed(2) + '%') + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStrForFile + ' wc : ' + tempPred  + ' || ' + time;
@@ -573,9 +626,9 @@ function readData(){
   var i = 0;
 
   try {
-      myWallet = JSON.parse(log.read('wallet.txt'));
-      console.log('read my wallet');
-      console.log('Data load Complete');
+    //  myWallet = JSON.parse(log.read('wallet.txt'));
+    //  console.log('read my wallet');
+    //  console.log('Data load Complete');
       common.on('collected1', function(){
         readAPIWallet(checkStatus);
       });
@@ -583,8 +636,8 @@ function readData(){
       
     
   } catch(e) {
-    console.log('there is no wallet file');
-    console.log('Data load Complete');
+   // console.log('there is no wallet file');
+   // console.log('Data load Complete');
     common.on('collected1', function(){
       readAPIWallet(checkStatus);
     })
