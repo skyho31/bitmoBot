@@ -532,7 +532,6 @@ function checkStatus(){
         maxMarket = alphaChange;
       }
     }
-  
     if(alphaChange > maxMarket * 0.8){
       warningMarket = -1;
     }
@@ -540,7 +539,6 @@ function checkStatus(){
     maxProfit = 0;
     maxMarket = 0;
   };
-
 
 
   var warningStr;
@@ -567,7 +565,7 @@ function checkStatus(){
   }
 
   logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + profitStr +
-  ')  market: ' + alphaChangeStr + '('+ (isAlpha ? '+' : '-') +')  beta : ' + betaStr + ' tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + ' || ' + time;
+  '/'+ maxProfit.toFixed(2) +')  market: ' + alphaChangeStr + '/' + maxMarket + '('+ (isAlpha ? '+' : '-') +')  beta : ' + betaStr + ' tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + ' || ' + time;
 
   fileMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + (profitRate.toFixed(2) + '%') +
   ')  market: ' + (alphaChange + '%') + '('+ (isAlpha ? '+' : '-') +')  beta : ' + (beta.toFixed(2) + '%') + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStrForFile + ' wc : ' + tempPred  + ' || ' + time;
