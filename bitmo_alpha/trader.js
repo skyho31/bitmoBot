@@ -532,9 +532,16 @@ function checkStatus(){
         maxMarket = alphaChange;
       }
     }
-    if(alphaChange > maxMarket * 0.8){
-      warningMarket = -1;
+    if(maxMarket > 0){
+      if(alphaChange > maxMarket * 0.6){
+        warningMarket = -1;
+      }
+    } else if(maxMarket < 0) {
+      if(alphaChange > maxMarket * 1.4){
+        warningMarket = -1;
+      }
     }
+
   } else {
     maxProfit = 0;
     maxMarket = 0;
