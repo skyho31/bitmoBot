@@ -32,9 +32,9 @@ var warningMarket = 0;
 var tempPred = 0;
 var emergencyTime = 0;
 var alphaChange = 0;
-var alphaCombo = 0;
-var alphaPlus = 0;
-var alphaMinus = 0;
+var maxProfit = 0;
+var maxMarket = 0;
+var hasCoin = 0;
 
 function Currency(key, name, cap, minUnits) {
   this.name = name;
@@ -204,11 +204,6 @@ function checkTicker(currency) {
         // sellCoin(currency, sellPrice);
        }
 
-      
-      if(alphaCombo < 0 && warningMarket == 0){
-       // warningMarket = -1;
-      }
-
 
       /**
        * 기본적인 readyStack에 도다르기까지 현재의 histogram 값이 음수인 경우 가지고 있는 종목을 무조건 판매한다.
@@ -317,6 +312,7 @@ function checkTicker(currency) {
       var profitStr = currency.boughtPrice > 0 ? `profit: ${currency.expectedProfit.toFixed(2)}% ${currency.maxExpectedProfit === 0 ? '' : 'max : ' + currency.maxExpectedProfit.toFixed(2) + '%'}` : '';
 
       if(myWallet[key] >= currency.minTradeUnits){
+        hasCoin++;
         console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr} ${profitStr}`);
       } else {
         console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.red + ` ${isPlusStr} price : ${diffStr}`);
@@ -519,37 +515,37 @@ function checkStatus(){
   }
 
 
-  if(alphaChange < 0){
-    if(currentAlpha > previousAlpha){
-      alphaCombo++;
-      alphaPlus++;
-      alphaMinus = 0;
-      if(alphaMinus > 10){
-        alphaCombo = 0;
-      }
-    } else {
-      alphaMinus++;
-      alphaPlus = 0;
-      alphaCombo--;
-      if(alphaPlus > 10){
-        alphaCombo = 0;
-      }
-    }
-  } else {
-    alphaCombo = 0;
-  }
-
   previousAlpha = Number(currentAlpha);
   currentAlpha = 0;
 
   var alphaChangeStr = (alphaChange >= 0) ? (alphaChange + '%').green : (alphaChange + '%').red;
 
+
+
+  // 시장 변화 감지용
+
+
+  if(hasCoin > 0){
+    if(profitRate < maxProfit){
+      maxProfit = profitRate;
+      if(alphaChange < maxMarket){
+        maxMarket = alphaChange;
+      }
+    }
+  
+    if(alphaChange > maxMarket * 0.8){
+      warningMarket = -1;
+    }
+  } else {
+    maxProfit = 0;
+    maxMarket = 0;
+  };
+
+
+
   var warningStr;
   var warningStrForFile;
 
-  if(alphaCombo < 0 && warningMarket == 0){
-    warningMarket = -1;
-  }
 
   switch(warningMarket){
     case 2:
@@ -571,7 +567,7 @@ function checkStatus(){
   }
 
   logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + profitStr +
-  ')  market: ' + alphaChangeStr + '('+ (isAlpha ? '+' : '-') +')  beta : ' + betaStr + '  alphaCombo : '+ alphaCombo + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + ' || ' + time;
+  ')  market: ' + alphaChangeStr + '('+ (isAlpha ? '+' : '-') +')  beta : ' + betaStr + ' tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + ' || ' + time;
 
   fileMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + (profitRate.toFixed(2) + '%') +
   ')  market: ' + (alphaChange + '%') + '('+ (isAlpha ? '+' : '-') +')  beta : ' + (beta.toFixed(2) + '%') + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStrForFile + ' wc : ' + tempPred  + ' || ' + time;
