@@ -8,14 +8,14 @@ var common;
 
 var currencyInfo = {};
 
-var periodsControl = 12 * 10;
+var periodsControl = 60;
 
 var PERIODS = {
-  long: 60 * periodsControl,
-  short: 15 * periodsControl, 
+  long: 26 * periodsControl,
+  short: 12 * periodsControl, 
   signal: 9 * periodsControl 
 };
-const readyStack = 60;
+const readyStack = 120;
 var stack = 0;
 var tradeAmount = 0;
 var tickCount = 0;
@@ -37,8 +37,7 @@ var alphaChange = 0;
 var maxProfit = 0;
 var maxMarket = 0;
 var hasCoin = 0;
-var alphaArr = [];
-var alphaHisto;
+
 
 function Currency(key, name, cap, minUnits) {
   this.name = name;
@@ -337,6 +336,147 @@ function checkTicker(currency) {
   });
 }
 
+// function checkTicker(currency) {
+//   var key = currency.key;
+//   var name = currency.name;
+//   var curPrice;
+//   var _histogram;
+//   var _macd;
+//   var _signal;
+
+//   fs.readFile('./logs/' + key + '.txt', 'utf8', function(err, body){
+//     try {
+//       var result = JSON.parse(body); 
+//       var price = currencyInfo[key].price = result.price.slice(0);
+//       var sellPrice = currencyInfo[key].sellPrice = result.sellPrice;
+//       var buyPrice = currencyInfo[key].buyPrice = result.buyPrice;
+
+//       curPrice = price.slice(-1)[0];
+//       prevPrice = price.slice(-2, -1)[0];
+
+//       /**
+//        * @param data Array.<Number> the collection of prices
+//        * @param slowPeriods Number=26 the size of slow periods. Defaults to 26
+//        * @param fastPeriods Number=12 the size of fast periods. Defaults to 12
+//        * @param signalPeriods Number=9 the size of periods to calculate the MACD signal line.
+//        * 
+//        * @return MACD, signal, histogram
+//        */
+//       var graph = macd(price, PERIODS.long, PERIODS.short, PERIODS.signal);
+//       currency.histogram = _histogram = graph.histogram.slice(0);
+//       currency.macdGraph = _macd = graph.MACD.slice(0);
+//       currency.signalGraph = _signal = graph.signal.slice(0);
+
+//       var curHisto = _histogram.slice(-1)[0];
+//       var prevHisto = _histogram.slice(-2, -1)[0];
+//       var curMacd = Math.floor(_macd.slice(-1)[0]);
+//       var curSignal = Math.floor(_signal.slice(-1)[0]);
+//       var prevMacd = Math.floor(_macd.slice(-2, -1)[0]);
+//       var prevSignal = Math.floor(_signal.slice(-2, -1)[0]);
+
+      
+//       if(currency.maxMacd < curHisto && curHisto >= 0){
+//         currency.maxMacd = curHisto;
+//       } else if(curHisto < 0){
+//         currency.maxMacd = 0;
+//       }
+
+      
+
+//       if(goToRiver){
+//         sellCoin(currency, sellPrice);
+//         console.log('Go to HanRIVER!'.red);
+//       }
+
+//       var macdDiff = curMacd - prevMacd;
+//       if(macdDiff > 0){
+//         currency.predStack++;
+//         currency.plusStack++;
+//         if (currency.plusStack > 12 && currency.predStack < 0){
+//           currency.predStack = 0;
+//         }
+//       } else if (macdDiff < 0){
+//         currency.plusStack = 0;
+//         currency.predStack--;
+//         currency.minusStack++;
+//         if (currency.minusStack > 12 && currency.predStack > 0){
+//           currency.predStack = 0;
+//         }
+//       }
+
+//       if(curHisto * prevHisto <= 0){
+//         currency.isPlus = curHisto >= 0 ? 1 : -1;
+//       }
+      
+//       if(stack < readyStack && curHisto < 0){
+//         sellCoin(currency, sellPrice);
+//       } else if(stack > readyStack){
+//         if (_histogram.length > PERIODS.long && currency.tradeStack <= 0) {
+//           if(curHisto < 0) {
+//             sellCoin(currency, sellPrice);
+//           } else if (curHisto > 100 && currency.isPlus !== -1 && currency.predStack > 0 ){
+//             if(myWallet.krw >= 1000 && myWallet[key] * curPrice < 200000){
+//                 buyCoin(currency, buyPrice, curPrice);
+//             } 
+//           }        
+//           else if (currency.initialTrade && currency.isPlus !== -1 && curHisto > 100 && currency.predStack >= readyStack){
+//             buyCoin(currency, buyPrice);
+//             currency.initialTrade = false;
+//           }
+//         }
+//       }
+
+//       currentAlpha += currency.cap * curPrice;
+//       var histoTemplate = `${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)})`;
+//       histoTemplate += ' '.repeat(40 - histoTemplate.length);
+
+//       var diffTemplate = `diff : ${macdDiff}`;
+//       diffTemplate += ' '.repeat(15 - diffTemplate.length);
+
+//       var signTemplate = `combo : ${currency.predStack}`
+//       signTemplate += ' '.repeat(15 - signTemplate.length);
+
+//       var diff = (((curPrice / prevPrice) - 1) * 100).toFixed(2);
+//       var diffStr = diff >= 0 ? (diff == 0 ? diff + '%' + '('+ (curPrice - prevPrice) + ')' : (diff + '%' + '('+ (curPrice - prevPrice) + ')').green) : (diff + '%'+ '('+ (curPrice - prevPrice) + ')').red
+
+//       var isPlusStr;
+
+//       switch(currency.isPlus){
+//         case -1:
+//           isPlusStr = '(-)'.red;
+//           break;
+//         case 0:
+//           isPlusStr = '(*)'
+//           break;
+//         case 1:
+//           isPlusStr = '(+)'.green;
+//           break;
+//         default :
+//           isPlusStr = '(*)'
+//       }
+
+
+//       if(myWallet[key] >= currency.minTradeUnits){
+//         console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr}`);
+//       } else {
+//         console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.red + ` ${isPlusStr} price : ${diffStr} `);
+//       }
+
+//       tickCount++;
+//       if(currency.tradeStack > 0) currency.tradeStack--;
+//       eventEmitter.emit('collected');
+//     } catch (e) {
+      
+//      console.log(e);
+//       myWallet.total += myWallet[key] * currencyInfo[key].price.slice(-1)[0];
+//       tickCount++;
+//       console.log('restart server........')
+//       if(currency.tradeStack > 0) currency.tradeStack--;
+//       eventEmitter.emit('collected');
+//     }
+//   });
+// }
+
 function buyCoin(currency, price, curPrice) {
   var name = currency.name;
   var key = currency.key;
@@ -447,18 +587,6 @@ function checkStatus(){
     isAlpha = !!(currentAlpha > previousAlpha * 0.99);
   }
 
-  /**
-   * alpha macd
-   */
-  if(stack > 0) alphaArr.push(currentAlpha);
-  var graph = macd(alphaArr, PERIODS.long, PERIODS.short, PERIODS.signal);
-  alphaHisto = graph.histogram.slice(-1)[0];
-
-  if(alphaArr.length > 5000){
-    alphaArr.shift();
-  }
-
-  log.write('alphaHisto', JSON.stringify({alphaArr: alphaArr}), false);
 
   previousAlpha = Number(currentAlpha);
   currentAlpha = 0;
@@ -490,10 +618,6 @@ function checkStatus(){
   var warningStr;
   var warningStrForFile;
 
-  if(alphaHisto < 0 && warningMarket == 0){
-    warningMarket = -1;
-  }
-
 
   switch(warningMarket){
     case 2:
@@ -515,7 +639,7 @@ function checkStatus(){
   }
 
   logMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + profitStr +
-  '/'+ maxProfitStr +')  market: ' + alphaChangeStr + ' beta : ' + betaStr + ' tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + ' alphaHisto : ' + alphaHisto + ' || ' + time;
+  '/'+ maxProfitStr +')  market: ' + alphaChangeStr + ' beta : ' + betaStr + ' tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStr + ' wc : ' + tempPred  + ' || ' + time;
 
   fileMessage = '[' + stack + '][' + histogramCount + '][' + readyState + '] Total Money: ' + Math.floor(realTotal) + '(' + (profitRate.toFixed(2) + '%') +
   ')  market: ' + (alphaChange + '%') + '('+ (isAlpha ? '+' : '-') +')  beta : ' + (beta.toFixed(2) + '%') + '  tradeAmount : ' + Math.floor(tradeAmount) + '('+ Math.floor(myWallet.totalTradeAmount) + ')  fee: ' +  Math.floor(fee) + '  curKRW: ' + Math.floor(myWallet.krw) +  ' ' + warningStrForFile + ' wc : ' + tempPred  + ' || ' + time;
@@ -659,7 +783,6 @@ function readData(){
 
   try {
       myWallet = JSON.parse(log.read('wallet.txt'));
-      alphaArr = JSON.parse(log.read('alphaHisto')).alphaArr;
       console.log('read my wallet');
       console.log('Data load Complete');
       // common.on('collected1', function(){

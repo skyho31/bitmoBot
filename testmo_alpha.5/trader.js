@@ -8,12 +8,12 @@ var common;
 
 var currencyInfo = {};
 
-var periodsControl = 12 * 10;
+var periodsControl = 10;
 
 var PERIODS = {
   long: 60 * periodsControl,
   short: 15 * periodsControl, 
-  signal: 9 * periodsControl 
+  signal: 5 * periodsControl 
 };
 const readyStack = 60;
 var stack = 0;
@@ -63,6 +63,8 @@ function Currency(key, name, cap, minUnits) {
   this.initialTrade = true;
   this.expectedProfit = 0;
   this.maxExpectedProfit = 0;
+  this.default = 0;
+  this.changePrice = 0;
 }
 
 function Wallet(defaultMoney) {
@@ -254,7 +256,7 @@ function checkTicker(currency) {
                 }
                 break;
               case 0:
-                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus !== -1 && currency.predStack > 0){
+                if (curHisto > 100 && currency.maxMacd == curHisto && currency.isPlus !== -1 && currency.predStack > 0 && currency.changePrice > 1){
                   if(myWallet.krw >= 1000 && myWallet[key] * curPrice < myWallet.total / 6){
                     buyCoin(currency, buyPrice, curPrice);
                   }
@@ -283,7 +285,7 @@ function checkTicker(currency) {
         }
       }
 
-      currentAlpha += currency.cap * curPrice;
+      //if(stack <= 1) currency.default = curPrice;
       var histoTemplate = `${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)})`;
       histoTemplate += ' '.repeat(40 - histoTemplate.length);
 
@@ -293,9 +295,15 @@ function checkTicker(currency) {
       var signTemplate = `sign : ${currency.predStack}`
       signTemplate += ' '.repeat(15 - signTemplate.length);
 
-      var diff = (((curPrice / prevPrice) - 1) * 100).toFixed(2);
-      var diffStr = diff >= 0 ? (diff == 0 ? diff + '%' + '('+ (curPrice - prevPrice) + ')' : (diff + '%' + '('+ (curPrice - prevPrice) + ')').green) : (diff + '%'+ '('+ (curPrice - prevPrice) + ')').red
+      // var diff = (((curPrice / prevPrice) - 1) * 100).toFixed(2);
+      // var diffStr = diff >= 0 ? (diff == 0 ? diff + '%' + '('+ (curPrice - prevPrice) + ')' : (diff + '%' + '('+ (curPrice - prevPrice) + ')').green) : (diff + '%'+ '('+ (curPrice - prevPrice) + ')').red
+      currency.changePrice +=  Number(diff);
+      currentAlpha +=  Number(diff);
 
+       if (currency.changePrice < -1){
+         currency.chagnePrice = 0;
+       }
+      
       var isPlusStr;
 
       switch(currency.isPlus){
@@ -317,9 +325,9 @@ function checkTicker(currency) {
 
       if(myWallet[key] >= currency.minTradeUnits){
         hasCoin++;
-        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr} ${profitStr}`);
+        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.green + ` ${isPlusStr} price : ${diffStr} ${profitStr}  changePrice : ${currency.changePrice}%`);
       } else {
-        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.red + ` ${isPlusStr} price : ${diffStr}`);
+        console.log(`${histoTemplate} ${diffTemplate} ${signTemplate}`.red + ` ${isPlusStr} price : ${diffStr}  changePrice : ${currency.changePrice}%`);
       }
 
       tickCount++;
@@ -386,6 +394,7 @@ function sellCoin(currency, price) {
     currency.boughtPrice = 0;
     currency.expectedProfit = 0;
     currency.maxExpectedProfit = 0;
+    currency.changePrice = 0;
     profit = Math.floor(sellCount * (price * (1 - trackingError) - currency.boughtPrice));
 
     // for log
@@ -406,7 +415,7 @@ function checkStatus(){
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
   var readyState = (histogramCount > PERIODS.long && stack > readyStack) ? 'ok' : 'ready';
   var logMessage;
-  alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
+  alphaChange += Number((currentAlpha/12).toFixed(2));
   var beta = profitRate - alphaChange;
   var betaStr = (beta >= 0) ? (beta.toFixed(2) + '%').green : (beta.toFixed(2) + '%').red;
   var prevAlphaChange;
@@ -669,7 +678,8 @@ function readData(){
 
       setInterval(function(){
         checkStatus();
-      }, 5000);
+      },  60 * 1000);
+      checkStatus();
     
   } catch(e) {
     console.log('there is no wallet file');
@@ -680,7 +690,8 @@ function readData(){
     // checkStatus();
     setInterval(function(){
       checkStatus();
-    }, 5000);
+    },  60 * 1000);
+    checkStatus();
   }
 
   

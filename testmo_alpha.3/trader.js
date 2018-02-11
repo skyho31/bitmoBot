@@ -8,11 +8,11 @@ var common;
 
 var currencyInfo = {};
 
-var periodsControl = 12 * 10;
+var periodsControl = 1;
 
 var PERIODS = {
-  long: 60 * periodsControl,
-  short: 15 * periodsControl, 
+  long: 26 * periodsControl,
+  short: 12 * periodsControl, 
   signal: 9 * periodsControl 
 };
 const readyStack = 60;
@@ -669,8 +669,8 @@ function readData(){
 
       setInterval(function(){
         checkStatus();
-      }, 5000);
-    
+      }, 60 * 1000);
+      checkStatus();    
   } catch(e) {
     console.log('there is no wallet file');
     console.log('Data load Complete');
@@ -680,7 +680,8 @@ function readData(){
     // checkStatus();
     setInterval(function(){
       checkStatus();
-    }, 5000);
+    }, 60 * 1000);
+    checkStatus();
   }
 
   

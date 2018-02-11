@@ -8,7 +8,7 @@ var common;
 
 var currencyInfo = {};
 
-var periodsControl = 12 * 10;
+var periodsControl = 120;
 
 var PERIODS = {
   long: 60 * periodsControl,
@@ -63,6 +63,7 @@ function Currency(key, name, cap, minUnits) {
   this.initialTrade = true;
   this.expectedProfit = 0;
   this.maxExpectedProfit = 0;
+  this.default = 0;
 }
 
 function Wallet(defaultMoney) {
@@ -283,7 +284,7 @@ function checkTicker(currency) {
         }
       }
 
-      currentAlpha += currency.cap * curPrice;
+      //if(stack <= 1) currency.default = curPrice;
       var histoTemplate = `${key}: ${curHisto.toFixed(2)}/${currency.maxMacd.toFixed(2)}(${Math.floor(curHisto/currency.maxMacd*100).toFixed(2)})`;
       histoTemplate += ' '.repeat(40 - histoTemplate.length);
 
@@ -293,8 +294,11 @@ function checkTicker(currency) {
       var signTemplate = `sign : ${currency.predStack}`
       signTemplate += ' '.repeat(15 - signTemplate.length);
 
-      var diff = (((curPrice / prevPrice) - 1) * 100).toFixed(2);
-      var diffStr = diff >= 0 ? (diff == 0 ? diff + '%' + '('+ (curPrice - prevPrice) + ')' : (diff + '%' + '('+ (curPrice - prevPrice) + ')').green) : (diff + '%'+ '('+ (curPrice - prevPrice) + ')').red
+      // var diff = (((curPrice / prevPrice) - 1) * 100).toFixed(2);
+      // var diffStr = diff >= 0 ? (diff == 0 ? diff + '%' + '('+ (curPrice - prevPrice) + ')' : (diff + '%' + '('+ (curPrice - prevPrice) + ')').green) : (diff + '%'+ '('+ (curPrice - prevPrice) + ')').red
+      currentAlpha +=  Number(diff);
+
+
 
       var isPlusStr;
 
@@ -406,7 +410,7 @@ function checkStatus(){
   var histogramCount = currencyInfo[currArr[0]].histogram.length;
   var readyState = (histogramCount > PERIODS.long && stack > readyStack) ? 'ok' : 'ready';
   var logMessage;
-  alphaChange = (((currentAlpha/defaultAlpha) -1) * 100).toFixed(2);
+  alphaChange += Number((currentAlpha/12).toFixed(2));
   var beta = profitRate - alphaChange;
   var betaStr = (beta >= 0) ? (beta.toFixed(2) + '%').green : (beta.toFixed(2) + '%').red;
   var prevAlphaChange;

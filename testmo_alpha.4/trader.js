@@ -8,11 +8,11 @@ var common;
 
 var currencyInfo = {};
 
-var periodsControl = 12 * 10;
+var periodsControl = 60;
 
 var PERIODS = {
-  long: 60 * periodsControl,
-  short: 15 * periodsControl, 
+  long: 26 * periodsControl,
+  short: 12 * periodsControl, 
   signal: 9 * periodsControl 
 };
 const readyStack = 60;
